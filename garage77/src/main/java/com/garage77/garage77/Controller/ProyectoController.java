@@ -10,4 +10,11 @@ public class ProyectoController {
 		public String cargarLogin() {
 			return "Login";
 		}
+
+		@GetMapping("/Inicio")
+		public String cargarInicio() {
+			return "Inicio";
+		}
+
+
     }
