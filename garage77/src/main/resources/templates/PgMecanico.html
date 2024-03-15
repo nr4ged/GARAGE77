@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="/css/mant.css">
-    <title>Mantenimiento - GARAGE 77</title>
+    <title>Mecanico - GARAGE 77</title>
 </head>
 
 <body>
@@ -33,13 +33,13 @@
                     </span>
                     <h3>Menu Principal</h3>
                 </a>
-                <a href="/PgCliente" class="active">
+                <a href="/PgCliente">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Mantenimiento</h3>
                 </a>
-                <a href="/PgMecanico">
+                <a href="/PgMecanico" class="active">
                     <span class="material-icons-sharp">
                         receipt_long
                     </span>
@@ -94,7 +94,7 @@
 
         <!-- Main Content -->
         <main>
-            <h1 style="text-align: center;">Mantenimiento <span class="danger">General</span> </h1>
+            <h1 style="text-align: center;">Mantenimiento <span class="danger">Mecanico</span> </h1>
             <!-- Analyses -->
             <div class="analyse">
 
@@ -102,41 +102,26 @@
                     <div>
 
                         <div class="info">
-                            <h2 style="text-align: center;">Datos del <span class="danger">Cliente</span> </h2>
+                            <h2 style="text-align: center;">Inventario <span class="danger">Vehicular</span> </h2>
 						    <br>
 							<form action="/PgCliente" method="post">
                                 <div style="text-align: center;">
 								
-									    <label for="inputNom">Nombre: </label> <input type="text"
-										    class="form-control" id="inputNom" placeholder="Nombre"
-										    name="nombre" required>
+                                    <label> Trajeta de Propiedad, SOAT <input type="checkbox" name="servicio" value="TrajetaPropiedad"></label><br>
+                                    <label> Encendedor <input type="checkbox" name="servicio" value="Encendedor"></label><br>
+                                    <label> Cenicero Portatil <input type="checkbox" name="servicio" value="CeniceroPortatil"></label><br>
+                                    <label> Juego Pisos Alfombrados / Jebe <input type="checkbox" name="servicio" value="JuegoPisosAlfombrados"></label><br>
+                                    <label> Tapas de Ruedas <input type="checkbox" name="servicio" value="TapasRuedas"></label><br>
+                                    <label> LLantas y Repuestos <input type="checkbox" name="servicio" value="LLantasRepuestos"></label><br>
+                                    <label> Gata - Planca de Gata <input type="checkbox" name="servicio" value="Gata"></label><br>
+                                    <label> LLave de Ruedas <input type="checkbox" name="servicio" value="LLaveRuedas"></label><br>
+                                    <label> Seguro de Aros <input type="checkbox" name="servicio" value="SeguroAros"></label><br>
+                                    <label> Antena <input type="checkbox" name="servicio" value="Antena"></label><br>
+                                    <label for="inputNom">Otros: </label> <input type="text"
+										    class="form-control" id="inputNom" placeholder="Otros"
+										    name="otros">
 								
 								        <br>
-								
-									    <label for="inputTel">Telefono: </label> <input type="number"
-										class="form-control" id="inputTel" placeholder="Telefono"
-										name="telefono" required>
-								
-								        <br>
-								
-									
-									    <label for="inputDNI">DNI:  </label> <input type="number"
-											class="form-control" id="inputDNI" placeholder="DNI"
-											name="dni" required>
-									
-								        <br>
-									
-									    <label for="inputHora">Hora de Recepcion: </label> <input type="time"
-											class="form-control" id="inputHora" placeholder="Hora Recepcion"
-											name="horarecepcion" required>
-
-                                        <br>
-
-                                            <label for="inputFech">Fecha de Entrada: </label> <input type="date"
-											class="form-control" id="inputFech" placeholder="Fecha de Entrada"
-											name="fechaentrada" required>
-
-                                        <br>
                                 </div>
 							</form>
 							    <div th:text="${mensaje}"></div>
@@ -149,100 +134,93 @@
 
                         <div class="info">
                             
-                            <h2 style="text-align: center;">Datos del <span class="danger">Vehiculo</span> </h2>
+                            <h2 style="text-align: center;">Diagnostico & <span class="danger">Revision</span> </h2>
 						        <br>
 							        <form action="/PgCliente" method="post">
 								        <div style="text-align: center;">
-                                        <label for="inputMarca">Marca: </label> <input type="text"
+                                        <label for="inputMarca">Frenos: </label> <input type="text"
                                         class="form-control" id="inputMarca" placeholder="Marca"
-                                        name="marca" required>
+                                        name="marca">
 								
 								        <br>
 								
-                                        <label for="inputModel">Modelo: </label> <input type="text"
+                                        <label for="inputModel">Freno de Mano: </label> <input type="text"
                                         class="form-control" id="inputModel" placeholder="Modelo"
-                                        name="modelo" required >
+                                        name="modelo">
 								
 								        <br>
 								
 									
-                                        <label for="inputPlaca">Placa: </label> <input type="text"
+                                        <label for="inputPlaca">Liquido de frenos: </label> <input type="text"
                                         class="form-control" id="inputPlaca" placeholder="Placa"
-                                        name="placa" required>
+                                        name="placa">
 
 								        <br>
 
-                                        <label for="inputKilo">Kilometraje: </label> <input type="number"
+                                        <label for="inputKilo">Liquido de Embrague: </label> <input type="number"
 								        class="form-control" id="inputKilo" placeholder="Kilometraje"
-								        name="kilometraje" required>
+								        name="kilometraje">
 								
 								        <br>
 
-                                        <label for="inputAnno">Año:</label><input type="number" style="width:155px;"
+                                        <label for="inputAnno">Refrigerante Motor:</label><input type="number" style="width:155px;"
                                         class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                                        name="anno" required>
+                                        name="anno">
+
+                                        <br>
+
+                                        <label for="inputAnno">Bateria:</label><input type="number" style="width:155px;"
+                                        class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
+                                        name="anno">
+
+                                        <br>
+
+                                        <label for="inputAnno">Arrancador:</label><input type="number" style="width:155px;"
+                                        class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
+                                        name="anno">
                                 
-                                        <br>     
+                                        <br>   
+
+                                        <label for="inputAnno">Alternador Carga:</label><input type="number" style="width:155px;"
+                                        class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
+                                        name="anno">
+                                
+                                        <br>  
+                                        <label for="inputAnno">Luces del Der:</label><input type="number" style="width:155px;"
+                                        class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
+                                        name="anno">
+                                
+                                        <br>    
+                                        <label for="inputAnno">Luces del Izq:</label><input type="number" style="width:155px;"
+                                        class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
+                                        name="anno">
+                                
+                                        <br> 
+                                        <label for="inputAnno">Luces Post:</label><input type="number" style="width:155px;"
+                                        class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
+                                        name="anno">
+                                
+                                        <br>    
                                         </div>
 							        </form>
-							        <div th:text="${mensaje}"></div>
+							        <div th:text="${mensaje}"></div>                                   
                         </div>
+                        
                     </div>
                 </div>
 
                 
             </div>
-            <!-- End of Analyses -->
-
-            <!-- Recent Orders Table -->
-            <div class="recent-orders">
+            <div class="btn-container">
                 <br>
-                <h2 style="text-align: center;">Trabajo <span class="danger">Solicitado e Insumos</span> </h2>
-
-                <table>
-                    <tr>
-                      <th></th>
-                      <th>Servicios</th>
-                      <th></th>
-                    </tr>
-                    <tr>
-                      <td>
-                          <label><input type="checkbox" name="servicio" value="lavado_vehicular"> Lavado Vehicular</label><br>
-                          <label><input type="checkbox" name="servicio" value="lavado_salon"> Lavado de Salon</label><br>
-                          <label><input type="checkbox" name="servicio" value="pintura"> Pintura</label><br>
-                          <label><input type="checkbox" name="servicio" value="encerado"> Encerado</label><br>
-                          <label><input type="checkbox" name="servicio" value="undercoating"> Undercoating</label><br>
-                          <label><input type="checkbox" name="servicio" value="rev_susp_d"> Rev. Susp. D.</label><br>
-                          <label><input type="checkbox" name="servicio" value="rev_susp_p"> Rev. Susp. P.</label><br>
-                          <label><input type="checkbox" name="servicio" value="zincado"> Zincado</label><br>
-                          <label><input type="checkbox" name="servicio" value="pulverizado_motor"> Pulverizado de Motor</label><br>
-                      </td>
-                      <td>
-                          <label><input type="checkbox" name="servicio" value="mantenimiento_frenos"> Mantenimiento de Frenos</label><br>
-                          <label><input type="checkbox" name="servicio" value="cambio_bujias"> Cambio de Bujias</label><br>
-                          <label><input type="checkbox" name="servicio" value="alineamiento_direccion"> Alineamiento de Dirección</label><br>
-                          <label><input type="checkbox" name="servicio" value="cambio_aceite"> Cambio de aceite</label><br>
-                          <label><input type="checkbox" name="servicio" value="revision_niveles"> Revisión de Niveles</label><br>
-                          <label><input type="checkbox" name="servicio" value="revision_fajas"> Revision de Fajas</label><br>
-                          <label><input type="checkbox" name="servicio" value="rotac_neumaticos"> Rotac. Neumáticos</label><br>
-                          <label><input type="checkbox" name="servicio" value="pulverizado_motor"> Lavado de Motor</label><br>
-                      </td>
-                      <td>
-                        <label><input type="checkbox" name="servicio" value="mantenimiento_frenos"> Limpieza de Obturador</label><br>
-                        <label><input type="checkbox" name="servicio" value="cambio_bujias"> Limpieza de Inyectores</label><br>
-                        <label><input type="checkbox" name="servicio" value="alineamiento_direccion"> Filtro de Acondicionado</label><br>
-                        <label><input type="checkbox" name="servicio" value="cambio_aceite"> Cambio de aceite</label><br>
-                        <label><input type="checkbox" name="servicio" value="revision_niveles"> Aceite de Caja</label><br>
-                        <label><input type="checkbox" name="servicio" value="revision_fajas"> Escaneo</label><br>
-                        <label><input type="checkbox" name="servicio" value="rotac_neumaticos"> Revision de Bobinas</label><br>
-                        <label><input type="checkbox" name="servicio" value="revision_niveles"> Filtro de Aire</label><br>
-                        <label><input type="checkbox" name="servicio" value="revision_fajas"> Filtro de Aceite</label><br>
-                        <label><input type="checkbox" name="servicio" value="rotac_neumaticos"> Filtro de Petroleo</label><br>
-                      </td>
-                    </tr>
-                  </table>
+                <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
+                <button type="submit" name="action" value="actualizar" class="btn btn-warning">Actualizar</button>
+                <br>
+                <button type="submit" name="action" value="eliminar" class="btn btn-danger">Eliminar</button>
+                <button type="button" class="btn btn-secondary" onclick="limpiarCamposCliente()">Limpiar</button>
+                <br>
             </div>
-            <!-- End of Recent Orders -->
+            <!-- End of Analyses -->
 
         </main>
         <!-- End of Main Content -->
