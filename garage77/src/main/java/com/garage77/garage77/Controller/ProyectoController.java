@@ -16,5 +16,4 @@ public class ProyectoController {
 			return "Inicio";
 		}
 
-
     }

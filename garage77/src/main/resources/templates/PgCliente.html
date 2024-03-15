@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Mantenimiento Cliente - GARAGE 77</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <aside class="left-section">
+            <div class="logo">
+                <button class="menu-btn" id="menu-close">
+                    <i class='bx bx-log-out-circle'></i>
+                </button>
+                <img src="assets/logo.png">
+                <a href="#">Garage 77</a>
+            </div>
+
+            <div class="sidebar">
+                <div class="item">
+                    <i class='bx bx-home-alt-2'></i>
+                    <a href="#">Principal</a>
+                </div>
+                <div class="item" id="active">
+                    <i class='bx bx-grid-alt'></i>
+                    <a href="#">Mantenimiento</a>
+                </div>
+                <div class="item">
+                    <i class='bx bx-folder'></i>
+                    <a href="#">Mecanico</a>
+                </div>
+                <div class="item">
+                    <i class='bx bx-message-square-dots'></i>
+                    <a href="#">Reporte</a>
+                </div>
+
+                <div class="item">
+                    <i class='bx bx-grid-alt'></i>
+                    <a href="#">Inventario</a>
+                </div>
+
+                <div class="item">
+                    <i class='bx bx-cog'></i>
+                    <a href="#">Setting</a>
+                </div>
+            </div>
+
+            <div class="pic">
+                <img src="assets/pro.png">
+            </div>
+
+            <div class="upgrade">
+                <h5>Cerrar Sesion</h5>
+                <div class="link">
+                    <a href="#">Desconectar <b> Cuenta</b></a>
+                    <i class='bx bxs-chevron-right'></i>
+                </div>
+            </div>
+
+        </aside>
+
+        <main>
+
+            <header>
+
+                <button class="menu-btn" id="menu-open">
+                    <i class='bx bx-menu'></i>
+                </button>
+                <h5 id="hora-actual"></h5>
+
+            </header>
+
+
+
+            <div class="info">
+                
+                <div style="text-align: center;">
+                    <h3>Mantenimiento</h3>
+                </div>
+                
+            </div>
+
+            <div class="planning">
+                
+                <div class="item">
+                    <div class="progress">
+                        <div class="info">
+                            
+						    <h3 style="text-align: center; color:red">Datos del Cliente</h3>
+						    <br>
+
+                        
+							<form action="/PgCliente" method="post">
+
+                                <div style="text-align: right;">
+								
+									    <label for="inputNom">Nombre: </label> <input type="text"
+										    class="form-control" id="inputNom" placeholder="Nombre"
+										    name="nombre" required>
+								
+								        <br>
+								
+									    <label for="inputTel">Telefono: </label> <input type="number"
+										class="form-control" id="inputTel" placeholder="Telefono"
+										name="telefono" required>
+								
+								        <br>
+								
+									
+									    <label for="inputDNI">DNI:  </label> <input type="number"
+											class="form-control" id="inputDNI" placeholder="DNI"
+											name="dni" required>
+									
+								        <br>
+									
+									    <label for="inputHora">Hora de Recepcion: </label> <input type="time"
+											class="form-control" id="inputHora" placeholder="Hora Recepcion"
+											name="horarecepcion" required>
+
+                                        <br>
+
+                                            <label for="inputFech">Fecha de Entrada: </label> <input type="date"
+											class="form-control" id="inputFech" placeholder="Fecha de Entrada"
+											name="fechaentrada" required>
+
+                                        <br>
+                                </div>
+
+							</form>
+
+							    <div th:text="${mensaje}"></div>
+						
+                        </div>
+					</div>
+                </div>
+
+                <div class="item">
+                    <div class="progress">
+                        <div class="info">
+                            
+                            <h3 style="text-align: center; color:red">Datos del Vehiculo</h3>
+						        <br>
+
+                        
+							    <form action="/PgCliente" method="post">
+                            
+								    <div style="text-align: right;">
+                                        <label for="inputMarca">Marca: </label> <input type="text"
+                                        class="form-control" id="inputMarca" placeholder="Marca"
+                                        name="marca" required>
+								
+								        <br>
+								
+                                        <label for="inputModel">Modelo: </label> <input type="text"
+                                        class="form-control" id="inputModel" placeholder="Modelo"
+                                        name="modelo" required >
+								
+								        <br>
+								
+									
+                                        <label for="inputPlaca">Placa: </label> <input type="text"
+                                        class="form-control" id="inputPlaca" placeholder="Placa"
+                                        name="placa" required>
+
+								        <br>
+
+                                        <label for="inputKilo">Kilometraje: </label> <input type="number"
+								        class="form-control" id="inputKilo" placeholder="Kilometraje"
+								        name="kilometraje" required>
+								
+								        <br>
+
+                                        <label for="inputAnno">Año:</label><input type="number" style="width:155px;"
+                                        class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
+                                        name="anno" required>
+                                
+                                        <br>     
+                                    </div>
+							    </form>
+
+							    <div th:text="${mensaje}"></div>
+                            
+                        </div>
+					</div>
+                </div>
+
+            </div>
+
+            <div class="separator">
+            </div>
+
+            <div class="info">
+
+                <div style="text-align: center;">
+                    <h3>Trabajo Solicitado e Insumos</h3>
+                </div>
+
+            </div>
+
+
+            <div class="planning">
+                <div class="item">
+                        <div class="details">
+                            <label><input type="checkbox" name="servicio" value="lavado_vehicular"> Lavado Vehicular</label>
+                            <br>
+                            <label><input type="checkbox" name="servicio" value="lavado_salon"> Lavado de Salon</label>
+                            <br>
+                            <label><input type="checkbox" name="servicio" value="pintura"> Pintura</label>
+                            <br>
+                            <label><input type="checkbox" name="servicio" value="encerado"> Encerado</label>
+                            <br>
+                            <label><input type="checkbox" name="servicio" value="undercoating"> Undercoating</label>
+                            <br>
+                            <label><input type="checkbox" name="servicio" value="rev_susp_d"> Rev. Susp. D.</label>
+                            <br>
+                            <label><input type="checkbox" name="servicio" value="rev_susp_p"> Rev. Susp. P.</label>
+                            <br>
+                            <label><input type="checkbox" name="servicio" value="zincado"> Zincado</label>
+                            <br>
+                        </div>
+                    </div>  
+
+                    <div class="item">
+                        <div class="details">
+                            <label><input type="checkbox" name="servicio" value="pulverizado_motor"> Pulverizado de Motor</label>
+                            <br>
+                            <label><input type="checkbox" name="servicio" value="mantenimiento_frenos"> Mantenimiento de Frenos</label>
+                            <br>
+                            <label><input type="checkbox" name="servicio" value="cambio_bujias"> Cambio de Bujias</label>
+                            <br>
+                            <label><input type="checkbox" name="servicio" value="alineamiento_direccion"> Alineamiento de Dirección</label>
+                            <br>
+                            <label><input type="checkbox" name="servicio" value="cambio_aceite"> Cambio de aceite</label>
+                            <br>
+                            <label><input type="checkbox" name="servicio" value="revision_niveles"> Revisión de Niveles</label>
+                            <br>
+                            <label><input type="checkbox" name="servicio" value="revision_fajas"> Revision de Fajas</label>
+                            <br>
+                            <label><input type="checkbox" name="servicio" value="rotac_neumaticos"> Rotac. Neumáticos</label>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+            
+
+
+
+        </main> 
+
+    </div>
+
+    <script src="/js/script.js"></script>
+
+    <script>
+        // Función para obtener la hora actual en formato HH:MM:SS
+        function obtenerHoraActual() {
+            var fecha = new Date();
+            var horas = fecha.getHours();
+            var minutos = fecha.getMinutes();
+    
+            // Agregar ceros a la izquierda si es necesario
+            horas = (horas < 10) ? '0' + horas : horas;
+            minutos = (minutos < 10) ? '0' + minutos : minutos;
+    
+            return horas + ':' + minutos;
+        }
+    
+        // Función para actualizar la hora en el elemento HTML
+        function actualizarHora() {
+            var horaActual = obtenerHoraActual();
+            document.getElementById('hora-actual').textContent = "Bienvenido ADMIN, son las: " + horaActual;
+        }
+    
+        // Actualizar la hora cada segundo
+        setInterval(actualizarHora, 1000);
+    
+        // Llamar a la función inicialmente para mostrar la hora actual al cargar la página
+        actualizarHora();
+    </script>
+
+</body>
+
+</html>
