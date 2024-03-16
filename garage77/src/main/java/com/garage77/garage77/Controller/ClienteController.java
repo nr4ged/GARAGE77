@@ -33,7 +33,7 @@ public class ClienteController {
      public String registrarCliente(@ModelAttribute Cliente cliente, @RequestParam(value = "action", required = false) String action, Model model) {
          if ("registrar".equals(action)) {
         // Verificar si ya existe un cliente con el mismo código
-          if (repoCli.existsById(cliente.getCodCliente())) {
+          if (repoCli.existsById(cliente.getCod_cliente())) {
                model.addAttribute("mensaje", "El código de Cliente ya existe");
             	   } else {
             	        try {
@@ -53,12 +53,12 @@ public class ClienteController {
  	        
  	    }
          }else if ("eliminar".equals(action)) {
-        	    if (cliente.getCodCliente().isBlank()) {
+        	    if (cliente.getCod_cliente().isBlank()) {
      	        model.addAttribute("mensaje", "El campo Código de Usuario debe estar lleno");
      	    } else {
-     	        if (repoCli.existsById(cliente.getCodCliente())) {
+     	        if (repoCli.existsById(cliente.getCod_cliente())) {
      	            try {
-     	            	repoCli.deleteById(cliente.getCodCliente());
+     	            	repoCli.deleteById(cliente.getCod_cliente());
      	                model.addAttribute("mensaje", "Cliente eliminado correctamente");
      	            } catch (Exception e) {
      	                model.addAttribute("mensaje", "Error al eliminar el Cliente");
@@ -71,9 +71,9 @@ public class ClienteController {
      	   model.addAttribute("lstCliente", repoCli.findAll());
             return "PgCliente";
         }
-	 @GetMapping("/PgCliente/editar/{codCliente}")
-	    public String editarCliente(@PathVariable("codCliente") String codCliente, Model model) {
-	        Cliente cliente = repoCli.findById(codCliente).orElse(null);
+	 @GetMapping("/PgCliente/editar/{cod_cliente}")
+	    public String editarCliente(@PathVariable("cod_cliente") String cod_cliente, Model model) {
+	        Cliente cliente = repoCli.findById(cod_cliente).orElse(null);
 	        model.addAttribute("cliente", cliente);
 	        model.addAttribute("lstCliente", repoCli.findAll());
 	        return "PgCliente";

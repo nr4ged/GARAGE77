@@ -11,19 +11,20 @@ import lombok.Data;
 public class Cliente {
 
     @Id
-    private String codCliente;
-    private String nombreCliente;
-    private String telefonoCliente;
-    private String dniCliente;
-    private String horaRecepCliente;
-    private String horaEntregCliente;
-    
+    private String cod_cliente;
+    private String nombre_cliente;
+    private String telefono_cliente;
+    private String dni_cliente;
+    private String hora_recep_cliente;
+    private String hora_entreg_cliente;
+
+
     @Override
     public String toString() {
-        return "Cliente [codCliente=" + codCliente + ", nombreCliente=" + nombreCliente + ", telefonoCliente="
-                + telefonoCliente + ", dniCliente=" + dniCliente + ", horaRecepCliente=" + horaRecepCliente
-                + ", horaEntregCliente=" + horaEntregCliente + "]";
+        return "Cliente [cod_cliente=" + cod_cliente + ", nombre_cliente=" + nombre_cliente + ", telefono_cliente="
+                + telefono_cliente + ", dni_cliente=" + dni_cliente + ", hora_recep_cliente=" + hora_recep_cliente
+                + ", hora_entreg_cliente=" + hora_entreg_cliente + "]";
     }
-
-
+    
+    
 }
