@@ -16,4 +16,9 @@ public class ProyectoController {
 			return "Inicio";
 		}
 
+		@GetMapping("/Index")
+		public String cargarIndex() {
+			return "Index";
+		}
+
     }
