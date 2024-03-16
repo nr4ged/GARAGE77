@@ -29,6 +29,12 @@ public class ClienteController {
 	     return "PgCliente";
 	 }
 
+	 @GetMapping("/LsClientes")
+	 public String cargarLsClientes() {
+	     
+	     return "LsClientes";
+	 }
+
 	 @PostMapping("/PgCliente")
      public String registrarCliente(@ModelAttribute Cliente cliente, @RequestParam(value = "action", required = false) String action, Model model) {
          if ("registrar".equals(action)) {

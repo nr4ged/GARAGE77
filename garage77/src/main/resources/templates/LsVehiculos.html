@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="/css/inventario.css">
-    <title>Inventario - GARAGE 77</title>
+    <title>Listado Vehiculos - GARAGE 77</title>
 </head>
 
 <body>
@@ -94,78 +94,53 @@
 
         <!-- Main Content -->
         <main>
-            <h1>Inventario</h1>
+            <h1>Vehiculos</h1>
             <!-- Analyses -->
             <div class="analyse">
 
                 <div class="sales">
                     <div>
-                        <h2 style="text-align: center;">Datos del <span class="danger">Inventario</span></h2>
+                        <h2 style="text-align: center;">Datos del <span class="danger">Vehiculo</span></h2>
                         <div class="info">
 						    <br>
 							<form action="/PgCliente" method="post">
                                 <div style="text-align: center;">
-								
-									    <label for="inputCod">Codigo Original: </label> <input type="text"
-										    class="form-control" id="inputCod" placeholder="Codigo Original"
-										    name="codigoOrg" required>
+                                    <label for="inputMarca">Marca: </label> <input type="text"
+                                    class="form-control" id="inputMarca" placeholder="Marca"
+                                    name="marca" required>
+                            
+                                    <br>
+                            
+                                    <label for="inputModel">Modelo: </label> <input type="text"
+                                    class="form-control" id="inputModel" placeholder="Modelo"
+                                    name="modelo" required >
+                            
+                                    <br>
+                            
+                                
+                                    <label for="inputPlaca">Placa: </label> <input type="text"
+                                    class="form-control" id="inputPlaca" placeholder="Placa"
+                                    name="placa" required>
+
+                                    <br>
+
+                                    <label for="inputKilo">Kilometraje: </label> <input type="number"
+                                    class="form-control" id="inputKilo" placeholder="Kilometraje"
+                                    name="kilometraje" required>
+                            
+                                    <br>
+
+                                    <label for="inputKilo">Kilometraje Aprox: </label> <input type="number"
+								        class="form-control" id="inputKilo" placeholder="Kilometraje Aprox"
+								        name="kilometraje" required>
 								
 								        <br>
-								
-									    <label for="inputAlt">Codigo alt: </label> <input type="text"
-										class="form-control" id="inputAlt" placeholder="Telefono"
-										name="codigoAlt" required>
-								
-								        <br>
-								
-									
-									    <label for="inputDesc">Descripcion:  </label> <input type="text"
-											class="form-control" id="inputDesc" placeholder="Descripcion"
-											name="Descripcion" required>
-									
-								        <br>
 
-                                        <label for="inputCant">Cantidad: </label> <input type="number"
-											class="form-control" id="inputCant" placeholder="Cantidad"
-											name="cantidad" required>
-
-                                        <br>
-									
-									    <label for="inputMarca">Marca: </label> <input type="text"
-											class="form-control" id="inputMarca" placeholder="Marca"
-											name="marca" required>
-
-                                        <br>
-
-                                        <label for="inputFech">Fecha de Entrada: </label> <input type="date"
-											class="form-control" id="inputFech" placeholder="Fecha de Entrada"
-											name="fechaentrada" required>
-
-                                        <br>
-
-                                        <label for="inputAlmc">Almacen: </label> <input type="text"
-											class="form-control" id="inputAlmc" placeholder="Almacen"
-											name="almacen" required>
-
-                                        <br>
-
-                                        <label for="inputUbi">Ubicacion: </label> <input type="text"
-											class="form-control" id="inputUbi" placeholder="Ubicacion"
-											name="ubicacion" required>
-
-                                        <br>
-                                        
-                                        <label for="inputHora">Aplic. M/V: </label> <input type="text"
-											class="form-control" id="inputHora" placeholder="Aplic. M/V"
-											name="horarecepcion" required>
-
-                                        <br>   
-
-                                        <label for="inputHora">Aplic. M/A: </label> <input type="text"
-											class="form-control" id="inputHora" placeholder="Aplic. M/A"
-											name="horarecepcion" required>
-
-                                        <br>
+                                    <label for="inputAnno">Año:</label><input type="number" style="width:155px;"
+                                    class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
+                                    name="anno" required>
+                            
+                                    <br>     
 
                                         <div class="btn-container">
                                             <br>
@@ -192,22 +167,18 @@
             <div class="recent-orders">
                 
                 <div>
-                    <h2 style="text-align: center;"><span class="danger">Stock</span> Disponible</h2>
+                    <h2 style="text-align: center;"><span class="danger">Vehiculos</span> Disponibles</h2>
                     <input type="text" id="filtro" placeholder="Filtrar por Descripcion">
                     
                     <table id="id_table" class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Codigo Original </th>
-                                <th>Codigo Alternativo </th>
-                                <th>Descripcion </th>
-                                <th>Cantidad </th>
                                 <th>Marca </th>
-                                <th>Fecha de Entrada </th>
-                                <th>Almacen </th>
-                                <th>Ubicacion </th>
-                                <th>Aplic. M/V </th>
-                                <th>Aplic. M/A </th>
+                                <th>Modelo </th>
+                                <th>Placa </th>
+                                <th>Kilometraje </th>
+                                <th>Kilometraje Aprox </th>
+                                <th>Año </th>
                                 <th></th>
                             </tr>
                         </thead>

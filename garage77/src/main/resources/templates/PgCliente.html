@@ -16,7 +16,7 @@
         <aside>
             <div class="toggle">
                 <div class="logo">
-                    <img src="images/logo.png">
+                    <img src="assets/logo.png">
                     <h2>Garage <span class="danger">77</span></h2>
                 </div>
                 <div class="close" id="close-btn">
@@ -109,34 +109,46 @@
 								
 									    <label for="inputNom">Nombre: </label> <input type="text"
 										    class="form-control" id="inputNom" placeholder="Nombre"
-										    name="nombre" required>
+										    name="nombre">
 								
 								        <br>
 								
 									    <label for="inputTel">Telefono: </label> <input type="number"
 										class="form-control" id="inputTel" placeholder="Telefono"
-										name="telefono" required>
+										name="telefono">
 								
 								        <br>
 								
 									
 									    <label for="inputDNI">DNI:  </label> <input type="number"
 											class="form-control" id="inputDNI" placeholder="DNI"
-											name="dni" required>
+											name="dni">
 									
 								        <br>
 									
 									    <label for="inputHora">Hora de Recepcion: </label> <input type="time"
 											class="form-control" id="inputHora" placeholder="Hora Recepcion"
-											name="horarecepcion" required>
+											name="horarecepcion">
+
+                                        <br>
+
+                                        <label for="inputHora">Hora de Recepcion: </label> <input type="time"
+                                            class="form-control" id="inputHora" placeholder="Hora Recepcion"
+                                            name="horarecepcion">
 
                                         <br>
 
                                             <label for="inputFech">Fecha de Entrada: </label> <input type="date"
 											class="form-control" id="inputFech" placeholder="Fecha de Entrada"
-											name="fechaentrada" required>
+											name="fechaentrada">
 
                                         <br>
+
+                                        <div class="btn-container">
+                                            <br>
+                                            <button><a href="/LsClientes"></a>Listar Todos</button>
+                                        </div>
+
                                 </div>
 							</form>
 							    <div th:text="${mensaje}"></div>
@@ -155,34 +167,46 @@
 								        <div style="text-align: center;">
                                         <label for="inputMarca">Marca: </label> <input type="text"
                                         class="form-control" id="inputMarca" placeholder="Marca"
-                                        name="marca" required>
+                                        name="marca">
 								
 								        <br>
 								
                                         <label for="inputModel">Modelo: </label> <input type="text"
                                         class="form-control" id="inputModel" placeholder="Modelo"
-                                        name="modelo" required >
+                                        name="modelo">
 								
 								        <br>
 								
 									
                                         <label for="inputPlaca">Placa: </label> <input type="text"
                                         class="form-control" id="inputPlaca" placeholder="Placa"
-                                        name="placa" required>
+                                        name="placa">
 
 								        <br>
 
                                         <label for="inputKilo">Kilometraje: </label> <input type="number"
 								        class="form-control" id="inputKilo" placeholder="Kilometraje"
-								        name="kilometraje" required>
+								        name="kilometraje">
+								
+								        <br>
+
+                                        <label for="inputKilo">Kilometraje Aprox: </label> <input type="number"
+								        class="form-control" id="inputKilo" placeholder="Kilometraje Aprox"
+								        name="kilometraje">
 								
 								        <br>
 
                                         <label for="inputAnno">Año:</label><input type="number" style="width:155px;"
                                         class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                                        name="anno" required>
+                                        name="anno">
                                 
-                                        <br>     
+                                        <br>    
+                                        
+                                        <div class="btn-container">
+                                            <br>
+                                            <button type="submit" name="action" value="registrar" class="btn btn-primary">Listar Todos</button>
+                                        </div>
+                                        
                                         </div>
 							        </form>
 							        <div th:text="${mensaje}"></div>
@@ -207,37 +231,37 @@
                     </tr>
                     <tr>
                       <td>
-                          <label><input type="checkbox" name="servicio" value="lavado_vehicular"> Lavado Vehicular</label><br>
-                          <label><input type="checkbox" name="servicio" value="lavado_salon"> Lavado de Salon</label><br>
-                          <label><input type="checkbox" name="servicio" value="pintura"> Pintura</label><br>
-                          <label><input type="checkbox" name="servicio" value="encerado"> Encerado</label><br>
-                          <label><input type="checkbox" name="servicio" value="undercoating"> Undercoating</label><br>
-                          <label><input type="checkbox" name="servicio" value="rev_susp_d"> Rev. Susp. D.</label><br>
-                          <label><input type="checkbox" name="servicio" value="rev_susp_p"> Rev. Susp. P.</label><br>
-                          <label><input type="checkbox" name="servicio" value="zincado"> Zincado</label><br>
-                          <label><input type="checkbox" name="servicio" value="pulverizado_motor"> Pulverizado de Motor</label><br>
+                          <label> Lavado Vehicular </label> <input type="checkbox" name="servicio" value="lavado_vehicular"><br>
+                          <label> Lavado de Salon <input type="checkbox" name="servicio" value="lavado_salon"></label><br>
+                          <label> Pintura <input type="checkbox" name="servicio" value="pintura"></label><br>
+                          <label> Encerado <input type="checkbox" name="servicio" value="encerado"></label><br>
+                          <label> Undercoating <input type="checkbox" name="servicio" value="undercoating"></label><br>
+                          <label> Rev. Susp. D. <input type="checkbox" name="servicio" value="rev_susp_d"></label><br>
+                          <label> Rev. Susp. P. <input type="checkbox" name="servicio" value="rev_susp_p"></label><br>
+                          <label> Zincado <input type="checkbox" name="servicio" value="zincado"></label><br>
+                          <label> Pulverizado de Motor <input type="checkbox" name="servicio" value="pulverizado_motor"></label><br>
                       </td>
                       <td>
-                          <label><input type="checkbox" name="servicio" value="mantenimiento_frenos"> Mantenimiento de Frenos</label><br>
-                          <label><input type="checkbox" name="servicio" value="cambio_bujias"> Cambio de Bujias</label><br>
-                          <label><input type="checkbox" name="servicio" value="alineamiento_direccion"> Alineamiento de Dirección</label><br>
-                          <label><input type="checkbox" name="servicio" value="cambio_aceite"> Cambio de aceite</label><br>
-                          <label><input type="checkbox" name="servicio" value="revision_niveles"> Revisión de Niveles</label><br>
-                          <label><input type="checkbox" name="servicio" value="revision_fajas"> Revision de Fajas</label><br>
-                          <label><input type="checkbox" name="servicio" value="rotac_neumaticos"> Rotac. Neumáticos</label><br>
-                          <label><input type="checkbox" name="servicio" value="pulverizado_motor"> Lavado de Motor</label><br>
+                          <label> Mantenimiento de Frenos <input type="checkbox" name="servicio" value="mantenimiento_frenos"></label><br>
+                          <label> Cambio de Bujias <input type="checkbox" name="servicio" value="cambio_bujias"></label><br>
+                          <label> Alineamiento de Dirección <input type="checkbox" name="servicio" value="alineamiento_direccion"></label><br>
+                          <label> Cambio de aceite <input type="checkbox" name="servicio" value="cambio_aceite"></label><br>
+                          <label> Revisión de Niveles <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
+                          <label> Revision de Fajas <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
+                          <label> Rotac. Neumáticos <input type="checkbox" name="servicio" value="rotac_neumaticos"></label><br>
+                          <label> Lavado de Motor <input type="checkbox" name="servicio" value="LavadoMotor"></label><br>
                       </td>
                       <td>
-                        <label><input type="checkbox" name="servicio" value="mantenimiento_frenos"> Limpieza de Obturador</label><br>
-                        <label><input type="checkbox" name="servicio" value="cambio_bujias"> Limpieza de Inyectores</label><br>
-                        <label><input type="checkbox" name="servicio" value="alineamiento_direccion"> Filtro de Acondicionado</label><br>
-                        <label><input type="checkbox" name="servicio" value="cambio_aceite"> Cambio de aceite</label><br>
-                        <label><input type="checkbox" name="servicio" value="revision_niveles"> Aceite de Caja</label><br>
-                        <label><input type="checkbox" name="servicio" value="revision_fajas"> Escaneo</label><br>
-                        <label><input type="checkbox" name="servicio" value="rotac_neumaticos"> Revision de Bobinas</label><br>
-                        <label><input type="checkbox" name="servicio" value="revision_niveles"> Filtro de Aire</label><br>
-                        <label><input type="checkbox" name="servicio" value="revision_fajas"> Filtro de Aceite</label><br>
-                        <label><input type="checkbox" name="servicio" value="rotac_neumaticos"> Filtro de Petroleo</label><br>
+                        <label> Limpieza de Obturador <input type="checkbox" name="servicio" value="mantenimiento_frenos"></label><br>
+                        <label> Limpieza de Inyectores <input type="checkbox" name="servicio" value="cambio_bujias"></label><br>
+                        <label> Filtro de Acondicionado <input type="checkbox" name="servicio" value="alineamiento_direccion"></label><br>
+                        <label> Cambio de aceite <input type="checkbox" name="servicio" value="cambio_aceite"></label><br>
+                        <label> Aceite de Caja <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
+                        <label> Escaneo <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
+                        <label> Revision de Bobinas <input type="checkbox" name="servicio" value="rotac_neumaticos"></label><br>
+                        <label> Filtro de Aire <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
+                        <label> Filtro de Aceite <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
+                        <label> Filtro de Petroleo <input type="checkbox" name="servicio" value="rotac_neumaticos"></label><br>
                       </td>
                     </tr>
                   </table>
@@ -279,7 +303,7 @@
 
             <div class="user-profile">
                 <div class="logo">
-                    <img src="images/logo.png">
+                    <img src="assets/logo.png">
                     <h2>Garage 77</h2>
                     <p>Automotriz de confianza</p>
                 </div>

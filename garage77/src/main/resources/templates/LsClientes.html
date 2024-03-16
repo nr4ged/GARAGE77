@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="/css/inventario.css">
-    <title>Inventario - GARAGE 77</title>
+    <title>Listado Clientes - GARAGE 77</title>
 </head>
 
 <body>
@@ -94,87 +94,63 @@
 
         <!-- Main Content -->
         <main>
-            <h1>Inventario</h1>
+            <h1>Clientes</h1>
             <!-- Analyses -->
             <div class="analyse">
 
                 <div class="sales">
                     <div>
-                        <h2 style="text-align: center;">Datos del <span class="danger">Inventario</span></h2>
+                        <h2 style="text-align: center;">Datos del <span class="danger">Cliente</span></h2>
                         <div class="info">
 						    <br>
 							<form action="/PgCliente" method="post">
                                 <div style="text-align: center;">
 								
-									    <label for="inputCod">Codigo Original: </label> <input type="text"
-										    class="form-control" id="inputCod" placeholder="Codigo Original"
-										    name="codigoOrg" required>
-								
-								        <br>
-								
-									    <label for="inputAlt">Codigo alt: </label> <input type="text"
-										class="form-control" id="inputAlt" placeholder="Telefono"
-										name="codigoAlt" required>
-								
-								        <br>
-								
-									
-									    <label for="inputDesc">Descripcion:  </label> <input type="text"
-											class="form-control" id="inputDesc" placeholder="Descripcion"
-											name="Descripcion" required>
-									
-								        <br>
+                                    <label for="inputNom">Nombre: </label> <input type="text"
+                                    class="form-control" id="inputNom" placeholder="Nombre"
+                                    name="nombre" required>
+                        
+                                <br>
+                        
+                                <label for="inputTel">Telefono: </label> <input type="number"
+                                class="form-control" id="inputTel" placeholder="Telefono"
+                                name="telefono" required>
+                        
+                                <br>
+                        
+                            
+                                <label for="inputDNI">DNI:  </label> <input type="number"
+                                    class="form-control" id="inputDNI" placeholder="DNI"
+                                    name="dni" required>
+                            
+                                <br>
+                            
+                                <label for="inputHora">Hora de Recepcion: </label> <input type="time"
+                                    class="form-control" id="inputHora" placeholder="Hora Recepcion"
+                                    name="horarecepcion" required>
 
-                                        <label for="inputCant">Cantidad: </label> <input type="number"
-											class="form-control" id="inputCant" placeholder="Cantidad"
-											name="cantidad" required>
+                                <br>
 
-                                        <br>
-									
-									    <label for="inputMarca">Marca: </label> <input type="text"
-											class="form-control" id="inputMarca" placeholder="Marca"
-											name="marca" required>
+                                <label for="inputHora">Hora de Entrada: </label> <input type="time"
+                                    class="form-control" id="inputHora" placeholder="Hora Recepcion"
+                                    name="horarecepcion" required>
 
-                                        <br>
+                                <br>
 
-                                        <label for="inputFech">Fecha de Entrada: </label> <input type="date"
-											class="form-control" id="inputFech" placeholder="Fecha de Entrada"
-											name="fechaentrada" required>
+                                    <label for="inputFech">Fecha de Entrada: </label> <input type="date"
+                                    class="form-control" id="inputFech" placeholder="Fecha de Entrada"
+                                    name="fechaentrada" required>
 
-                                        <br>
+                                <br>
 
-                                        <label for="inputAlmc">Almacen: </label> <input type="text"
-											class="form-control" id="inputAlmc" placeholder="Almacen"
-											name="almacen" required>
-
-                                        <br>
-
-                                        <label for="inputUbi">Ubicacion: </label> <input type="text"
-											class="form-control" id="inputUbi" placeholder="Ubicacion"
-											name="ubicacion" required>
-
-                                        <br>
-                                        
-                                        <label for="inputHora">Aplic. M/V: </label> <input type="text"
-											class="form-control" id="inputHora" placeholder="Aplic. M/V"
-											name="horarecepcion" required>
-
-                                        <br>   
-
-                                        <label for="inputHora">Aplic. M/A: </label> <input type="text"
-											class="form-control" id="inputHora" placeholder="Aplic. M/A"
-											name="horarecepcion" required>
-
-                                        <br>
-
-                                        <div class="btn-container">
-                                            <br>
-                                            <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
-                                            <button type="submit" name="action" value="actualizar" class="btn btn-warning">Actualizar</button>
-                                            <br>
-                                            <button type="submit" name="action" value="eliminar" class="btn btn-danger">Eliminar</button>
-                                            <button type="button" class="btn btn-secondary" onclick="limpiarCamposCliente()">Limpiar</button>
-                                            <br>
+                                <div class="btn-container">
+                                    <br>
+                                    <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
+                                    <button type="submit" name="action" value="actualizar" class="btn btn-warning">Actualizar</button>
+                                    <br>
+                                    <button type="submit" name="action" value="eliminar" class="btn btn-danger">Eliminar</button>
+                                    <button type="button" class="btn btn-secondary" onclick="limpiarCamposCliente()">Limpiar</button>
+                                    <br>
                                         
                                         
                                 </div>
@@ -192,22 +168,18 @@
             <div class="recent-orders">
                 
                 <div>
-                    <h2 style="text-align: center;"><span class="danger">Stock</span> Disponible</h2>
+                    <h2 style="text-align: center;"><span class="danger">Clientes</span> Disponibles</h2>
                     <input type="text" id="filtro" placeholder="Filtrar por Descripcion">
                     
                     <table id="id_table" class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Codigo Original </th>
-                                <th>Codigo Alternativo </th>
-                                <th>Descripcion </th>
-                                <th>Cantidad </th>
-                                <th>Marca </th>
-                                <th>Fecha de Entrada </th>
-                                <th>Almacen </th>
-                                <th>Ubicacion </th>
-                                <th>Aplic. M/V </th>
-                                <th>Aplic. M/A </th>
+                                <th>Nombre </th>
+                                <th>Telefono </th>
+                                <th>DNI </th>
+                                <th>Hora de Recepcion </th>
+                                <th>Hora de Entrada </th>
+                                <th>Fecha de entrada </th>
                                 <th></th>
                             </tr>
                         </thead>

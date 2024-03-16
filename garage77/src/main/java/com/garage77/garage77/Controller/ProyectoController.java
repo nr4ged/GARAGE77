@@ -11,14 +11,21 @@ public class ProyectoController {
 			return "Login";
 		}
 
-		@GetMapping("/Inicio")
-		public String cargarInicio() {
-			return "Inicio";
-		}
-
 		@GetMapping("/Index")
 		public String cargarIndex() {
 			return "Index";
 		}
+
+		@GetMapping("/LsVehiculos")
+		public String cargarLsVehiculos() {
+			return "LsVehiculos";
+		}
+
+		@GetMapping("/Listados")
+		public String cargarListados() {
+			return "Listados";
+		}
+
+
 
     }
