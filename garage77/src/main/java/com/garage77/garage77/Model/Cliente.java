@@ -26,5 +26,4 @@ public class Cliente {
                 + ", hora_entreg_cliente=" + hora_entreg_cliente + "]";
     }
     
-    
 }
