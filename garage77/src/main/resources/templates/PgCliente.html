@@ -104,7 +104,7 @@
                         <div class="info">
                             
 						    <br>
-							<form action="/PgCliente" method="post" th:object="${cliente}">
+							<form action="/PgCliente" method="post" th:object="${Cliente}">
                                 <div style="text-align: center;">
 								
                                         
@@ -159,7 +159,7 @@
 
                                         <div class="btn-container">
                                             <br>
-                                            <button><a href="/LsClientes"></a>Listar Todos</button>
+                                            <button type="submit" name="action" value="registrar" class="btn btn-primary"> Registrar </button>
                                         </div>
 
                                 </div>
@@ -176,52 +176,53 @@
                             
                             <h2 style="text-align: center;">Datos del <span class="danger">Vehiculo</span> </h2>
 						        <br>
-							        <form action="/PgCliente" method="post">
+							        <!-- <form action="/PgCliente" method="post" th:object="${Vehiculo}">
 								        <div style="text-align: center;">
-                                        <label for="inputMarca">Marca: </label> <input type="text"
-                                        class="form-control" id="inputMarca" placeholder="Marca"
-                                        name="marca">
+
+                                            <label for="inputCod">Nombre</label> <input type="text"
+                                            class="form-control" id="inputCod" placeholder="placa"
+                                            name="placa" th:value="${Vehiculo.placa}" required>
 								
 								        <br>
 								
-                                        <label for="inputModel">Modelo: </label> <input type="text"
-                                        class="form-control" id="inputModel" placeholder="Modelo"
-                                        name="modelo">
+                                        <label for="inputCod">Nombre</label> <input type="number"
+                                            class="form-control" id="inputCod" placeholder="añoVehiculo"
+                                            name="añoVehiculo" th:value="${Vehiculo.añoVehiculo}" required>
 								
 								        <br>
 								
 									
-                                        <label for="inputPlaca">Placa: </label> <input type="text"
-                                        class="form-control" id="inputPlaca" placeholder="Placa"
-                                        name="placa">
+                                        <label for="inputCod">Nombre</label> <input type="number"
+                                            class="form-control" id="inputCod" placeholder="kmActual"
+                                            name="kmActual" th:value="${Vehiculo.kmActual}" required>
 
 								        <br>
 
-                                        <label for="inputKilo">Kilometraje: </label> <input type="number"
-								        class="form-control" id="inputKilo" placeholder="Kilometraje"
-								        name="kilometraje">
+                                        <label for="inputCod">Nombre</label> <input type="number"
+                                            class="form-control" id="inputCod" placeholder="kmAprox"
+                                            name="kmAprox" th:value="${Vehiculo.kmAprox}" required>
 								
 								        <br>
 
-                                        <label for="inputKilo">Kilometraje Aprox: </label> <input type="number"
-								        class="form-control" id="inputKilo" placeholder="Kilometraje Aprox"
-								        name="kilometraje">
+                                        <label for="inputCod">Nombre</label> <input type="text"
+                                            class="form-control" id="inputCod" placeholder="Marca"
+                                            name="Marca" th:value="${Vehiculo.Marca}" required>
 								
 								        <br>
 
-                                        <label for="inputAnno">Año:</label><input type="number" style="width:155px;"
-                                        class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                                        name="anno">
+                                        <label for="inputCod">Nombre</label> <input type="text"
+                                            class="form-control" id="inputCod" placeholder="Modelo"
+                                            name="Modelo" th:value="${Vehiculo.Modelo}" required>
                                 
                                         <br>    
                                         
                                         <div class="btn-container">
                                             <br>
-                                            <button type="submit" name="action" value="registrar" class="btn btn-primary">Listar Todos</button>
+                                            <button type="submit" name="action" value="registrar" class="btn btn-primary"> Registrar </button>
                                         </div>
                                         
                                         </div>
-							        </form>
+							        </form> -->
 							        <div th:text="${mensaje}"></div>
                         </div>
                     </div>
