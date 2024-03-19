@@ -106,40 +106,40 @@
 							<form action="/PgCliente" method="post">
                                 <div style="text-align: center;">
 								
-                                    <label for="inputNom">Nombre: </label> <input type="text"
-                                    class="form-control" id="inputNom" placeholder="Nombre"
-                                    name="nombre" required>
+                                    <label for="inputCod">Nombre</label> <input type="text"
+										class="form-control" id="inputCod" placeholder="nombre"
+										name="Nombre" th:value="${cliente.nombre}" required>
                         
                                 <br>
                         
-                                <label for="inputTel">Telefono: </label> <input type="number"
-                                class="form-control" id="inputTel" placeholder="Telefono"
-                                name="telefono" required>
+                                    <label for="inputNom">telefono</label> <input type="number"
+                                            class="form-control" id="inputNom" placeholder="telefono"
+                                            name="telefono" th:value="${cliente.telefono} " required>
                         
                                 <br>
                         
                             
-                                <label for="inputDNI">DNI:  </label> <input type="number"
-                                    class="form-control" id="inputDNI" placeholder="DNI"
-                                    name="dni" required>
+                                    <label for="inputApe">Dni Cliente</label> <input type="number"
+                                            class="form-control" id="inputApe" placeholder="dni"
+                                            name="dni" th:value="${cliente.dni}" required>
                             
                                 <br>
                             
-                                <label for="inputHora">Hora de Recepcion: </label> <input type="time"
-                                    class="form-control" id="inputHora" placeholder="Hora Recepcion"
-                                    name="horarecepcion" required>
+                                    <label for="inputHora">Hora de Recepcion: </label> <input type="time"
+                                        class="form-control" id="inputHora" placeholder="Hora Recepcion"
+                                        name="horarecepcion" th:value="${cliente.horaRecep}" required>
 
                                 <br>
 
-                                <label for="inputHora">Hora de Entrada: </label> <input type="time"
-                                    class="form-control" id="inputHora" placeholder="Hora Recepcion"
-                                    name="horarecepcion" required>
+                                    <label for="inputHora">Hora de Entrada: </label> <input type="time"
+                                        class="form-control" id="inputHora" placeholder="Hora Entrega"
+                                        name="horarecepcion" th:value="${cliente.horaEntrega}" required>
 
                                 <br>
 
                                     <label for="inputFech">Fecha de Entrada: </label> <input type="date"
-                                    class="form-control" id="inputFech" placeholder="Fecha de Entrada"
-                                    name="fechaentrada" required>
+                                        class="form-control" id="inputFech" placeholder="Fecha de Entrada"
+                                        name="fechaentrada" th:value="${cliente.fecha}" required>
 
                                 <br>
 
