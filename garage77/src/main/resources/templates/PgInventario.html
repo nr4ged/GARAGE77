@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="/css/inventario.css">
     <title>Inventario - GARAGE 77</title>
 </head>
+
 
 <body>
 
@@ -27,7 +29,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="/Index">
+                <a href="/Index" class="active">
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
@@ -58,13 +60,13 @@
                     <h3>Facturas</h3>
                     <span class="message-count">27</span>
                 </a>
-                <a href="/PgInventario" class="active">
+                <a href="/PgInventario">
                     <span class="material-icons-sharp">
                         inventory
                     </span>
                     <h3>Inventario</h3>
                 </a>
-                <a href="#">
+                <a href="/Listados">
                     <span class="material-icons-sharp">
                         report_gmailerrorred
                     </span>
@@ -99,73 +101,54 @@
             <div class="analyse">
 
                 <div class="sales">
+
                     <div>
+                        
                         <h2 style="text-align: center;">Datos del <span class="danger">Inventario</span></h2>
                         <div class="info">
 						    <br>
 							<form action="/PgCliente" method="post">
+                                <div>
+                                <div class="input-group mb-3" >
+                                    <span class="input-group-text" id="basic-addon1">Codigo Original:</span>
+                                    <input type="text" class="form-control" placeholder="Codigo Original" aria-label="Codigo Original" aria-describedby="basic-addon1">
+                                    <span class="input-group-text" id="basic-addon1">Codigo Alternativo:</span>
+                                    <input type="text" class="form-control" placeholder="Codigo Alternativo" aria-label="Codigo Alternativo" aria-describedby="basic-addon2">
+                                    
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Descripcion:</span>
+                                    <input type="text" class="form-control" placeholder="Descripcion" aria-label="Descripcion" aria-describedby="basic-addon1">
+                                    <span class="input-group-text" id="basic-addon1">Cantidad:</span>
+                                    <input type="number" class="form-control" placeholder="Cantidad" aria-label="Cantidad" aria-describedby="basic-addon1">
+                                    <span class="input-group-text" id="basic-addon1">Marca:</span>
+                                    <input type="text" class="form-control" placeholder="Marca" aria-label="Marca" aria-describedby="basic-addon1">
+                                    
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Fecha de Entrada:</span>
+                                    <input type="date" class="form-control" placeholder="Fecha de Entrada:" aria-label="Fecha de Entrada:" aria-describedby="basic-addon1">
+                                    
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Almacen:</span>
+                                    <input type="text" class="form-control" placeholder="Almacen:" aria-label="Almacen:" aria-describedby="basic-addon1">
+                                    <span class="input-group-text" id="basic-addon1">Ubicacion:</span>
+                                    <input type="text" class="form-control" placeholder="Ubicacion:" aria-label="Ubicacion:" aria-describedby="basic-addon1">
+                                    
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Aplic. M/V:</span>
+                                    <input type="text" class="form-control" placeholder="Aplic. M/V:" aria-label="Aplic. M/V:" aria-describedby="basic-addon1">
+                                    <span class="input-group-text" id="basic-addon1">Aplic. M/A:</span>
+                                    <input type="text" class="form-control" placeholder="Aplic. M/A:" aria-label="Aplic. M/A:" aria-describedby="basic-addon1">
+                                    
+                                </div>
+
                                 <div style="text-align: center;">
-								
-									    <label for="inputCod">Codigo Original: </label> <input type="text"
-										    class="form-control" id="inputCod" placeholder="Codigo Original"
-										    name="codigoOrg" required>
-								
-								        <br>
-								
-									    <label for="inputAlt">Codigo alt: </label> <input type="text"
-										class="form-control" id="inputAlt" placeholder="Telefono"
-										name="codigoAlt" required>
-								
-								        <br>
-								
-									
-									    <label for="inputDesc">Descripcion:  </label> <input type="text"
-											class="form-control" id="inputDesc" placeholder="Descripcion"
-											name="Descripcion" required>
-									
-								        <br>
-
-                                        <label for="inputCant">Cantidad: </label> <input type="number"
-											class="form-control" id="inputCant" placeholder="Cantidad"
-											name="cantidad" required>
-
-                                        <br>
-									
-									    <label for="inputMarca">Marca: </label> <input type="text"
-											class="form-control" id="inputMarca" placeholder="Marca"
-											name="marca" required>
-
-                                        <br>
-
-                                        <label for="inputFech">Fecha de Entrada: </label> <input type="date"
-											class="form-control" id="inputFech" placeholder="Fecha de Entrada"
-											name="fechaentrada" required>
-
-                                        <br>
-
-                                        <label for="inputAlmc">Almacen: </label> <input type="text"
-											class="form-control" id="inputAlmc" placeholder="Almacen"
-											name="almacen" required>
-
-                                        <br>
-
-                                        <label for="inputUbi">Ubicacion: </label> <input type="text"
-											class="form-control" id="inputUbi" placeholder="Ubicacion"
-											name="ubicacion" required>
-
-                                        <br>
-                                        
-                                        <label for="inputHora">Aplic. M/V: </label> <input type="text"
-											class="form-control" id="inputHora" placeholder="Aplic. M/V"
-											name="horarecepcion" required>
-
-                                        <br>   
-
-                                        <label for="inputHora">Aplic. M/A: </label> <input type="text"
-											class="form-control" id="inputHora" placeholder="Aplic. M/A"
-											name="horarecepcion" required>
-
-                                        <br>
 
                                         <div class="btn-container">
                                             <br>
@@ -175,9 +158,11 @@
                                             <button type="submit" name="action" value="eliminar" class="btn btn-danger">Eliminar</button>
                                             <button type="button" class="btn btn-secondary" onclick="limpiarCamposCliente()">Limpiar</button>
                                             <br>
-                                        
+                                        </div>
                                         
                                 </div>
+
+                            </div>
 							</form>
 							    <div th:text="${mensaje}"></div>
                         </div>
