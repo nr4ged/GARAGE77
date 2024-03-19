@@ -190,7 +190,6 @@
 
             <!-- Recent Orders Table -->
             <div class="recent-orders">
-                
                 <div>
                     <h2 style="text-align: center;"><span class="danger">Stock</span> Disponible</h2>
                     <input type="text" id="filtro" placeholder="Filtrar por Descripcion">
@@ -211,6 +210,7 @@
                                 <th></th>
                             </tr>
                         </thead>
+
                         <tbody>
                             <tr th:each="c : ${lstCliente}">
                                 <th scope="row" th:text="${c.codigo}">1</th>
