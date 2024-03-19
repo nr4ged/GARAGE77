@@ -19,10 +19,21 @@
             <form th:object="${usuario}">
                 <h1>Bienvenido de vuelta</h1>
                 <div class="social-icons">
+                  <span>Inicia sesion con tu Usuario y Clave</span>
                 </div>
-                <span>Ingresa tu Usuario y Clave</span>
-                <input type="text" id="inputUsu" placeholder="Usuario" name="usuario" th:value="${usuario}" required>
-                <input type="password" id="inputPsw" placeholder="Clave" name="clave" th:value="${clave}" required>
+                <br>
+                
+                <div class="form-floating mb-3">
+                  
+                  <input type="email" class="form-control" id="floatingInput" placeholder="Usuario" th:value="${usuario}">
+                  
+                </div>
+                <div class="form-floating">
+                  
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Clave" th:value="${clave}">
+                  
+                </div>
+
                 <button type="button" onclick="validarInicioSesionUsuario()">Iniciar Sesion</button>
             </form>
         </div>
@@ -31,11 +42,21 @@
             <form th:object="${cliente}">
                 <h1>Bienvenido</h1>
                 <div class="social-icons">
+                  <span>Inicia sesion con tu Usuario y Clave</span>
                 </div>
-                <span>Inicia sesion con tu Codigo y DNI</span>
-                <input type="text" id="inputCod" placeholder="Codigo" name="codigo" th:value="${codigo}" required>
-                <input type="password" id="inputCla" placeholder="DNI" th:value="${nru_documento}" required>
-                <a href="#">¿Olvidaste la contraseña?</a>
+                
+
+                <div class="form-floating mb-3">
+                  
+                  <input type="email" class="form-control" id="floatingInput" placeholder="Usuario" th:value="${usuario}">
+                  
+                </div>
+                <div class="form-floating">
+                  
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Clave" th:value="${clave}">
+                  
+                </div>
+
                 <button type="button" onclick="validarInicioSesionCliente()">Iniciar Sesion</button>
             </form>
         </div>
