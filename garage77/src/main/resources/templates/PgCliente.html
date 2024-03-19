@@ -100,9 +100,9 @@
 
                 <div class="sales">
                     <div>
-
+                        <h2 style="text-align: center;">Datos del <span class="danger">Cliente</span> </h2>
                         <div class="info">
-                            <h2 style="text-align: center;">Datos del <span class="danger">Cliente</span> </h2>
+                            
 						    <br>
 							<form action="/PgCliente" method="post">
                                 <div style="text-align: center;">
@@ -147,6 +147,7 @@
                                         <div class="btn-container">
                                             <br>
                                             <button><a href="/LsClientes"></a>Listar Todos</button>
+                                            <br>
                                         </div>
 
                                 </div>
@@ -219,52 +220,62 @@
             <!-- End of Analyses -->
 
             <!-- Recent Orders Table -->
-            <div class="recent-orders">
-                <br>
-                <h2 style="text-align: center;">Trabajo <span class="danger">Solicitado e Insumos</span> </h2>
+            <div class="analysee">
+                <div>
+                    <h2 style="text-align: center;">Trabajo <span class="danger">Solicitado e Insumos</span> </h2>
+                    <input type="text" id="filtro" placeholder="Filtrar por Descripcion">
+                    
+                    <table id="id_table" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Servicios</th>
+                                <th></th>
+                            </tr>
+                        </thead>
 
-                <table>
-                    <tr>
-                      <th></th>
-                      <th>Servicios</th>
-                      <th></th>
-                    </tr>
-                    <tr>
-                      <td>
-                          <label> Lavado Vehicular </label> <input type="checkbox" name="servicio" value="lavado_vehicular"><br>
-                          <label> Lavado de Salon <input type="checkbox" name="servicio" value="lavado_salon"></label><br>
-                          <label> Pintura <input type="checkbox" name="servicio" value="pintura"></label><br>
-                          <label> Encerado <input type="checkbox" name="servicio" value="encerado"></label><br>
-                          <label> Undercoating <input type="checkbox" name="servicio" value="undercoating"></label><br>
-                          <label> Rev. Susp. D. <input type="checkbox" name="servicio" value="rev_susp_d"></label><br>
-                          <label> Rev. Susp. P. <input type="checkbox" name="servicio" value="rev_susp_p"></label><br>
-                          <label> Zincado <input type="checkbox" name="servicio" value="zincado"></label><br>
-                          <label> Pulverizado de Motor <input type="checkbox" name="servicio" value="pulverizado_motor"></label><br>
-                      </td>
-                      <td>
-                          <label> Mantenimiento de Frenos <input type="checkbox" name="servicio" value="mantenimiento_frenos"></label><br>
-                          <label> Cambio de Bujias <input type="checkbox" name="servicio" value="cambio_bujias"></label><br>
-                          <label> Alineamiento de Dirección <input type="checkbox" name="servicio" value="alineamiento_direccion"></label><br>
-                          <label> Cambio de aceite <input type="checkbox" name="servicio" value="cambio_aceite"></label><br>
-                          <label> Revisión de Niveles <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
-                          <label> Revision de Fajas <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
-                          <label> Rotac. Neumáticos <input type="checkbox" name="servicio" value="rotac_neumaticos"></label><br>
-                          <label> Lavado de Motor <input type="checkbox" name="servicio" value="LavadoMotor"></label><br>
-                      </td>
-                      <td>
-                        <label> Limpieza de Obturador <input type="checkbox" name="servicio" value="mantenimiento_frenos"></label><br>
-                        <label> Limpieza de Inyectores <input type="checkbox" name="servicio" value="cambio_bujias"></label><br>
-                        <label> Filtro de Acondicionado <input type="checkbox" name="servicio" value="alineamiento_direccion"></label><br>
-                        <label> Cambio de aceite <input type="checkbox" name="servicio" value="cambio_aceite"></label><br>
-                        <label> Aceite de Caja <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
-                        <label> Escaneo <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
-                        <label> Revision de Bobinas <input type="checkbox" name="servicio" value="rotac_neumaticos"></label><br>
-                        <label> Filtro de Aire <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
-                        <label> Filtro de Aceite <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
-                        <label> Filtro de Petroleo <input type="checkbox" name="servicio" value="rotac_neumaticos"></label><br>
-                      </td>
-                    </tr>
-                  </table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label> Lavado Vehicular </label> <input type="checkbox" name="servicio" value="lavado_vehicular"><br>
+                                    <label> Lavado de Salon <input type="checkbox" name="servicio" value="lavado_salon"></label><br>
+                                    <label> Pintura <input type="checkbox" name="servicio" value="pintura"></label><br>
+                                    <label> Encerado <input type="checkbox" name="servicio" value="encerado"></label><br>
+                                    <label> Undercoating <input type="checkbox" name="servicio" value="undercoating"></label><br>
+                                    <label> Rev. Susp. D. <input type="checkbox" name="servicio" value="rev_susp_d"></label><br>
+                                    <label> Rev. Susp. P. <input type="checkbox" name="servicio" value="rev_susp_p"></label><br>
+                                    <label> Zincado <input type="checkbox" name="servicio" value="zincado"></label><br>
+                                    <label> Pulverizado de Motor <input type="checkbox" name="servicio" value="pulverizado_motor"></label><br>
+                                </td>
+
+                                <td>
+                                    <label> Mantenimiento de Frenos <input type="checkbox" name="servicio" value="mantenimiento_frenos"></label><br>
+                                    <label> Cambio de Bujias <input type="checkbox" name="servicio" value="cambio_bujias"></label><br>
+                                    <label> Alineamiento de Dirección <input type="checkbox" name="servicio" value="alineamiento_direccion"></label><br>
+                                    <label> Cambio de aceite <input type="checkbox" name="servicio" value="cambio_aceite"></label><br>
+                                    <label> Revisión de Niveles <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
+                                    <label> Revision de Fajas <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
+                                    <label> Rotac. Neumáticos <input type="checkbox" name="servicio" value="rotac_neumaticos"></label><br>
+                                    <label> Lavado de Motor <input type="checkbox" name="servicio" value="LavadoMotor"></label><br>
+                                </td>
+
+                                <td>
+                                    <label> Limpieza de Obturador <input type="checkbox" name="servicio" value="mantenimiento_frenos"></label><br>
+                                    <label> Limpieza de Inyectores <input type="checkbox" name="servicio" value="cambio_bujias"></label><br>
+                                    <label> Filtro de Acondicionado <input type="checkbox" name="servicio" value="alineamiento_direccion"></label><br>
+                                    <label> Cambio de aceite <input type="checkbox" name="servicio" value="cambio_aceite"></label><br>
+                                    <label> Aceite de Caja <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
+                                    <label> Escaneo <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
+                                    <label> Revision de Bobinas <input type="checkbox" name="servicio" value="rotac_neumaticos"></label><br>
+                                    <label> Filtro de Aire <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
+                                    <label> Filtro de Aceite <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
+                                    <label> Filtro de Petroleo <input type="checkbox" name="servicio" value="rotac_neumaticos"></label><br>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
             <!-- End of Recent Orders -->
 
