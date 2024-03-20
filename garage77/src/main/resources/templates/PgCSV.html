@@ -216,15 +216,49 @@
 
                     <br>
 
-                    <h3>Lavado</h3>
-
-                    <!--  <select id="inputTipo"
-									th:field="*{CSV}" class="form-control">
-									<option value="-1">Seleccione...</option>
-									<option th:each="t : ${lstInsumos}"
-                                    th:value="${t.codInsumo}"
-                                    th:text="${t.desInsumo}"></option>
-								</select> -->
+                    <div class="recent-orders">
+                
+                        <div>
+                            <h2 style="text-align: center;"><span class="danger">Insumos</span> Disponibles</h2>
+                            <input type="text" id="filtro" placeholder="Filtrar por Descripcion">
+                            
+                            <table id="id_table" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Codigo </th>
+                                        <th>Descripcion </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="i : ${lstInsumos}">
+                                        <th scope="row" th:text="${i.codInsumo}">Nombre del cliente</th>
+                                        <td th:text="${i.desInsumo}">Teléfono del cliente</td>
+                                        <td>
+                                            <form
+                                                th:action="@{/LsInsumos/editar/{i.codInsumo}(i.codInsumo=${i.codInsumo})}"
+                                                method="get">
+                                                <button type="submit" class="btn btn-link p-0">
+                                                    <img
+                                                        src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/edit-256.png"
+                                                        style="width: 30px;">
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+        
+                        <div id="pagination" style="text-align: center; margin-top: 20px;">
+                            <div id="buttonsContainer">
+                                <button id="prevBtn" style="color: #fff; background-color: #1C9028">Anterior</button>
+                                <button id="nextBtn" style="color: #fff; background-color: #1C9028">Siguiente</button>
+                            </div>
+                            <span id="currentPage"></span>
+                        </div>
+                        </div>
+                    </div>
 
                     <!-- <h3>Mantenimiento</h3>
                     <select name="mantenimiento" id="mantenimiento" multiple>

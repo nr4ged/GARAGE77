@@ -185,7 +185,7 @@
                         </thead>
                         <tbody>
                             <tr th:each="c : ${lstClientes}">
-                                <td th:text="${c.nombre}">Nombre del cliente</td>
+                                <th scope="row" th:text="${c.nombre}">Nombre del Cliente</th>
                                 <td th:text="${c.telefono}">Teléfono del cliente</td>
                                 <td th:text="${c.dni}">DNI del cliente</td>
                                 <td th:text="${c.horaRecep}">Hora de recepción del cliente</td>
