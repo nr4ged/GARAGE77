@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/css/multi-select-tag.css">
     <link rel="stylesheet" href="/css/mant.css">
     <title>Mantenimiento - GARAGE 77</title>
 </head>
@@ -101,57 +102,56 @@
                 <div class="sales">
                     <div>
                         <h2 style="text-align: center;">Datos del <span class="danger">Cliente</span> </h2>
+                        
                         <div class="info">
                             
-                            
+
 						    <br>
 							<form action="/PgCSV" method="post" th:object="${CSV}">
                                 <div style="text-align: center;">
+
+                                    <label for="inputCod">Nombre</label> <input type="text"
+                                    class="form-control" id="inputCod" placeholder="nombre"
+                                    name="nombreCliente"  required>
+                                    <br>
+                                    
+									<label for="inputNom">telefono</label> <input type="number"
+                                    class="form-control" id="inputNom" placeholder="telefono"
+                                    name="telefonoCliente" required>
 								
+								    <br>
+								
+									<label for="inputApe">Dni Cliente</label> <input type="number"
+                                    class="form-control" id="inputApe" placeholder="dni"
+                                    name="dniCliente"  required>
+									
+								    <br>
+									
+									<label for="inputHora">Hora de Recepcion: </label> <input type="time"
+                                    class="form-control" id="inputHora" placeholder="Hora Recepcion"
+                                    name="horaRecep"  required>
+
+                                    <br>
+
+                                    <label for="inputHora">Hora de Entrada: </label> <input type="time"
+                                    class="form-control" id="inputHora" placeholder="Hora Entrega"
+                                    name="horaEntrega"  required>
+
+                                    <br>
+
+                                    <label for="inputFech">Fecha de Entrada: </label> <input type="date"
+                                    class="form-control" id="inputFech" placeholder="Fecha"
+                                    name="fechaCliente" required>
+
+                                    <br>
+
+                                    <div class="btn-container" style="text-align: center;">
+                                        <br>
+                                        <button type="submit" name="action" value="Listar" class="btn btn-primary">Listar Todos</button>
+                                    </div>
                                         
 
-                                        <label for="inputCod">Nombre</label> <input type="text"
-                                        class="form-control" id="inputCod" placeholder="nombre"
-                                        name="nombreCliente" required>
-                                    
-									     <label for="inputNom">telefono</label> <input type="number"
-                                            class="form-control" id="inputNom" placeholder="telefono"
-                                            name="telefonoCliente" required>
-								
-								        <br>
-								
-									
-									    <label for="inputApe">Dni Cliente</label> <input type="number"
-                                            class="form-control" id="inputApe" placeholder="dni"
-                                            name="dniCliente"  required>
-									
-								        <br>
-									
-									    <label for="inputHora">Hora de Recepcion: </label> <input type="time"
-                                        class="form-control" id="inputHora" placeholder="Hora Recepcion"
-                                        name="horaRecep"  required>
-
-                                        <br>
-
-                                        <label for="inputHora">Hora de Entrada: </label> <input type="time"
-                                        class="form-control" id="inputHora" placeholder="Hora Entrega"
-                                        name="horaEntrega" required>
-
-                                        <br>
-
-                                        <label for="inputFech">Fecha de Entrada: </label> <input type="date"
-                                        class="form-control" id="inputFech" placeholder="Fecha"
-                                        name="fechaCliente" required>
-
-                                        <br>
-
-                                        <div class="btn-container">
-                                            <br>
-                                            
-                                        </div>
-
                                 </div>
-							
 							    <div th:text="${mensaje}"></div>
                         </div>
                     </div>
@@ -159,72 +159,105 @@
 
                 <div class="visits">
                     <div>
-
+                        <h2 style="text-align: center;">Datos del <span class="danger">Vehiculo</span> </h2>
                         <div class="info">
-                            
-                            <h2 style="text-align: center;">Datos del <span class="danger">Vehiculo</span> </h2>
-						        <br>
+                            <br>
 
-                                        <label for="inputPlaca">Placa: </label> <input type="text"
-                                            class="form-control" id="inputPlaca" placeholder="Placa"
-                                            name="placa" required>
+                            <label for="inputPlaca">Placa: </label> <input type="text"
+                            class="form-control" id="inputPlaca" placeholder="Placa"
+                            name="placa" >
                                         
-                                        <br>
+                            <br>
 
-                                        <label for="inputAnno">Año:</label><input type="number" style="width:155px;"
-                                        class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                                        name="añoVehiculo" required>
+                            <label for="inputAnno">Año:</label><input type="number" style="width:155px;"
+                            class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
+                            name="añoVehiculo" >
                                         
-                                        <br>
+                            <br>
 
-                                        <label for="inputKilo">Kilometraje: </label> <input type="number"
-								        class="form-control" id="inputKilo" placeholder="Kilometraje"
-								        name="kmActual" required>
+                            <label for="inputKilo">Kilometraje: </label> <input type="number"
+						    class="form-control" id="inputKilo" placeholder="Kilometraje"
+							name="kmActual" >
 								
-								        <br>
+							<br>
 
-                                        <label for="inputKilo">Kilometraje Aprox: </label> <input type="number"
-								        class="form-control" id="inputKilo" placeholder="Kilometraje Aprox"
-								        name="kmAprox" required>
+                            <label for="inputKilo">Kilometraje Aprox: </label> <input type="number"
+							class="form-control" id="inputKilo" placeholder="Kilometraje Aprox"
+							name="kmAprox">
 								
-								        <br>
+						    <br>
 							        
 								        
-                                        <label for="inputMarca">Marca: </label> <input type="text"
-                                        class="form-control" id="inputMarca" placeholder="Marca"
-                                        name="marca" required>
+                            <label for="inputMarca">Marca: </label> <input type="text"
+                            class="form-control" id="inputMarca" placeholder="Marca"
+                            name="marca" >
 								
-								        <br>
+							<br>
 								
-                                        <label for="inputModel">Modelo: </label> <input type="text"
-                                        class="form-control" id="inputModel" placeholder="Modelo"
-                                        name="modelo" required>
+                            <label for="inputModel">Modelo: </label> <input type="text"
+                            class="form-control" id="inputModel" placeholder="Modelo"
+                            name="modelo" >
 								
-                                        <br>    
-                                        
-                                        <div class="btn-container">
-                                            <br>
-                                            <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
-                                        </div>
-                                        
-                                        </div>
-						        </form>
-							        <div th:text="${mensaje}"></div>
-                        </div>
-                    </div>	
-                </div>
+                            <br>
 
-                
+                            <div class="btn-container" style="text-align: center;">
+                                <br>
+                                <button type="submit" name="action" value="Listar" class="btn btn-primary">Listar Todos</button>
+                            </div>
+
+                            <div class="btn-container" style="text-align: center;"> 
+                                <br>
+                                <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
+                            </div>          
+                                        
+                        </div>
+						    </form>
+							<div th:text="${mensaje}"></div>
+                    </div>
+                    
+                </div>	
+
             </div>
-          
 
             
             <div class="analysee">
                 <div>
                     <h2 style="text-align: center;">Trabajo <span class="danger">Solicitado e Insumos</span> </h2>
-                    <input type="text" id="filtro" placeholder="Filtrar por Descripcion">
+                    <br>
+                    <h3>Lavado</h3>
+                    <select name="lavado" id="lavado" multiple>
+                        <option value="1">Lavado Vehicular</option>
+                        <option value="2">Lavado de Salon</option>
+                        <option value="3">Lavado de Motor</option>
+                        <option value="4">Canada</option>
+                        <option value="5">Undercoating</option>
+                    </select>
+                    <h3>Mantenimiento</h3>
+                    <select name="mantenimiento" id="mantenimiento" multiple>
+                        <option value="1">Mantenimiento de Frenos</option>
+                        <option value="2">Australia</option>
+                        <option value="3">Germany</option>
+                        <option value="4">Canada</option>
+                        <option value="5">Russia</option>
+                    </select>
+                    <h3>Servicio</h3>
+                    <select name="servicio" id="servicio" multiple>
+                        <option value="1">Afghanistan</option>
+                        <option value="2">Australia</option>
+                        <option value="3">Germany</option>
+                        <option value="4">Canada</option>
+                        <option value="5">Russia</option>
+                    </select>
+                    <h3>Otros</h3>
+                    <select name="otros" id="otros" multiple>
+                        <option value="1">Afghanistan</option>
+                        <option value="2">Australia</option>
+                        <option value="3">Germany</option>
+                        <option value="4">Canada</option>
+                        <option value="5">Russia</option>
+                    </select>
                     
-                    <table id="id_table" class="table table-striped">
+                    <table id="id_table" class="table table-striped" style="text-align: center;">
                         <thead>
                             <tr>
                                 <th></th>
@@ -233,14 +266,14 @@
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody style="text-align: center;">
                             <tr>
                                 <td>
-                                    <label> Lavado Vehicular </label> <input type="checkbox" name="servicio" value="lavado_vehicular"><br>
-                                    <label> Lavado de Salon <input type="checkbox" name="servicio" value="lavado_salon"></label><br>
+                                    <label>  </label> <input type="checkbox" name="servicio" value="lavado_vehicular"><br>
+                                    <label>  <input type="checkbox" name="servicio" value="lavado_salon"></label><br>
                                     <label> Pintura <input type="checkbox" name="servicio" value="pintura"></label><br>
                                     <label> Encerado <input type="checkbox" name="servicio" value="encerado"></label><br>
-                                    <label> Undercoating <input type="checkbox" name="servicio" value="undercoating"></label><br>
+                                    <label>  <input type="checkbox" name="servicio" value="undercoating"></label><br>
                                     <label> Rev. Susp. D. <input type="checkbox" name="servicio" value="rev_susp_d"></label><br>
                                     <label> Rev. Susp. P. <input type="checkbox" name="servicio" value="rev_susp_p"></label><br>
                                     <label> Zincado <input type="checkbox" name="servicio" value="zincado"></label><br>
@@ -248,14 +281,14 @@
                                 </td>
 
                                 <td>
-                                    <label> Mantenimiento de Frenos <input type="checkbox" name="servicio" value="mantenimiento_frenos"></label><br>
+                                    <label>  <input type="checkbox" name="servicio" value="mantenimiento_frenos"></label><br>
                                     <label> Cambio de Bujias <input type="checkbox" name="servicio" value="cambio_bujias"></label><br>
                                     <label> Alineamiento de Dirección <input type="checkbox" name="servicio" value="alineamiento_direccion"></label><br>
                                     <label> Cambio de aceite <input type="checkbox" name="servicio" value="cambio_aceite"></label><br>
                                     <label> Revisión de Niveles <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
                                     <label> Revision de Fajas <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
                                     <label> Rotac. Neumáticos <input type="checkbox" name="servicio" value="rotac_neumaticos"></label><br>
-                                    <label> Lavado de Motor <input type="checkbox" name="servicio" value="LavadoMotor"></label><br>
+                                    <label>  <input type="checkbox" name="servicio" value="LavadoMotor"></label><br>
                                 </td>
 
                                 <td>
@@ -264,7 +297,7 @@
                                     <label> Filtro de Acondicionado <input type="checkbox" name="servicio" value="alineamiento_direccion"></label><br>
                                     <label> Cambio de aceite <input type="checkbox" name="servicio" value="cambio_aceite"></label><br>
                                     <label> Aceite de Caja <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
-                                    <label> Escaneo <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
+                                    <label>  <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
                                     <label> Revision de Bobinas <input type="checkbox" name="servicio" value="rotac_neumaticos"></label><br>
                                     <label> Filtro de Aire <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
                                     <label> Filtro de Aceite <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
@@ -382,6 +415,23 @@
 
 
     </div>
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
+    <script>
+        new MultiSelectTag('lavado')  // id
+    </script>
+
+    <script>
+        new MultiSelectTag('mantenimiento')  // id
+    </script>
+
+    <script>
+        new MultiSelectTag('servicio')  // id
+    </script>
+
+    <script>
+        new MultiSelectTag('otros')  // id
+    </script>
+
 
     <script src="/js/"></script>
     <script src="/js/index.js"></script>
