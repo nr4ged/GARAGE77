@@ -193,7 +193,7 @@
                                 <td th:text="${c.fecha}">Fecha del cliente</td>
                                 <td>
                                     <form
-                                        th:action="@{/PgCliente/editar/{c.dni}(c.dni=${c.dni})}"
+                                        th:action="@{/LsClientes/editar/{c.dni}(c.dni=${c.dni})}"
                                         method="get">
                                         <button type="submit" class="btn btn-link p-0">
                                             <img
