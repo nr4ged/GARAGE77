@@ -39,6 +39,11 @@ public class ProyectoController {
 			return "LsInsumos";
 		}
 
+		@GetMapping("/LsServicio")
+		public String cargarServicios() {
+			return "LsServicio";
+		}
+
 		@GetMapping("/LsClientes")
 		public String cargarPgCliente(Model model) {
 		model.addAttribute("cliente", new Cliente());

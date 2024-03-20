@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="/css/inventario.css">
-    <title>Listado Vehiculos - GARAGE 77</title>
+    <title>Listado Servicios - GARAGE 77</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="/Index" >
+                <a href="/Index">
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
@@ -94,64 +94,64 @@
 
         <!-- Main Content -->
         <main>
-            <h1>Vehiculos</h1>
+            <h1>Insumos</h1>
             <!-- Analyses -->
             <div class="analyse">
 
                 <div class="sales">
                     <div>
-                        <h2 style="text-align: center;">Datos del <span class="danger">Vehiculo</span></h2>
+                        <h2 style="text-align: center;">Datos del <span class="danger">Servicio</span></h2>
                         <div class="info">
 						    <br>
-							<form action="/LsVehiculos" method="post" th:object="${CSV}">
+							<form action="/LsClientes" method="post" th:object="${CSV}">
                                 <div style="text-align: center;">
-
-                                    <label for="inputMarca">Marca: </label> <input type="text"
-                                    class="form-control" id="inputMarca" placeholder="Marca"
-                                    name="marca" required>
-                            
-                                    <br>
-                            
-                                    <label for="inputModel">Modelo: </label> <input type="text"
-                                    class="form-control" id="inputModel" placeholder="Modelo"
-                                    name="modelo" required >
-                            
-                                    <br>
-                            
-                                
-                                    <label for="inputPlaca">Placa: </label> <input type="text"
-                                    class="form-control" id="inputPlaca" placeholder="Placa"
-                                    name="placa" required>
-
-                                    <br>
-
-                                    <label for="inputKilo">Kilometraje: </label> <input type="number"
-                                    class="form-control" id="inputKilo" placeholder="Kilometraje"
-                                    name="kilometraje" required>
-                            
-                                    <br>
-
-                                    <label for="inputKilo">Kilometraje Aprox: </label> <input type="number"
-								        class="form-control" id="inputKilo" placeholder="Kilometraje Aprox"
-								        name="kilometraje" required>
 								
-								        <br>
-
-                                    <label for="inputAnno">Año:</label><input type="number" style="width:155px;"
-                                    class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                                    name="anno" required>
+                                    <label for="inputCod">Nombre</label> <input type="text"
+										class="form-control" id="inputCod" placeholder="nombre"
+										name="Nombre" required>
+                        
+                                <br>
+                        
+                                    <label for="inputNom">telefono</label> <input type="number"
+                                            class="form-control" id="inputNom" placeholder="telefono"
+                                            name="telefono"required>
+                        
+                                <br>
+                        
                             
-                                    <br>     
+                                    <label for="inputApe">Dni Cliente</label> <input type="number"
+                                            class="form-control" id="inputApe" placeholder="dni"
+                                            name="dni" required>
+                            
+                                <br>
+                            
+                                    <label for="inputHora">Hora de Recepcion: </label> <input type="time"
+                                        class="form-control" id="inputHora" placeholder="Hora Recepcion"
+                                        name="horarecepcion" required>
 
-                                        <div class="btn-container">
-                                            <br>
-                                            <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
-                                            <button type="submit" name="action" value="actualizar" class="btn btn-warning">Actualizar</button>
-                                            <br>
-                                            <button type="submit" name="action" value="eliminar" class="btn btn-danger">Eliminar</button>
-                                            <button type="button" class="btn btn-secondary" onclick="limpiarCamposCliente()">Limpiar</button>
-                                            <br>
-                                        
+                                <br>
+
+                                    <label for="inputHora">Hora de Entrada: </label> <input type="time"
+                                        class="form-control" id="inputHora" placeholder="Hora Entrega"
+                                        name="horarecepcion" required>
+
+                                <br>
+
+                                    <label for="inputFech">Fecha de Entrada: </label> <input type="date"
+                                        class="form-control" id="inputFech" placeholder="Fecha de Entrada"
+                                        name="fechaentrada" required>
+
+                                <br>
+
+                                <div class="btn-container">
+                                    <br>
+                                    <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
+                                    <button type="submit" name="action" value="actualizar" class="btn btn-warning">Actualizar</button>
+                                    <br>
+                                    <button type="submit" name="action" value="eliminar" class="btn btn-danger">Eliminar</button>
+                                    <button type="button" class="btn btn-secondary" onclick="limpiarCamposCliente()">Limpiar</button>
+                                    <br>
+                                    
                                         
                                 </div>
 							</form>
@@ -168,44 +168,44 @@
             <div class="recent-orders">
                 
                 <div>
-                    <h2 style="text-align: center;"><span class="danger">Vehiculos</span> Disponibles</h2>
+                    <h2 style="text-align: center;"><span class="danger">Servicios</span> Registrados</h2>
                     <input type="text" id="filtro" placeholder="Filtrar por Descripcion">
                     
                     <table id="id_table" class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Placa </th>
-                                <th>Año </th>
-                                <th>Km Actual </th>
-                                <th>Kilometraje Aprox</th>
-                                <th>Marca</th>
-                                <th>Modelo</th>
+                                <th>Nombre </th>
+                                <th>Teléfono </th>
+                                <th>DNI </th>
+                                <th>Hora de Recepción </th>
+                                <th>Hora de Entrada </th>
+                                <th>Fecha de Entrada </th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="v : ${lstVehiculos}">
-                                <th scope="row" th:text="${v.placa}">1</th>
-                                <td th:text="${v.añoVehiculo}">xx</td>
-                                <td th:text="${v.kmActual}">xx</td>
-                                <td th:text="${v.kmAprox}">xx</td>
-                                <td th:text="${v.marca}">xx</td>
-                                <td th:text="${v.modelo}">xx</td>
+                            <tr th:each="c : ${lstClientes}">
+                                <td th:text="${c.nombre}">Nombre del cliente</td>
+                                <td th:text="${c.telefono}">Teléfono del cliente</td>
+                                <td th:text="${c.dni}">DNI del cliente</td>
+                                <td th:text="${c.horaRecep}">Hora de recepción del cliente</td>
+                                <td th:text="${c.horaEntrega}">Hora de entrega del cliente</td>
+                                <td th:text="${c.fecha}">Fecha del cliente</td>
                                 <td>
                                     <form
-                                        th:action="@{/LsVehiculos/editar/{placa}(placa=${v.placa})}"
+                                        th:action="@{/PgCliente/editar/{c.dni}(c.dni=${c.dni})}"
                                         method="get">
-                                            <button type="submit" class="btn btn-link p-0">
+                                        <button type="submit" class="btn btn-link p-0">
                                             <img
                                                 src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/edit-256.png"
                                                 style="width: 30px;">
-                                            </button>
+                                        </button>
                                     </form>
-                                    
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    
 
                 <div id="pagination" style="text-align: center; margin-top: 20px;">
                     <div id="buttonsContainer">
