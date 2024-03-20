@@ -35,6 +35,11 @@ public class ProyectoController {
 			return "Listados";
 		}
 
+		@GetMapping("/LsInsumos")
+		public String cargarInsumos() {
+			return "LsInsumos";
+		}
+
 		@GetMapping("/LsClientes")
 		public String cargarPgCliente(Model model) {
 		model.addAttribute("cliente", new Cliente());

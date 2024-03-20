@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="/css/inventario.css">
+    <title>Listado Insumos - GARAGE 77</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Sidebar Section -->
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="assets/logo.png">
+                    <h2>Garage <span class="danger">77</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="/Index">
+                    <span class="material-icons-sharp">
+                        dashboard
+                    </span>
+                    <h3>Menu Principal</h3>
+                </a>
+                <a href="/PgCSV">
+                    <span class="material-icons-sharp">
+                        person_outline
+                    </span>
+                    <h3>Mantenimiento</h3>
+                </a>
+                <a href="/PgMecanico" >
+                    <span class="material-icons-sharp">
+                        receipt_long
+                    </span>
+                    <h3>Mecanico</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        insights
+                    </span>
+                    <h3>Reportes</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        mail_outline
+                    </span>
+                    <h3>Facturas</h3>
+                    <span class="message-count">27</span>
+                </a>
+                <a href="/Listados" class="active">
+                    <span class="material-icons-sharp">
+                        report_gmailerrorred
+                    </span>
+                    <h3>Listados</h3>
+                </a>
+                <a href="/PgInventario">
+                    <span class="material-icons-sharp">
+                        inventory
+                    </span>
+                    <h3>Inventario</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        settings
+                    </span>
+                    <h3>Ajustes</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        add
+                    </span>
+                    <h3>Nuevo Usuario</h3>
+                </a>
+                <a href="/Login">
+                    <span class="material-icons-sharp">
+                        logout
+                    </span>
+                    <h3>Cerrar Sesion</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- End of Sidebar Section -->
+
+        <!-- Main Content -->
+        <main>
+            <h1>Insumos</h1>
+            <!-- Analyses -->
+            <div class="analyse">
+
+                <div class="sales">
+                    <div>
+                        <h2 style="text-align: center;">Datos del <span class="danger">Insumos</span></h2>
+                        <div class="info">
+						    <br>
+							<form action="/LsClientes" method="post" th:object="${CSV}">
+                                <div style="text-align: center;">
+								
+                                    <label for="inputCod">Nombre</label> <input type="text"
+										class="form-control" id="inputCod" placeholder="nombre"
+										name="Nombre" required>
+                        
+                                <br>
+                        
+                                    <label for="inputNom">telefono</label> <input type="number"
+                                            class="form-control" id="inputNom" placeholder="telefono"
+                                            name="telefono"required>
+                        
+                                <br>
+                        
+                            
+                                    <label for="inputApe">Dni Cliente</label> <input type="number"
+                                            class="form-control" id="inputApe" placeholder="dni"
+                                            name="dni" required>
+                            
+                                <br>
+                            
+                                    <label for="inputHora">Hora de Recepcion: </label> <input type="time"
+                                        class="form-control" id="inputHora" placeholder="Hora Recepcion"
+                                        name="horarecepcion" required>
+
+                                <br>
+
+                                    <label for="inputHora">Hora de Entrada: </label> <input type="time"
+                                        class="form-control" id="inputHora" placeholder="Hora Entrega"
+                                        name="horarecepcion" required>
+
+                                <br>
+
+                                    <label for="inputFech">Fecha de Entrada: </label> <input type="date"
+                                        class="form-control" id="inputFech" placeholder="Fecha de Entrada"
+                                        name="fechaentrada" required>
+
+                                <br>
+
+                                <div class="btn-container">
+                                    <br>
+                                    <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
+                                    <button type="submit" name="action" value="actualizar" class="btn btn-warning">Actualizar</button>
+                                    <br>
+                                    <button type="submit" name="action" value="eliminar" class="btn btn-danger">Eliminar</button>
+                                    <button type="button" class="btn btn-secondary" onclick="limpiarCamposCliente()">Limpiar</button>
+                                    <br>
+                                    
+                                        
+                                </div>
+							</form>
+							    <div th:text="${mensaje}"></div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+            <!-- End of Analyses -->
+
+            <!-- Recent Orders Table -->
+            <div class="recent-orders">
+                
+                <div>
+                    <h2 style="text-align: center;"><span class="danger">Insumos</span> Disponibles</h2>
+                    <input type="text" id="filtro" placeholder="Filtrar por Descripcion">
+                    
+                    <table id="id_table" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nombre </th>
+                                <th>Teléfono </th>
+                                <th>DNI </th>
+                                <th>Hora de Recepción </th>
+                                <th>Hora de Entrada </th>
+                                <th>Fecha de Entrada </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="c : ${lstClientes}">
+                                <td th:text="${c.nombre}">Nombre del cliente</td>
+                                <td th:text="${c.telefono}">Teléfono del cliente</td>
+                                <td th:text="${c.dni}">DNI del cliente</td>
+                                <td th:text="${c.horaRecep}">Hora de recepción del cliente</td>
+                                <td th:text="${c.horaEntrega}">Hora de entrega del cliente</td>
+                                <td th:text="${c.fecha}">Fecha del cliente</td>
+                                <td>
+                                    <form
+                                        th:action="@{/PgCliente/editar/{c.dni}(c.dni=${c.dni})}"
+                                        method="get">
+                                        <button type="submit" class="btn btn-link p-0">
+                                            <img
+                                                src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/edit-256.png"
+                                                style="width: 30px;">
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+
+                <div id="pagination" style="text-align: center; margin-top: 20px;">
+                    <div id="buttonsContainer">
+                        <button id="prevBtn" style="color: #fff; background-color: #1C9028">Anterior</button>
+                        <button id="nextBtn" style="color: #fff; background-color: #1C9028">Siguiente</button>
+                    </div>
+                    <span id="currentPage"></span>
+                </div>
+                </div>
+            </div>
+            <!-- End of Recent Orders -->
+        </main>
+        <!-- End of Main Content -->
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="nav">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">
+                        menu
+                    </span>
+                </button>
+                <div class="dark-mode">
+                    <span class="material-icons-sharp active">
+                        light_mode
+                    </span>
+                    <span class="material-icons-sharp">
+                        dark_mode
+                    </span>
+                </div>
+
+                <div class="profile">
+                    <div class="info">
+                        <p>Bienvenido, <b>Admin</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="images/profile-1.jpg">
+                    </div>
+                </div>
+
+            </div>
+            <!-- End of Nav -->
+
+            <div class="user-profile">
+                <div class="logo">
+                    <img src="assets/logo.png">
+                    <h2>Garage 77</h2>
+                    <p>Automotriz de confianza</p>
+                </div>
+            </div>
+
+
+
+            <div class="reminders">
+                <div class="header">
+                    <h2>Recordatorios</h2>
+                    <span class="material-icons-sharp">
+                        notifications_none
+                    </span>
+                </div>
+
+                <div class="notification">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            volume_up
+                        </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>Pagos Pendientes</h3>
+                            <small class="text_muted">
+                                5 deudas
+                            </small>
+                        </div>
+                        <span class="material-icons-sharp">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+
+                <div class="notification deactive">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            edit
+                        </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>Workshop</h3>
+                            <small class="text_muted">
+                                08:00 AM - 12:00 PM
+                            </small>
+                        </div>
+                        <span class="material-icons-sharp">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+
+                <div class="notification add-reminder">
+                    <div>
+                        <span class="material-icons-sharp">
+                            add
+                        </span>
+                        <h3>Add Reminder</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/"></script>
+    <script src="/js/index.js"></script>
+
+    <script>
+        var filtroInput = document.getElementById('filtro');
+        var elementos = document.querySelectorAll("tbody tr");
+    
+        filtroInput.addEventListener('input', function () {
+            var filtro = filtroInput.value.toLowerCase();
+    
+            elementos.forEach(function (elemento) {
+                var descripcionServicio = elemento.querySelector("td:nth-child(3)").textContent
+                    .toLowerCase();
+    
+                if (descripcionServicio.startsWith(filtro)) {
+                    elemento.style.display = "table-row";
+                } else {
+                    elemento.style.display = "none";
+                }
+            });
+        });
+    </script>
+
+    <script>
+            
+        var table = document.getElementById('id_table');
+        var prevBtn = document.getElementById('prevBtn');
+        var nextBtn = document.getElementById('nextBtn');
+        var currentPageElement = document.getElementById('currentPage');
+        
+        var rowsPerPage = 8;
+        var currentPage = 1;
+        
+        var totalRows = table.tBodies[0].rows.length;
+        var totalPages = Math.ceil(totalRows / rowsPerPage);
+        
+        function showPage(page) {
+            var startIndex = (page - 1) * rowsPerPage;
+            var endIndex = startIndex + rowsPerPage;
+        
+            for (var i = 0; i < totalRows; i++) {
+                var row = table.tBodies[0].rows[i];
+                row.style.display = 'none';
+            }
+        
+            for (var j = startIndex; j < endIndex && j < totalRows; j++) {
+                var row = table.tBodies[0].rows[j];
+                row.style.display = '';
+            }
+        
+            currentPageElement.textContent = 'Tabla ' + page + ' de '
+                    + totalPages;
+        }
+        
+        function goToPrevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+        
+        function goToNextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+        
+        showPage(currentPage);
+        
+        prevBtn.addEventListener('click', goToPrevPage);
+        nextBtn.addEventListener('click', goToNextPage);
+        
+        
+        
+    </script>
+
+
+    </body>
+
+</html>
