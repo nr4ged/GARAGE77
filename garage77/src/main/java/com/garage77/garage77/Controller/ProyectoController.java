@@ -8,12 +8,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.garage77.garage77.Model.Cliente;
 
 import com.garage77.garage77.Repository.IClienteRepository;
+import com.garage77.garage77.Repository.IVehiculoRepository;
 
 @Controller
 public class ProyectoController {
 
 	@Autowired
 	private IClienteRepository repoCli;
+
+	@Autowired
+	private IVehiculoRepository repoVehi;
 	
 		@GetMapping("/Login")
 		public String cargarLogin() {
@@ -23,11 +27,6 @@ public class ProyectoController {
 		@GetMapping("/Index")
 		public String cargarIndex() {
 			return "Index";
-		}
-
-		@GetMapping("/LsVehiculos")
-		public String cargarLsVehiculos() {
-			return "LsVehiculos";
 		}
 
 		@GetMapping("/Listados")
@@ -48,5 +47,12 @@ public class ProyectoController {
 		
 		return "LsClientes";
 	}
+
+	@GetMapping("/LsVehiculos")
+		public String cargarLsVehiculos(Model model) {
+			model.addAttribute("vehiculo", new Cliente());
+			model.addAttribute("lstVehiculos", repoVehi.findAll());
+			return "LsVehiculos";
+		}
 
     }
