@@ -109,54 +109,48 @@
 								
                                         
 
-                                    <label for="inputCod">Nombre</label> <input type="text"
-                                    class="form-control" id="inputCod" placeholder="nombre"
-                                    name="nombreCliente" required>
+                                        <label for="inputCod">Nombre</label> <input type="text"
+                                        class="form-control" id="inputCod" placeholder="nombre"
+                                        name="nombreCliente" th:value="${CSV.nombreCliente}" required>
                                     
-
-                                    
-
-                                    <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
-								        <br>
-								
-									    <!-- <label for="inputNom">telefono</label> <input type="number"
+									     <label for="inputNom">telefono</label> <input type="number"
                                             class="form-control" id="inputNom" placeholder="telefono"
-                                            name="telefono" th:value="${cliente.telefono} " required>
+                                            name="telefonoCliente" th:value="${CSV.telefonoCliente} " required>
 								
 								        <br>
 								
 									
 									    <label for="inputApe">Dni Cliente</label> <input type="number"
                                             class="form-control" id="inputApe" placeholder="dni"
-                                            name="dni" th:value="${cliente.dni}" required>
+                                            name="dniCliente" th:value="${CSV.dniCliente}" required>
 									
 								        <br>
 									
 									    <label for="inputHora">Hora de Recepcion: </label> <input type="time"
                                         class="form-control" id="inputHora" placeholder="Hora Recepcion"
-                                        name="horarecepcion" th:value="${cliente.horaRecep}" required>
+                                        name="horaRecep" th:value="${CSV.horaRecep}" required>
 
                                         <br>
 
                                         <label for="inputHora">Hora de Entrada: </label> <input type="time"
                                         class="form-control" id="inputHora" placeholder="Hora Entrega"
-                                        name="horarecepcion" th:value="${cliente.horaEntrega}" required>
+                                        name="horaEntrega" th:value="${CSV.horaEntrega}" required>
 
                                         <br>
 
                                         <label for="inputFech">Fecha de Entrada: </label> <input type="date"
                                         class="form-control" id="inputFech" placeholder="Fecha"
-                                        name="fecha" th:value="${cliente.fecha}" required>
+                                        name="fechaCliente" th:value="${CSV.fechaCliente}" required>
 
                                         <br>
 
                                         <div class="btn-container">
                                             <br>
-                                            <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
-                                        </div> -->
+                                            
+                                        </div>
 
                                 </div>
-							</form>
+							
 							    <div th:text="${mensaje}"></div>
                         </div>
                     </div>
@@ -169,55 +163,54 @@
                             
                             <h2 style="text-align: center;">Datos del <span class="danger">Vehiculo</span> </h2>
 						        <br>
-							        <!-- <form action="/PgCliente" method="post">
-								        <div style="text-align: center;">
-                                        <label for="inputMarca">Marca: </label> <input type="text"
-                                        class="form-control" id="inputMarca" placeholder="Marca"
-                                        name="marca">
-								
-								        <br>
-								
-                                        <label for="inputModel">Modelo: </label> <input type="text"
-                                        class="form-control" id="inputModel" placeholder="Modelo"
-                                        name="modelo">
-								
-								        <br>
-								
-									
-                                        <label for="inputPlaca">Placa: </label> <input type="text"
-                                        class="form-control" id="inputPlaca" placeholder="Placa"
-                                        name="placa">
 
-								        <br>
+                                        <label for="inputPlaca">Placa: </label> <input type="text"
+                                            class="form-control" id="inputPlaca" placeholder="Placa"
+                                            name="placa" th:value="${CSV.placa}">
+                                        
+                                        <br>
+
+                                        <label for="inputAnno">Año:</label><input type="number" style="width:155px;"
+                                        class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
+                                        name="añoVehiculo" th:value="${CSV.añoVehiculo}">
+                                        
+                                        <br>
 
                                         <label for="inputKilo">Kilometraje: </label> <input type="number"
 								        class="form-control" id="inputKilo" placeholder="Kilometraje"
-								        name="kilometraje">
+								        name="kmActual" th:value="${CSV.kmActual}">
 								
 								        <br>
 
                                         <label for="inputKilo">Kilometraje Aprox: </label> <input type="number"
 								        class="form-control" id="inputKilo" placeholder="Kilometraje Aprox"
-								        name="kilometraje">
+								        name="kmAprox" th:value="${CSV.kmAprox}">
 								
 								        <br>
-
-                                        <label for="inputAnno">Año:</label><input type="number" style="width:155px;"
-                                        class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                                        name="anno">
-                                
+							        
+								        
+                                        <label for="inputMarca">Marca: </label> <input type="text"
+                                        class="form-control" id="inputMarca" placeholder="Marca"
+                                        name="marca" th:value="${CSV.marca}">
+								
+								        <br>
+								
+                                        <label for="inputModel">Modelo: </label> <input type="text"
+                                        class="form-control" id="inputModel" placeholder="Modelo"
+                                        name="modelo" th:value="${CSV.modelo}">
+								
                                         <br>    
                                         
                                         <div class="btn-container">
                                             <br>
-                                            <button type="submit" name="action" value="registrar" class="btn btn-primary">Listar Todos</button>
+                                            <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
                                         </div>
                                         
                                         </div>
-							        </form> -->
+						        </form>
 							        <div th:text="${mensaje}"></div>
                         </div>
-                    </div>
+                    </div>	
                 </div>
 
                 
