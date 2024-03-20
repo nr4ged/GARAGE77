@@ -25,7 +25,7 @@ public class ProyectoController {
 		}
 
 		@GetMapping("/Index")
-		public String cargarIndex() {
+			public String cargarIndex() {
 			return "Index";
 		}
 
