@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <link rel="stylesheet" href="/css/estilo.css">
-    <title>Menu de inicio - GARAGE 77</title>
+    <link rel="stylesheet" href="/css/listas.css">
+    <title>Listados - GARAGE 77</title>
 </head>
 
 <body>
@@ -27,13 +27,13 @@
             </div>
 
             <div class="sidebar">
-                <a href="/Index" class="active">
+                <a href="/Index" >
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
                     <h3>Menu Principal</h3>
                 </a>
-                <a href="/PgCliente">
+                <a href="/PgCSV">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
@@ -58,17 +58,17 @@
                     <h3>Facturas</h3>
                     <span class="message-count">27</span>
                 </a>
+                <a href="/Listados" class="active">
+                    <span class="material-icons-sharp">
+                        report_gmailerrorred
+                    </span>
+                    <h3>Listados</h3>
+                </a>
                 <a href="/PgInventario">
                     <span class="material-icons-sharp">
                         inventory
                     </span>
                     <h3>Inventario</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        report_gmailerrorred
-                    </span>
-                    <h3>Otro</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
@@ -82,7 +82,7 @@
                     </span>
                     <h3>Nuevo Usuario</h3>
                 </a>
-                <a href="#">
+                <a href="/Login">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -94,15 +94,21 @@
 
         <!-- Main Content -->
         <main>
-            <h1 style="text-align: center;"><span class="danger">Analisis </span>General</h1>
+            <h1 style="text-align: center;"><span class="danger">Listados </span>Totales</h1>
             <!-- Analyses -->
             <div class="analyse">
+
                 <div class="sales">
                     <div class="status">
                         <div class="info">
-                            <h3>Clientes Totales</h3>
-                            <h1>$65,024</h1>
+                            <h3>Clientes Registrados</h3>
+                            <br>
+                            <br>
+                            <a href="LsClientes">
+                                <h3>VER TODO</h3>
+                            </a>
                         </div>
+
                         <div class="progresss">
                             <svg>
                                 <circle cx="38" cy="38" r="36"></circle>
@@ -113,11 +119,16 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="visits">
                     <div class="status">
                         <div class="info">
-                            <h3>Vehiculos Totales</h3>
-                            <h1>24,981</h1>
+                            <h3>Vehiculos Registrados</h3>
+                            <br>
+                            <br>
+                            <a href="LsVehiculos">
+                                <h3>VER TODO</h3>
+                            </a>
                         </div>
                         <div class="progresss">
                             <svg>
@@ -129,11 +140,16 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="searches">
                     <div class="status">
                         <div class="info">
-                            <h3>Inventario</h3>
-                            <h1>14,147</h1>
+                            <h3>Inventario (Productos)</h3>
+                            <br>
+                            <br>
+                            <a href="PgInventario">
+                                <h3>VER TODO</h3>
+                            </a>
                         </div>
                         <div class="progresss">
                             <svg>
@@ -145,26 +161,76 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="sales">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Servicios</h3>
+                            <br>
+                            <br>
+                            <a href="LsClientes">
+                                <h3>VER TODO</h3>
+                            </a>
+                        </div>
+
+                        <div class="progresss">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="percentage">
+                                <p>+81%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visits">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Boletas</h3>
+                            <br>
+                            <br>
+                            <a href="LsVehiculos">
+                                <h3>VER TODO</h3>
+                            </a>
+                        </div>
+                        <div class="progresss">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="percentage">
+                                <p>-48%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="searches">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Inventario Total</h3>
+                            <br>
+                            <br>
+                            <a href="PgInventario">
+                                <h3>VER TODO</h3>
+                            </a>
+                        </div>
+                        <div class="progresss">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="percentage">
+                                <p>+21%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
             <!-- End of Analyses -->
 
             <!-- Recent Orders Table -->
-            <div class="recent-orders">
-                <h2 style="text-align: center;">Trabajos <span class="danger">Recientes</span> </h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre Cliente</th>
-                            <th>Trabajo Solicitado</th>
-                            <th>Costo</th>
-                            <th>Estado</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-                <a href="#">Show All</a>
-            </div>
             <!-- End of Recent Orders -->
 
         </main>

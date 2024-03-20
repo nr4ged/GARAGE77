@@ -226,7 +226,7 @@ main{
 
 main .analyse{
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(3, 2fr);
     gap: 1.6rem;
 }
 
@@ -255,35 +255,52 @@ main .analyse h3{
     font-size: 1rem;
 }
 
-main .analysee{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1.6rem;
+main .analyse .progresss{
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
 }
 
-main .analysee > div{
-    background-color: var(--color-white);
-    padding: var(--card-padding);
-    border-radius: var(--card-border-radius);
-    margin-top: 1rem;
-    box-shadow: var(--box-shadow);
-    cursor: pointer;
-    transition: all 0.3s ease;
+main .analyse svg{
+    width: 7rem;
+    height: 7rem;
 }
 
-main .analysee > div:hover{
-    box-shadow: none;
+main .analyse svg circle{
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
 }
 
-main .analysee > div .status{
+main .analyse .sales svg circle{
+    stroke: var(--color-success);
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+
+main .analyse .visits svg circle{
+    stroke: var(--color-danger);
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+
+main .analyse .searches svg circle{
+    stroke: var(--color-primary);
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+
+main .analyse .progresss .percentage{
+    position: absolute;
+    top: -3px;
+    left: -1px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-
-main .analysee h3{
-    margin-left: 0.6rem;
-    font-size: 1rem;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
 }
 
 main .recent-orders{

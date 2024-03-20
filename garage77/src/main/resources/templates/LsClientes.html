@@ -33,7 +33,7 @@
                     </span>
                     <h3>Menu Principal</h3>
                 </a>
-                <a href="/PgCliente">
+                <a href="/PgCSV">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
@@ -58,17 +58,17 @@
                     <h3>Facturas</h3>
                     <span class="message-count">27</span>
                 </a>
-                <a href="/PgInventario" class="active">
+                <a href="/Listados" class="active">
+                    <span class="material-icons-sharp">
+                        report_gmailerrorred
+                    </span>
+                    <h3>Listados</h3>
+                </a>
+                <a href="/PgInventario">
                     <span class="material-icons-sharp">
                         inventory
                     </span>
                     <h3>Inventario</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        report_gmailerrorred
-                    </span>
-                    <h3>Otro</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
@@ -82,7 +82,7 @@
                     </span>
                     <h3>Nuevo Usuario</h3>
                 </a>
-                <a href="#">
+                <a href="/Login">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -191,7 +191,17 @@
                                 <td th:text="${c.horaRecep}">Hora de recepción del cliente</td>
                                 <td th:text="${c.horaEntrega}">Hora de entrega del cliente</td>
                                 <td th:text="${c.fecha}">Fecha del cliente</td>
-                                <td><!-- Aquí puedes agregar cualquier acción adicional si es necesario --></td>
+                                <td>
+                                    <form
+                                        th:action="@{/PgCliente/editar/{c.dni}(c.dni=${c.dni})}"
+                                        method="get">
+                                        <button type="submit" class="btn btn-link p-0">
+                                            <img
+                                                src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/edit-256.png"
+                                                style="width: 30px;">
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

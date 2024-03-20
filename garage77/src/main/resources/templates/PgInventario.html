@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="/css/inventario.css">
     <title>Inventario - GARAGE 77</title>
@@ -29,13 +29,13 @@
             </div>
 
             <div class="sidebar">
-                <a href="/Index" class="active">
+                <a href="/Index" >
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
                     <h3>Menu Principal</h3>
                 </a>
-                <a href="/PgCliente">
+                <a href="/PgCSV">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
@@ -60,17 +60,17 @@
                     <h3>Facturas</h3>
                     <span class="message-count">27</span>
                 </a>
-                <a href="/PgInventario">
-                    <span class="material-icons-sharp">
-                        inventory
-                    </span>
-                    <h3>Inventario</h3>
-                </a>
                 <a href="/Listados">
                     <span class="material-icons-sharp">
                         report_gmailerrorred
                     </span>
-                    <h3>Otro</h3>
+                    <h3>Listados</h3>
+                </a>
+                <a href="/PgInventario" class="active">
+                    <span class="material-icons-sharp">
+                        inventory
+                    </span>
+                    <h3>Inventario</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
@@ -84,7 +84,7 @@
                     </span>
                     <h3>Nuevo Usuario</h3>
                 </a>
-                <a href="#">
+                <a href="/Login">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -108,7 +108,7 @@
                         <div class="info">
 						    <br>
 							<form action="/PgCliente" method="post">
-                                <div>
+                                <div style="text-align: center;">
                                 <div class="input-group mb-3" >
                                     <span class="input-group-text" id="basic-addon1">Codigo Original:</span>
                                     <input type="text" class="form-control" placeholder="Codigo Original" aria-label="Codigo Original" aria-describedby="basic-addon1">

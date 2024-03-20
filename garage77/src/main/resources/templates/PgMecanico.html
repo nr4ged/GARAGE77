@@ -27,19 +27,19 @@
             </div>
 
             <div class="sidebar">
-                <a href="/Index">
+                <a href="/Index" >
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
                     <h3>Menu Principal</h3>
                 </a>
-                <a href="/PgCliente">
+                <a href="/PgCSV">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Mantenimiento</h3>
                 </a>
-                <a href="/PgMecanico" class="active">
+                <a href="/PgMecanico" class="active" >
                     <span class="material-icons-sharp">
                         receipt_long
                     </span>
@@ -58,17 +58,17 @@
                     <h3>Facturas</h3>
                     <span class="message-count">27</span>
                 </a>
+                <a href="/Listados">
+                    <span class="material-icons-sharp">
+                        report_gmailerrorred
+                    </span>
+                    <h3>Listados</h3>
+                </a>
                 <a href="/PgInventario">
                     <span class="material-icons-sharp">
                         inventory
                     </span>
                     <h3>Inventario</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        report_gmailerrorred
-                    </span>
-                    <h3>Otro</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
@@ -82,7 +82,7 @@
                     </span>
                     <h3>Nuevo Usuario</h3>
                 </a>
-                <a href="#">
+                <a href="/Login">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -97,64 +97,59 @@
             <h1 style="text-align: center;">Mantenimiento <span class="danger">Mecanico</span> </h1>
             <!-- Analyses -->
             <div class="analyse">
-                <div class="sales">
+                <div class="visits">
                     <div>
+                        <h2 style="text-align: center;">Datos del <span class="danger">Vehiculo</span> </h2>
+                        <div class="info" style="text-align: center;">
+                            <br>
 
-                        <div class="info">
-                            <h2 style="text-align: center;">Datos del <span class="danger">Cliente</span> </h2>
+                            <label for="inputPlaca">Placa: </label> <input type="text"
+                            class="form-control" id="inputPlaca" placeholder="Placa"
+                            name="placa" >
+                                        
+                            <br>
+
+                            <label for="inputAnno">Año:</label><input type="number" style="width:155px;"
+                            class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
+                            name="añoVehiculo" >
+                                        
+                            <br>
+
+                            <label for="inputKilo">Kilometraje: </label> <input type="number"
+						    class="form-control" id="inputKilo" placeholder="Kilometraje"
+							name="kmActual" >
+								
+							<br>
+
+                            <label for="inputKilo">Kilometraje Aprox: </label> <input type="number"
+							class="form-control" id="inputKilo" placeholder="Kilometraje Aprox"
+							name="kmAprox">
+								
 						    <br>
-							<form action="/PgCliente" method="post">
-                                <div style="text-align: center;">
+							        
+								        
+                            <label for="inputMarca">Marca: </label> <input type="text"
+                            class="form-control" id="inputMarca" placeholder="Marca"
+                            name="marca" >
 								
-									    <label for="inputNom">Nombre: </label> <input type="text"
-										    class="form-control" id="inputNom" placeholder="Nombre"
-										    name="nombre">
+							<br>
 								
-								        <br>
+                            <label for="inputModel">Modelo: </label> <input type="text"
+                            class="form-control" id="inputModel" placeholder="Modelo"
+                            name="modelo" >
 								
-									    <label for="inputTel">Telefono: </label> <input type="number"
-										class="form-control" id="inputTel" placeholder="Telefono"
-										name="telefono">
-								
-								        <br>
-								
-									
-									    <label for="inputDNI">DNI:  </label> <input type="number"
-											class="form-control" id="inputDNI" placeholder="DNI"
-											name="dni">
-									
-								        <br>
-									
-									    <label for="inputHora">Hora de Recepcion: </label> <input type="time"
-											class="form-control" id="inputHora" placeholder="Hora Recepcion"
-											name="horarecepcion">
-
-                                        <br>
-
-                                        <label for="inputHora">Hora de Recepcion: </label> <input type="time"
-                                            class="form-control" id="inputHora" placeholder="Hora Recepcion"
-                                            name="horarecepcion">
-
-                                        <br>
-
-                                            <label for="inputFech">Fecha de Entrada: </label> <input type="date"
-											class="form-control" id="inputFech" placeholder="Fecha de Entrada"
-											name="fechaentrada">
-
-                                        <br>
-
-                                        <div class="btn-container">
-                                            <br>
-                                            <button><a href="/LsClientes"></a>Listar Todos</button>
-                                        </div>
-
-                                </div>
-							</form>
-							    <div th:text="${mensaje}"></div>
+                            <br>    
+                            
+                            <label for="inputModel">codigo Servicio: </label> <input type="text"
+                            class="form-control" id="inputModel" placeholder="codServicio"
+                            name="codServicio" >
+                                        
                         </div>
-
+						    
+							<div th:text="${mensaje}"></div>
                     </div>
-                </div>
+                    
+                </div>	
 
                 
             </div>
