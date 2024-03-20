@@ -1,11 +1,20 @@
 package com.garage77.garage77.Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.garage77.garage77.Model.Cliente;
+
+import com.garage77.garage77.Repository.IClienteRepository;
 
 @Controller
 public class ProyectoController {
 
+	@Autowired
+	private IClienteRepository repoCli;
+	
 		@GetMapping("/Login")
 		public String cargarLogin() {
 			return "Login";
@@ -26,6 +35,13 @@ public class ProyectoController {
 			return "Listados";
 		}
 
-
+		@GetMapping("/LsClientes")
+		public String cargarPgCliente(Model model) {
+		model.addAttribute("cliente", new Cliente());
+		model.addAttribute("lstClientes", repoCli.findAll());
+		
+		
+		return "LsClientes";
+	}
 
     }

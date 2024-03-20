@@ -23,8 +23,5 @@ public class Vehiculo {
     private String kmAprox;
     private String marca;
     private String modelo;
-
-    @Column(name = "nombre_cliente")
-    private String nombre;
     
 }

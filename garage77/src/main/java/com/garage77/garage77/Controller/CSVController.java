@@ -14,7 +14,9 @@ import com.garage77.garage77.Model.Cliente;
 import com.garage77.garage77.Model.Insumo;
 import com.garage77.garage77.Model.Servicio;
 import com.garage77.garage77.Model.Vehiculo;
+
 import com.garage77.garage77.Repository.IClienteRepository;
+import com.garage77.garage77.Repository.IServicioRepository;
 import com.garage77.garage77.Repository.IVehiculoRepository;
 import com.garage77.garage77.Repository.InsumoRepository;
 
@@ -28,24 +30,31 @@ public class CSVController {
 	private IVehiculoRepository repoVehi;
 	@Autowired
 	private InsumoRepository repoInsu;
+
+	@Autowired
+	private IServicioRepository repoServ;
  
+	
+
 //CARGARPAGINA!!
 	 @GetMapping("/PgCSV")
 	 public String cargarPgCliente(Model model) {
 		model.addAttribute("cliente", new Cliente());
 		model.addAttribute("vehiculo", new Vehiculo());
 		model.addAttribute("insumo", new Insumo());
+		model.addAttribute("servicio", new Servicio());
 		model.addAttribute("csv", new CSV());
-		model.addAttribute("lstCliente", repoCli.findAll());
+		model.addAttribute("lstClientes", repoCli.findAll());
+		model.addAttribute("lstInsumos", repoInsu.findAll());
 	     return "PgCSV";
 	 }
 
 	 
-	 @GetMapping("/LsClientes")
-	 public String cargarLsClientes() {
+	//  @GetMapping("/LsCliente")
+	//  public String cargarLsClientes() {
 	     
-	     return "LsClientes";
-	 }
+	//      return "LsCliente";
+	//  }
 	 
 
 	 @PostMapping("/PgCSV")
@@ -67,6 +76,13 @@ public class CSVController {
 		vehiculo.setKmAprox(csv.getKmAprox());
 		vehiculo.setMarca(csv.getMarca());
 		vehiculo.setModelo(csv.getModelo());
+		
+		Servicio servicio = new Servicio();
+		servicio.setCodServicio(csv.getCodServicio());
+		servicio.setNombre(csv.getNombreCliente());
+		servicio.setTelefono(csv.getTelefonoCliente());
+		servicio.setPlaca(csv.getPlaca());
+		servicio.setAñoVehiculo(csv.getAñoVehiculo());
 
 		// Insumo insumo = new Insumo();
 		// insumo.setCodInsumo(csv.getCodInsumo());
@@ -79,6 +95,7 @@ public class CSVController {
             	        try {
             	        	repoVehi.save(vehiculo);
 							repoCli.save(cliente);
+							repoServ.save(servicio);
             	            model.addAttribute("mensaje", "Cliente registrado correctamente");
             	       } catch (Exception e) {
             	            model.addAttribute("mensaje", "Error al registrar al Cliente");
@@ -142,11 +159,17 @@ public class CSVController {
 	//         return "PgCliente";
 	//     }
 
-	//  //CREAR UN CONTROLLER PARA GENERARE EL LISTADO EN LA PAGINA
-	//  @GetMapping("/PgCliente/listado")
-	//  public String generarLista(Model model) {
-	// 	 model.addAttribute("lstCliente", repoCli.findAll());
-	// 	 model.addAttribute("cliente", new Cliente());
-	// 	 return ("PgCliente");
-	//  } 
+	// @GetMapping("/LsCliente/listado")
+    // public String lista(Model model) {
+    //     model.addAttribute("lstClientes", repoCli.findAll());
+    //     model.addAttribute("cliente", new Cliente());
+    //     return "LsCliente"; // Esto se espera que sea el nombre de tu archivo HTML (vista)
+    // }
+
+	 @GetMapping("/PgCSV/listado")
+	 public String generarLista(Model model) {
+	 model.addAttribute("lstInsumos", repoInsu.findAll());
+	 model.addAttribute("insumos", new Insumo());
+	 return ("PgCSV");
+	  } 
 }
