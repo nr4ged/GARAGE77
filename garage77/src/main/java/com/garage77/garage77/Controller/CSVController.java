@@ -37,17 +37,17 @@ public class CSVController {
 	
 
 //CARGARPAGINA!!
-	 @GetMapping("/PgCSV")
-	 public String cargarPgCliente(Model model) {
-		model.addAttribute("cliente", new Cliente());
-		model.addAttribute("vehiculo", new Vehiculo());
-		model.addAttribute("insumo", new Insumo());
-		model.addAttribute("servicio", new Servicio());
-		model.addAttribute("csv", new CSV());
-		model.addAttribute("lstClientes", repoCli.findAll());
-		model.addAttribute("lstInsumos", repoInsu.findAll());
-	     return "PgCSV";
-	 }
+	//  @GetMapping("/PgCSV")
+	//  public String cargarPgCliente(Model model) {
+	// 	model.addAttribute("cliente", new Cliente());
+	// 	model.addAttribute("vehiculo", new Vehiculo());
+	// 	model.addAttribute("insumo", new Insumo());
+	// 	model.addAttribute("servicio", new Servicio());
+	// 	model.addAttribute("csv", new CSV());
+	// 	model.addAttribute("lstClientes", repoCli.findAll());
+	// 	model.addAttribute("lstInsumos", repoInsu.findAll());
+	//      return "PgCSV";
+	//  }
 
 	 @PostMapping("/PgCSV")
      public String registrarCSV(@ModelAttribute CSV csv, @RequestParam(value = "action", required = false) String action, Model model) {

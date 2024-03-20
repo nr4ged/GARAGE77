@@ -103,7 +103,7 @@
                         <h2 style="text-align: center;">Datos del <span class="danger">Servicio</span></h2>
                         <div class="info">
 						    <br>
-							<form action="/LsClientes" method="post" th:object="${CSV}">
+							<form action="/LsServicios" method="post" th:object="${CSV}">
                                 <div style="text-align: center;">
 								
                                     <label for="inputCod">Nombre</label> <input type="text"
@@ -174,26 +174,25 @@
                     <table id="id_table" class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Nombre </th>
+                                <th>Codigo Servicio</th>
+                                <th>Nombre</th>
                                 <th>Teléfono </th>
-                                <th>DNI </th>
-                                <th>Hora de Recepción </th>
-                                <th>Hora de Entrada </th>
-                                <th>Fecha de Entrada </th>
+                                <th>Placa</th>
+                                <th>Año Vehiculo</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="c : ${lstClientes}">
-                                <td th:text="${c.nombre}">Nombre del cliente</td>
-                                <td th:text="${c.telefono}">Teléfono del cliente</td>
-                                <td th:text="${c.dni}">DNI del cliente</td>
-                                <td th:text="${c.horaRecep}">Hora de recepción del cliente</td>
-                                <td th:text="${c.horaEntrega}">Hora de entrega del cliente</td>
-                                <td th:text="${c.fecha}">Fecha del cliente</td>
+                            <tr th:each="s : ${lstServicios}">
+                                <th scope="row" th:text="${s.codServicio}">Nombre del cliente</th>
+                                <td th:text="${s.nombre}">Teléfono del cliente</td>
+                                <td th:text="${s.telefono}">DNI del cliente</td>
+                                <td th:text="${s.placa}">Hora de recepción del cliente</td>
+                                <td th:text="${s.añoVehiculo}">Hora de entrega del cliente</td>
+                                
                                 <td>
                                     <form
-                                        th:action="@{/PgCliente/editar/{c.dni}(c.dni=${c.dni})}"
+                                        th:action="@{/PgCliente/editar/{s.codServicio}(s.codServicio=${s.codServicio})}"
                                         method="get">
                                         <button type="submit" class="btn btn-link p-0">
                                             <img

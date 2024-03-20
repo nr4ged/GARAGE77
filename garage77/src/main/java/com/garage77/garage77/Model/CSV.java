@@ -27,6 +27,8 @@ public class CSV {
     private String marca;
     private String modelo;
 
+    private String codInsumo;
+    private String desInsumo;
 
     private String codServicio;
 

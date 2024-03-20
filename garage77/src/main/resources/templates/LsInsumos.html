@@ -103,7 +103,7 @@
                         <h2 style="text-align: center;">Datos del <span class="danger">Insumos</span></h2>
                         <div class="info">
 						    <br>
-							<form action="/LsClientes" method="post" th:object="${CSV}">
+							<form action="/LsInsumos" method="post" th:object="${CSV}">
                                 <div style="text-align: center;">
 								
                                     <label for="inputCod">Nombre</label> <input type="text"
@@ -118,30 +118,6 @@
                         
                                 <br>
                         
-                            
-                                    <label for="inputApe">Dni Cliente</label> <input type="number"
-                                            class="form-control" id="inputApe" placeholder="dni"
-                                            name="dni" required>
-                            
-                                <br>
-                            
-                                    <label for="inputHora">Hora de Recepcion: </label> <input type="time"
-                                        class="form-control" id="inputHora" placeholder="Hora Recepcion"
-                                        name="horarecepcion" required>
-
-                                <br>
-
-                                    <label for="inputHora">Hora de Entrada: </label> <input type="time"
-                                        class="form-control" id="inputHora" placeholder="Hora Entrega"
-                                        name="horarecepcion" required>
-
-                                <br>
-
-                                    <label for="inputFech">Fecha de Entrada: </label> <input type="date"
-                                        class="form-control" id="inputFech" placeholder="Fecha de Entrada"
-                                        name="fechaentrada" required>
-
-                                <br>
 
                                 <div class="btn-container">
                                     <br>
@@ -176,24 +152,16 @@
                             <tr>
                                 <th>Nombre </th>
                                 <th>Teléfono </th>
-                                <th>DNI </th>
-                                <th>Hora de Recepción </th>
-                                <th>Hora de Entrada </th>
-                                <th>Fecha de Entrada </th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="c : ${lstClientes}">
-                                <td th:text="${c.nombre}">Nombre del cliente</td>
-                                <td th:text="${c.telefono}">Teléfono del cliente</td>
-                                <td th:text="${c.dni}">DNI del cliente</td>
-                                <td th:text="${c.horaRecep}">Hora de recepción del cliente</td>
-                                <td th:text="${c.horaEntrega}">Hora de entrega del cliente</td>
-                                <td th:text="${c.fecha}">Fecha del cliente</td>
+                            <tr th:each="i : ${lstInsumos}">
+                                <th scope="row" th:text="${i.codInsumo}">Nombre del cliente</th>
+                                <td th:text="${i.desInsumo}">Teléfono del cliente</td>
                                 <td>
                                     <form
-                                        th:action="@{/PgCliente/editar/{c.dni}(c.dni=${c.dni})}"
+                                        th:action="@{/LsInsumos/editar/{i.codInsumo}(i.codInsumo=${i.codInsumo})}"
                                         method="get">
                                         <button type="submit" class="btn btn-link p-0">
                                             <img

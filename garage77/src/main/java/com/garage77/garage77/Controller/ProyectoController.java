@@ -5,19 +5,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.garage77.garage77.Model.CSV;
 import com.garage77.garage77.Model.Cliente;
-
+import com.garage77.garage77.Model.Insumo;
+import com.garage77.garage77.Model.Servicio;
+import com.garage77.garage77.Model.Vehiculo;
 import com.garage77.garage77.Repository.IClienteRepository;
+import com.garage77.garage77.Repository.IServicioRepository;
 import com.garage77.garage77.Repository.IVehiculoRepository;
+import com.garage77.garage77.Repository.InsumoRepository;
 
 @Controller
 public class ProyectoController {
 
 	@Autowired
 	private IClienteRepository repoCli;
-
 	@Autowired
 	private IVehiculoRepository repoVehi;
+	@Autowired
+	private InsumoRepository repoInsu;
+	@Autowired
+	private IServicioRepository repoServ;
 	
 		@GetMapping("/Login")
 		public String cargarLogin() {
@@ -25,7 +33,7 @@ public class ProyectoController {
 		}
 
 		@GetMapping("/Index")
-		public String cargarIndex() {
+			public String cargarIndex() {
 			return "Index";
 		}
 
@@ -34,15 +42,20 @@ public class ProyectoController {
 			return "Listados";
 		}
 
-		@GetMapping("/LsInsumos")
-		public String cargarInsumos() {
-			return "LsInsumos";
+		@GetMapping("/PgCSV")
+			public String cargarPgCSV(Model model) {
+
+				   model.addAttribute("cliente", new Cliente());
+				   model.addAttribute("vehiculo", new Vehiculo());
+				   model.addAttribute("insumo", new Insumo());
+				   model.addAttribute("servicio", new Servicio());
+				   model.addAttribute("csv", new CSV());
+				   model.addAttribute("lstClientes", repoCli.findAll());
+				   model.addAttribute("lstInsumos", repoInsu.findAll());
+
+			return "PgCSV";
 		}
 
-		@GetMapping("/LsServicio")
-		public String cargarServicios() {
-			return "LsServicio";
-		}
 
 		@GetMapping("/LsClientes")
 		public String cargarPgCliente(Model model) {
@@ -55,9 +68,22 @@ public class ProyectoController {
 
 	@GetMapping("/LsVehiculos")
 		public String cargarLsVehiculos(Model model) {
-			model.addAttribute("vehiculo", new Cliente());
+			model.addAttribute("vehiculo", new Vehiculo());
 			model.addAttribute("lstVehiculos", repoVehi.findAll());
 			return "LsVehiculos";
 		}
 
-    }
+		@GetMapping("/LsInsumos")
+		public String cargarLsInsumos(Model model) {
+			model.addAttribute("insumo", new Insumo());
+			model.addAttribute("lstInsumos", repoInsu.findAll());
+			return "LsInsumos";
+		}
+
+		@GetMapping("/LsServicio")
+		public String cargarLsServicios(Model model) {
+			model.addAttribute("servicio", new Servicio());
+			model.addAttribute("lstServicios", repoServ.findAll());
+			return "LsServicio";
+		}
+}
