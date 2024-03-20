@@ -21,8 +21,8 @@ public class Vehiculo {
     private String kmActual;
     @Column (name = "km_aprox_vehiculo")
     private String kmAprox;
-    private String Marca;
-    private String Modelo;
+    private String marca;
+    private String modelo;
 
     @Column(name = "nombre_cliente")
     private String nombre;
