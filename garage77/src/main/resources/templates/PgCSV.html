@@ -104,62 +104,56 @@
                         <div class="info">
                             
 						    <br>
-							<form action="/PgCliente" method="post">
+							<form action="/PgCSV" method="post" th:object="${CSV}">
                                 <div style="text-align: center;">
 								
-									    <label for="inputNom">Nombre: </label> <input type="text"
-										    class="form-control" id="inputNom" placeholder="Nombre"
-										    name="nombre">
-								
-								        <br>
-								
-									    <label for="inputTel">Telefono: </label> <input type="number"
-										class="form-control" id="inputTel" placeholder="Telefono"
-										name="telefono">
-								
-								        <br>
-								
-									
-									    <label for="inputDNI">DNI:  </label> <input type="number"
-											class="form-control" id="inputDNI" placeholder="DNI"
-											name="dni">
-									
-								        <br>
-
                                         
 
-                                        <label for="inputEmpresa">Empresa:</label>
-                                            <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
-                                            <label class="btn btn-secondary" for="option1">Privado</label>
+                                    <label for="inputCod">Nombre</label> <input type="text"
+                                    class="form-control" id="inputCod" placeholder="nombre"
+                                    name="nombreCliente" required>
+                                    
 
-                                            <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-                                            <label class="btn btn-secondary" for="option2">Empresa</label>
+                                    
 
-                                        <br>
+                                    <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
+								        <br>
+								
+									    <!-- <label for="inputNom">telefono</label> <input type="number"
+                                            class="form-control" id="inputNom" placeholder="telefono"
+                                            name="telefono" th:value="${cliente.telefono} " required>
+								
+								        <br>
+								
+									
+									    <label for="inputApe">Dni Cliente</label> <input type="number"
+                                            class="form-control" id="inputApe" placeholder="dni"
+                                            name="dni" th:value="${cliente.dni}" required>
+									
+								        <br>
 									
 									    <label for="inputHora">Hora de Recepcion: </label> <input type="time"
-											class="form-control" id="inputHora" placeholder="Hora Recepcion"
-											name="horarecepcion">
+                                        class="form-control" id="inputHora" placeholder="Hora Recepcion"
+                                        name="horarecepcion" th:value="${cliente.horaRecep}" required>
 
                                         <br>
 
-                                        <label for="inputHora">Hora de Recepcion: </label> <input type="time"
-                                            class="form-control" id="inputHora" placeholder="Hora Recepcion"
-                                            name="horarecepcion">
+                                        <label for="inputHora">Hora de Entrada: </label> <input type="time"
+                                        class="form-control" id="inputHora" placeholder="Hora Entrega"
+                                        name="horarecepcion" th:value="${cliente.horaEntrega}" required>
 
                                         <br>
 
-                                            <label for="inputFech">Fecha de Entrada: </label> <input type="date"
-											class="form-control" id="inputFech" placeholder="Fecha de Entrada"
-											name="fechaentrada">
+                                        <label for="inputFech">Fecha de Entrada: </label> <input type="date"
+                                        class="form-control" id="inputFech" placeholder="Fecha"
+                                        name="fecha" th:value="${cliente.fecha}" required>
 
                                         <br>
 
                                         <div class="btn-container">
                                             <br>
-                                            <button><a href="/LsClientes"></a>Listar Todos</button>
-                                            <br>
-                                        </div>
+                                            <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
+                                        </div> -->
 
                                 </div>
 							</form>
@@ -175,7 +169,7 @@
                             
                             <h2 style="text-align: center;">Datos del <span class="danger">Vehiculo</span> </h2>
 						        <br>
-							        <form action="/PgCliente" method="post">
+							        <!-- <form action="/PgCliente" method="post">
 								        <div style="text-align: center;">
                                         <label for="inputMarca">Marca: </label> <input type="text"
                                         class="form-control" id="inputMarca" placeholder="Marca"
@@ -220,15 +214,15 @@
                                         </div>
                                         
                                         </div>
-							        </form>
+							        </form> -->
 							        <div th:text="${mensaje}"></div>
                         </div>
                     </div>
                 </div>
-                
+
                 
             </div>
-            <!-- End of Analyses -->
+          
 
             <!-- Recent Orders Table -->
             <div class="analysee">

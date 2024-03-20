@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 
-
-
+import com.garage77.garage77.Model.CSV;
 import com.garage77.garage77.Model.Cliente;
+import com.garage77.garage77.Model.Servicio;
+import com.garage77.garage77.Model.Vehiculo;
 import com.garage77.garage77.Repository.IClienteRepository;
 
 
@@ -22,11 +23,12 @@ public class ClienteController {
 	private IClienteRepository repoCli;
  
 //CARGARPAGINA!!
-	 @GetMapping("/PgCliente")
+	 @GetMapping("/PgCSV")
 	 public String cargarPgCliente(Model model) {
 		model.addAttribute("cliente", new Cliente());
+		model.addAttribute("csv", new CSV());
 		model.addAttribute("lstCliente", repoCli.findAll());
-	     return "PgCliente";
+	     return "PgCSV";
 	 }
 
 	 @GetMapping("/LsClientes")
@@ -35,11 +37,45 @@ public class ClienteController {
 	     return "LsClientes";
 	 }
 
+	 @PostMapping("/PgCSV")
+     public String registrarCSV(@ModelAttribute CSV csv, @RequestParam(value = "action", required = false) String action, Model model) {
+         if ("registrar".equals(action)) {
+
+		Cliente cliente = new Cliente();
+		cliente.setNombre(csv.getNombreCliente());
+
+
+		Vehiculo vehiculo = new Vehiculo();
+		vehiculo.setPlaca(csv.getPlaca());
+
+		Servicio servicio = new Servicio();
+		servicio.setCodServicio(csv.getCodigoServicio());
+
+        // Verificar si ya existe un cliente con el mismo código
+          if (repoCli.existsById(csv.getNombreCliente())) {
+               model.addAttribute("mensaje", "El código de Cliente ya existe");
+            	   } else {
+            	        try {
+            	        	repoCli.save(cliente);
+            	            model.addAttribute("mensaje", "Cliente registrado correctamente");
+            	       } catch (Exception e) {
+            	            model.addAttribute("mensaje", "Error al registrar al Cliente");
+            	            }
+            	        }
+         }
+
+
+		 return "PgCSV";
+	}
+
+
+
 	 @PostMapping("/PgCliente")
      public String registrarCliente(@ModelAttribute Cliente cliente, @RequestParam(value = "action", required = false) String action, Model model) {
          if ("registrar".equals(action)) {
+
         // Verificar si ya existe un cliente con el mismo código
-          if (repoCli.existsById(cliente.getCod_cliente())) {
+          if (repoCli.existsById(cliente.getNombre())) {
                model.addAttribute("mensaje", "El código de Cliente ya existe");
             	   } else {
             	        try {
@@ -59,12 +95,12 @@ public class ClienteController {
  	        
  	    }
          }else if ("eliminar".equals(action)) {
-        	    if (cliente.getCod_cliente().isBlank()) {
+        	    if (cliente.getNombre().isBlank()) {
      	        model.addAttribute("mensaje", "El campo Código de Usuario debe estar lleno");
      	    } else {
-     	        if (repoCli.existsById(cliente.getCod_cliente())) {
+     	        if (repoCli.existsById(cliente.getNombre())) {
      	            try {
-     	            	repoCli.deleteById(cliente.getCod_cliente());
+     	            	repoCli.deleteById(cliente.getNombre());
      	                model.addAttribute("mensaje", "Cliente eliminado correctamente");
      	            } catch (Exception e) {
      	                model.addAttribute("mensaje", "Error al eliminar el Cliente");
@@ -77,9 +113,9 @@ public class ClienteController {
      	   model.addAttribute("lstCliente", repoCli.findAll());
             return "PgCliente";
         }
-	 @GetMapping("/PgCliente/editar/{cod_cliente}")
-	    public String editarCliente(@PathVariable("cod_cliente") String cod_cliente, Model model) {
-	        Cliente cliente = repoCli.findById(cod_cliente).orElse(null);
+	 @GetMapping("/PgCliente/editar/{nombre}")
+	    public String editarCliente(@PathVariable("Nombre") String Nombre, Model model) {
+	        Cliente cliente = repoCli.findById(Nombre).orElse(null);
 	        model.addAttribute("cliente", cliente);
 	        model.addAttribute("lstCliente", repoCli.findAll());
 	        return "PgCliente";
