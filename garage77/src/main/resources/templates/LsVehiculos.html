@@ -103,8 +103,9 @@
                         <h2 style="text-align: center;">Datos del <span class="danger">Vehiculo</span></h2>
                         <div class="info">
 						    <br>
-							<form action="/PgCliente" method="post">
+							<form action="/LsVehiculos" method="post" th:object="${CSV}">
                                 <div style="text-align: center;">
+
                                     <label for="inputMarca">Marca: </label> <input type="text"
                                     class="form-control" id="inputMarca" placeholder="Marca"
                                     name="marca" required>
@@ -173,23 +174,23 @@
                     <table id="id_table" class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Marca </th>
-                                <th>Modelo </th>
                                 <th>Placa </th>
-                                <th>Kilometraje </th>
-                                <th>Kilometraje Aprox </th>
                                 <th>Año </th>
+                                <th>Km Actual </th>
+                                <th>Kilometraje Aprox</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="c : ${lstCliente}">
-                                <th scope="row" th:text="${c.codigo}">1</th>
-                                <td th:text="${c.nombre}">xx</td>
-                                <td th:text="${c.apellido}">xx</td>
-                                <td th:text="${c.empresa}">xx</td>
-                                <td th:text="${c.nru_documento}">xx</td>
-                                <td th:text="${c.getObjTipoCliente().getDocumento_cliente()}">xx</td>
+                            <tr th:each="v : ${lstVehiculos}">
+                                <th scope="row" th:text="${v.placa}">1</th>
+                                <td th:text="${v.añoVehiculo}">xx</td>
+                                <td th:text="${v.kmActual}">xx</td>
+                                <td th:text="${v.kmAprox}">xx</td>
+                                <td th:text="${v.marca}">xx</td>
+                                <td th:text="${v.modelo}">xx</td>
                                 <td>
 
                                     <form

@@ -3,24 +3,9 @@ package com.garage77.garage77.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.garage77.garage77.Model.Cliente;
 import com.garage77.garage77.Repository.IClienteRepository;
-
-
-import com.garage77.garage77.Model.CSV;
-import com.garage77.garage77.Model.Cliente;
-import com.garage77.garage77.Model.Insumo;
-import com.garage77.garage77.Model.Servicio;
-import com.garage77.garage77.Model.Vehiculo;
-
-import com.garage77.garage77.Repository.IClienteRepository;
-import com.garage77.garage77.Repository.IServicioRepository;
-import com.garage77.garage77.Repository.IVehiculoRepository;
-import com.garage77.garage77.Repository.InsumoRepository;
 
 public class ClienteController {
     

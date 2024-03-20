@@ -49,14 +49,6 @@ public class CSVController {
 	     return "PgCSV";
 	 }
 
-	 
-	//  @GetMapping("/LsCliente")
-	//  public String cargarLsClientes() {
-	     
-	//      return "LsCliente";
-	//  }
-	 
-
 	 @PostMapping("/PgCSV")
      public String registrarCSV(@ModelAttribute CSV csv, @RequestParam(value = "action", required = false) String action, Model model) {
          if ("registrar".equals(action)) {
