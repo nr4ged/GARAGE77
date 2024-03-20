@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -103,43 +103,43 @@
                         <h2 style="text-align: center;">Datos del <span class="danger">Cliente</span></h2>
                         <div class="info">
 						    <br>
-							<form action="/PgCliente" method="post">
+							<form action="/LsClientes" method="post" th:object="${CSV}">
                                 <div style="text-align: center;">
 								
                                     <label for="inputCod">Nombre</label> <input type="text"
 										class="form-control" id="inputCod" placeholder="nombre"
-										name="Nombre" th:value="${cliente.nombre}" required>
+										name="Nombre" required>
                         
                                 <br>
                         
                                     <label for="inputNom">telefono</label> <input type="number"
                                             class="form-control" id="inputNom" placeholder="telefono"
-                                            name="telefono" th:value="${cliente.telefono} " required>
+                                            name="telefono"required>
                         
                                 <br>
                         
                             
                                     <label for="inputApe">Dni Cliente</label> <input type="number"
                                             class="form-control" id="inputApe" placeholder="dni"
-                                            name="dni" th:value="${cliente.dni}" required>
+                                            name="dni" required>
                             
                                 <br>
                             
                                     <label for="inputHora">Hora de Recepcion: </label> <input type="time"
                                         class="form-control" id="inputHora" placeholder="Hora Recepcion"
-                                        name="horarecepcion" th:value="${cliente.horaRecep}" required>
+                                        name="horarecepcion" required>
 
                                 <br>
 
                                     <label for="inputHora">Hora de Entrada: </label> <input type="time"
                                         class="form-control" id="inputHora" placeholder="Hora Entrega"
-                                        name="horarecepcion" th:value="${cliente.horaEntrega}" required>
+                                        name="horarecepcion" required>
 
                                 <br>
 
                                     <label for="inputFech">Fecha de Entrada: </label> <input type="date"
                                         class="form-control" id="inputFech" placeholder="Fecha de Entrada"
-                                        name="fechaentrada" th:value="${cliente.fecha}" required>
+                                        name="fechaentrada" required>
 
                                 <br>
 
@@ -151,7 +151,7 @@
                                     <button type="submit" name="action" value="eliminar" class="btn btn-danger">Eliminar</button>
                                     <button type="button" class="btn btn-secondary" onclick="limpiarCamposCliente()">Limpiar</button>
                                     <br>
-                                        
+                                    
                                         
                                 </div>
 							</form>
@@ -175,37 +175,27 @@
                         <thead>
                             <tr>
                                 <th>Nombre </th>
-                                <th>Telefono </th>
+                                <th>Teléfono </th>
                                 <th>DNI </th>
-                                <th>Hora de Recepcion </th>
+                                <th>Hora de Recepción </th>
                                 <th>Hora de Entrada </th>
-                                <th>Fecha de entrada </th>
+                                <th>Fecha de Entrada </th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="c : ${lstCliente}">
-                                <th scope="row" th:text="${c.codigo}">1</th>
-                                <td th:text="${c.nombre}">xx</td>
-                                <td th:text="${c.apellido}">xx</td>
-                                <td th:text="${c.empresa}">xx</td>
-                                <td th:text="${c.nru_documento}">xx</td>
-                                <td th:text="${c.getObjTipoCliente().getDocumento_cliente()}">xx</td>
-                                <td>
-
-                                    <form
-                                        th:action="@{/PgCliente/editar/{codCliente}(codCliente=${c.codigo})}"
-                                        method="get">
-                                            <button type="submit" class="btn btn-link p-0">
-                                            <img
-                                                src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/edit-256.png"
-                                                style="width: 30px;">
-                                            </button>
-                                    </form>
-                                </td>
+                            <tr th:each="c : ${lstClientes}">
+                                <td th:text="${c.nombre}">Nombre del cliente</td>
+                                <td th:text="${c.telefono}">Teléfono del cliente</td>
+                                <td th:text="${c.dni}">DNI del cliente</td>
+                                <td th:text="${c.horaRecep}">Hora de recepción del cliente</td>
+                                <td th:text="${c.horaEntrega}">Hora de entrega del cliente</td>
+                                <td th:text="${c.fecha}">Fecha del cliente</td>
+                                <td><!-- Aquí puedes agregar cualquier acción adicional si es necesario --></td>
                             </tr>
                         </tbody>
                     </table>
+                    
 
                 <div id="pagination" style="text-align: center; margin-top: 20px;">
                     <div id="buttonsContainer">
