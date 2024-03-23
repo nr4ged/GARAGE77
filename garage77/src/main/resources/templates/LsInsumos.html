@@ -106,15 +106,21 @@
 							<form action="/LsInsumos" method="post" th:object="${CSV}">
                                 <div style="text-align: center;">
 								
-                                    <label for="inputCod">Nombre</label> <input type="text"
-										class="form-control" id="inputCod" placeholder="nombre"
+                                    <label for="inputCod">Codigo Insumo</label> <input type="text"
+										class="form-control" id="inputCod" placeholder="Codigo"
 										name="Nombre" required>
                         
                                 <br>
                         
-                                    <label for="inputNom">telefono</label> <input type="number"
-                                            class="form-control" id="inputNom" placeholder="telefono"
+                                    <label for="inputNom">Nombre Insumo</label> <input type="text"
+                                            class="form-control" id="inputNom" placeholder="Nombre"
                                             name="telefono"required>
+                        
+                                <br>
+
+                                <label for="inputCod">Precio Insumo</label> <input type="number"
+										class="form-control" id="inputCod" placeholder="Precio"
+										name="Nombre" required>
                         
                                 <br>
                         
@@ -145,20 +151,22 @@
                 
                 <div>
                     <h2 style="text-align: center;"><span class="danger">Insumos</span> Disponibles</h2>
-                    <input type="text" id="filtro" placeholder="Filtrar por Descripcion">
+                    <input type="text" id="filtro" placeholder="Filtrar por Nombre">
                     
                     <table id="id_table" class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Nombre </th>
-                                <th>Teléfono </th>
+                                <th>Codigo Insumo</th>
+                                <th>Descripcion Insumo </th>
+                                <th>Precio Insumo</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr th:each="i : ${lstInsumos}">
-                                <th scope="row" th:text="${i.codInsumo}">Nombre del cliente</th>
-                                <td th:text="${i.desInsumo}">Teléfono del cliente</td>
+                                <th scope="row" th:text="${i.codInsumo}">Codigo del Insumo</th>
+                                <td th:text="${i.desInsumo}">Descripcion del Insumo</td>
+                                <td th:text="${i.desInsumo}">Precio del Insumo</td>
                                 <td>
                                     <form
                                         th:action="@{/LsInsumos/editar/{i.codInsumo}(i.codInsumo=${i.codInsumo})}"

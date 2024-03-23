@@ -124,6 +124,12 @@
                                             name="dni" required>
                             
                                 <br>
+
+                                <label for="inputApe">Empresa Cliente</label> <input type="text"
+                                            class="form-control" id="inputEmp" placeholder="Empresa"
+                                            name="empresa" required>
+                            
+                                <br>
                             
                                     <label for="inputHora">Hora de Recepcion: </label> <input type="time"
                                         class="form-control" id="inputHora" placeholder="Hora Recepcion"
@@ -177,6 +183,7 @@
                                 <th>Nombre </th>
                                 <th>Teléfono </th>
                                 <th>DNI </th>
+                                <th>Empresa</th>
                                 <th>Hora de Recepción </th>
                                 <th>Hora de Entrada </th>
                                 <th>Fecha de Entrada </th>
@@ -188,6 +195,7 @@
                                 <th scope="row" th:text="${c.nombre}">Nombre del Cliente</th>
                                 <td th:text="${c.telefono}">Teléfono del cliente</td>
                                 <td th:text="${c.dni}">DNI del cliente</td>
+                                <td th:text="${c.dni}">Empresa del cliente</td>
                                 <td th:text="${c.horaRecep}">Hora de recepción del cliente</td>
                                 <td th:text="${c.horaEntrega}">Hora de entrega del cliente</td>
                                 <td th:text="${c.fecha}">Fecha del cliente</td>
