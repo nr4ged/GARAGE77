@@ -107,18 +107,19 @@
                             <br>
                             <form action="/PgCSV" method="post" th:object="${CSV}">
                                 <div style="text-align: center;">
-                                    <label for="toggleSwitch">Cliente Antiguo?</label>
+                                    <label for="toggleSwitch">¿Cliente Antiguo?</label>
                                     <input type="checkbox" id="clienteNue" onclick="toggleOptions1()">
                                     
                                     <br>
                                     <div id="timeAndDateFields">
-                                        <label for="inputCod">Nombre</label> <input type="text"
-                                        class="form-control" id="inputCod" placeholder="nombre"
+                                        <br>
+                                        <label for="inputCod">Nombre Cliente</label> <input type="text"
+                                        class="form-control" id="inputCod" placeholder="Nombre"
                                         name="nombreCliente"  required>
                                         <br>
                                         
-                                        <label for="inputNom">Teléfono</label> <input type="number"
-                                        class="form-control" id="inputNom" placeholder="teléfono"
+                                        <label for="inputNom">Teléfono Cliente</label> <input type="number"
+                                        class="form-control" id="inputNom" placeholder="Teléfono"
                                         name="telefonoCliente" required>
                                         
                                         <br>
@@ -128,32 +129,37 @@
                                         name="dniCliente"  required>
                                         
                                         <br>
-                                        
+
+                                        <br>
                                         <label for="toggleSwitchEmpresa">¿Empresa?</label>
                                         <input type="checkbox" id="toggleSwitchEmpresa" onclick="toggleEmpresaOptions()">
-                                
                                         <br>
-
+                                        
+                                        
                                         <div id="empresaNuevaFields" style="display: none;">
-                                            <label for="toggleEmpresaNueva">Empresa Nueva?</label>
+                                            <br>
+                                            <label for="toggleEmpresaNueva">¿Empresa Nueva?</label>
                                             <input type="checkbox" id="toggleEmpresaNueva" onclick="toggleEmpresaNuevoOptions()">
                                             <br>
 
                                             <div id="empresaNuevaNombre" style="display: none;">
+                                                <br>
                                                 <label for="inputNombreEmpresa">Nombre de la Nueva Empresa:</label>
-                                                <input type="text" id="inputNombreEmpresa" name="nombreEmpresa">
+                                                <input class="form-control" type="text" id="inputNombreEmpresa" name="nombreEmpresa">
                                             </div>
-
+                                            
                                             <div id="empresaAntiguaSelect" style="display: none;">
+                                                <br>
                                                 <label for="selectEmpresaAntigua">Seleccionar Empresa Registrada:</label>
                                                 <select id="selectEmpresaAntigua" name="empresaAntigua">
                                                     <option value="empresa1">Empresa 1</option>
                                                     <option value="empresa2">Empresa 2</option>
                                                     <option value="empresa3">Empresa 3</option>
                                                 </select>
-                                            </div>
+                                                
+                                            </div><br>
                                         </div>
-                                    
+                                        <br>
                                         <label for="inputHora">Hora de Recepción: </label> <input type="time"
                                         class="form-control" id="inputHora" placeholder="Hora Recepción"
                                         name="horaRecep"  required>
@@ -171,6 +177,12 @@
                                         name="fechaCliente" required>
                                         
                                         <br>
+
+                                        <div class="btn-container" style="text-align: center;"> 
+                                            <br>
+                                            <button class="btn-blue" type="submit" name="action" value="registrar" >Registrar</button>
+                                        </div>
+
                                     </div>
                                     
                                     <div id="clienteNuevoFields" style="display: none;">
@@ -180,6 +192,11 @@
                                             <option value="empresa">Seleccionar</option>
                                             <option value="privado">Makina</option>
                                         </select>
+
+                                        <div class="btn-container" style="text-align: center;"> 
+                                            <br>
+                                            <button class="btn-blue" type="submit" name="action" value="registrar" >Registrar</button>
+                                        </div>
                                     </div>
                 
                                     
@@ -196,21 +213,30 @@
                         <div class="info" style="text-align: center;">
                             <br>
                 
-                            <label for="toggleSwitch">Vehículo Registrado?</label>
+                            <label for="toggleSwitch">¿Vehículo Registrado?</label>
                             <input type="checkbox" id="cambio" onclick="toggleOptions()">
                             <br>
                 
                             <div id="vehicleNew">
+                                <br>
                                 <label for="inputPlaca">Placa: </label> 
                                 <input type="text" class="form-control" id="inputPlaca" placeholder="Placa" name="placa">
                                                         
                                 <br>
-                
+
+                                <label for="inputMarca">Marca: </label> 
+                                <input type="text" class="form-control" id="inputMarca" placeholder="Marca" name="marca">
+                                                
+                                <br>
+                                                
+                                <label for="inputModel">Modelo: </label> 
+                                <input type="text" class="form-control" id="inputModel" placeholder="Modelo" name="modelo">
+                                                
+                                <br>
                                 <label for="inputAnno">Año:</label>
-                                <input type="number" style="width:155px;" class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" name="añoVehiculo">
+                                <input type="number" class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" name="añoVehiculo">
                                                         
                                 <br>
-                
                                 <label for="inputKilo">Kilometraje: </label> 
                                 <input type="number" class="form-control" id="inputKilo" placeholder="Kilometraje" name="kmActual">
                                                 
@@ -221,27 +247,28 @@
                                                 
                                 <br>
                                                     
-                                <label for="inputMarca">Marca: </label> 
-                                <input type="text" class="form-control" id="inputMarca" placeholder="Marca" name="marca">
-                                                
-                                <br>
-                                                
-                                <label for="inputModel">Modelo: </label> 
-                                <input type="text" class="form-control" id="inputModel" placeholder="Modelo" name="modelo">
-                                                
-                                <br>    
+                                
+                                
+                                <div class="btn-container" style="text-align: center;"> 
+                                    <br>
+                                    <button class="btn-blue" type="submit" name="action" value="registrar" >Registrar</button>
+                                </div>
                                             
-                                <label for="inputModel">Código Servicio: </label> 
-                                <input type="text" class="form-control" id="inputModel" placeholder="Código Servicio" name="codServicio">
-                            </div>
+                                </div>
                             
                             <div id="vehicleRegisteredFields" style="display: none;">
+                                <br>
                                 <label for="selectRegisteredVehicle">Seleccionar vehículo registrado:</label>
                                 <select id="selectRegisteredVehicle" name="registeredVehicle">
                                     <option value="vehicle1">Vehículo 1</option>
                                     <option value="vehicle2">Vehículo 2</option>
                                     <option value="vehicle3">Vehículo 3</option>
                                 </select>
+
+                                <div class="btn-container" style="text-align: center;"> 
+                                    <br>
+                                    <button class="btn-blue" type="submit" name="action" value="registrar" >Registrar</button>
+                                </div>
                             </div>
                         </div>
                             
@@ -275,7 +302,7 @@
 
                     <div class="btn-container" style="text-align: center;"> 
                         <br>
-                        <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
+                        <button class="btn-blue" type="submit" name="action" value="registrar" >Registrar</button>
                     </div>
                 </form>
                 </div>

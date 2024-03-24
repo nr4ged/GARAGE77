@@ -106,6 +106,12 @@
 							<form action="/LsVehiculos" method="post" th:object="${CSV}">
                                 <div style="text-align: center;">
 
+                                    <label for="inputPlaca">Placa: </label> <input type="text"
+                                    class="form-control" id="inputPlaca" placeholder="Placa"
+                                    name="placa" required>
+
+                                    <br>
+
                                     <label for="inputMarca">Marca: </label> <input type="text"
                                     class="form-control" id="inputMarca" placeholder="Marca"
                                     name="marca" required>
@@ -117,14 +123,12 @@
                                     name="modelo" required >
                             
                                     <br>
-                            
-                                
-                                    <label for="inputPlaca">Placa: </label> <input type="text"
-                                    class="form-control" id="inputPlaca" placeholder="Placa"
-                                    name="placa" required>
 
-                                    <br>
-
+                                    <label for="inputAnno">Año:</label><input type="number"
+                                    class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
+                                    name="anno" required>
+                                    <br>                                   
+                                                                          
                                     <label for="inputKilo">Kilometraje: </label> <input type="number"
                                     class="form-control" id="inputKilo" placeholder="Kilometraje"
                                     name="kilometraje" required>
@@ -133,27 +137,19 @@
 
                                     <label for="inputKilo">Kilometraje Aprox: </label> <input type="number"
 								        class="form-control" id="inputKilo" placeholder="Kilometraje Aprox"
-								        name="kilometraje" required>
-								
-								        <br>
-
-                                    <label for="inputAnno">Año:</label><input type="number" style="width:155px;"
-                                    class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                                    name="anno" required>
+								        name="kilometraje" required> 
                             
                                     <br>     
 
-                                        <div class="btn-container">
-                                            <br>
-                                            <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
-                                            <button type="submit" name="action" value="actualizar" class="btn btn-warning">Actualizar</button>
-                                            <br>
-                                            <button type="submit" name="action" value="eliminar" class="btn btn-danger">Eliminar</button>
-                                            <button type="button" class="btn btn-secondary" onclick="limpiarCamposCliente()">Limpiar</button>
-                                            <br>
-                                        
-                                        
-                                </div>
+                                    <div class="btn-container">
+                                        <br>
+                                        <button type="submit" name="action" value="registrar" class="btn-blue">Registrar</button>
+                                        <button type="submit" name="action" value="actualizar" class="btn-yellow">Actualizar</button>
+                                        <br>
+                                        <button type="submit" name="action" value="eliminar" class="btn-red">Eliminar</button>
+                                        <button type="button" class="btn-gray" onclick="limpiarCamposCliente()">Limpiar</button>
+                                        <br>
+                                    </div>
 							</form>
 							    <div th:text="${mensaje}"></div>
                         </div>
@@ -169,28 +165,30 @@
                 
                 <div>
                     <h2 style="text-align: center;"><span class="danger">Vehiculos</span> Disponibles</h2>
-                    <input type="text" id="filtro" placeholder="Filtrar por Descripcion">
+                    <input type="text" id="filtro" placeholder="Filtrar por Placa">
                     
                     <table id="id_table" class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Placa </th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
                                 <th>Año </th>
                                 <th>Km Actual </th>
                                 <th>Kilometraje Aprox</th>
-                                <th>Marca</th>
-                                <th>Modelo</th>
+                                
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr th:each="v : ${lstVehiculos}">
                                 <th scope="row" th:text="${v.placa}">1</th>
+                                <td th:text="${v.marca}">xx</td>
+                                <td th:text="${v.modelo}">xx</td>
                                 <td th:text="${v.añoVehiculo}">xx</td>
                                 <td th:text="${v.kmActual}">xx</td>
                                 <td th:text="${v.kmAprox}">xx</td>
-                                <td th:text="${v.marca}">xx</td>
-                                <td th:text="${v.modelo}">xx</td>
+                                
                                 <td>
                                     <form
                                         th:action="@{/LsVehiculos/editar/{placa}(placa=${v.placa})}"

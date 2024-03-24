@@ -107,26 +107,26 @@
                                 <div style="text-align: center;">
 								
                                     <label for="inputCod">Nombre</label> <input type="text"
-										class="form-control" id="inputCod" placeholder="nombre"
+										class="form-control" id="inputCod" placeholder="Nombre Cliente"
 										name="Nombre" required>
                         
                                 <br>
                         
                                     <label for="inputNom">telefono</label> <input type="number"
-                                            class="form-control" id="inputNom" placeholder="telefono"
+                                            class="form-control" id="inputNom" placeholder="Telefono Cliente"
                                             name="telefono"required>
                         
                                 <br>
                         
                             
                                     <label for="inputApe">Dni Cliente</label> <input type="number"
-                                            class="form-control" id="inputApe" placeholder="dni"
+                                            class="form-control" id="inputApe" placeholder="DNI Cliente"
                                             name="dni" required>
                             
                                 <br>
 
                                 <label for="inputApe">Empresa Cliente</label> <input type="text"
-                                            class="form-control" id="inputEmp" placeholder="Empresa"
+                                            class="form-control" id="inputEmp" placeholder="Empresa Cliente"
                                             name="empresa" required>
                             
                                 <br>
@@ -151,14 +151,12 @@
 
                                 <div class="btn-container">
                                     <br>
-                                    <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
-                                    <button type="submit" name="action" value="actualizar" class="btn btn-warning">Actualizar</button>
+                                    <button type="submit" name="action" value="registrar" class="btn-blue">Registrar</button>
+                                    <button type="submit" name="action" value="actualizar" class="btn-yellow">Actualizar</button>
                                     <br>
-                                    <button type="submit" name="action" value="eliminar" class="btn btn-danger">Eliminar</button>
-                                    <button type="button" class="btn btn-secondary" onclick="limpiarCamposCliente()">Limpiar</button>
+                                    <button type="submit" name="action" value="eliminar" class="btn-red">Eliminar</button>
+                                    <button type="button" class="btn-gray" onclick="limpiarCamposCliente()">Limpiar</button>
                                     <br>
-                                    
-                                        
                                 </div>
 							</form>
 							    <div th:text="${mensaje}"></div>
@@ -175,7 +173,7 @@
                 
                 <div>
                     <h2 style="text-align: center;"><span class="danger">Clientes</span> Disponibles</h2>
-                    <input type="text" id="filtro" placeholder="Filtrar por Descripcion">
+                    <input type="text" id="filtro" placeholder="Filtrar por DNI">
                     
                     <table id="id_table" class="table table-striped">
                         <thead>

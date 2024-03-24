@@ -108,13 +108,13 @@
                             name="placa" >
                                         
                             <br>
-
-                            <label for="inputAnno">Año:</label><input type="number" style="width:155px;"
+                            <br>
+                            <label for="inputAnno">Año:</label><input type="number"
                             class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
                             name="añoVehiculo" >
                                         
                             <br>
-
+                            <br>
                             <label for="inputKilo">Kilometraje: </label> <input type="number"
 						    class="form-control" id="inputKilo" placeholder="Kilometraje"
 							name="kmActual" >
@@ -139,10 +139,11 @@
                             name="modelo" >
 								
                             <br>    
-                            
-                            <label for="inputModel">codigo Servicio: </label> <input type="text"
-                            class="form-control" id="inputModel" placeholder="codServicio"
-                            name="codServicio" >
+
+                            <div class="btn-container" style="text-align: center;"> 
+                                <br>
+                                <button type="submit" name="action" value="actualizar" class="btn-yellow">Editar</button>
+                            </div>
                                         
                         </div>
 						    
@@ -156,6 +157,82 @@
             <!-- End of Analyses -->
 
             <div class="analysee">
+                <div>
+                    <h2 style="text-align: center;">Diagnostico & <span class="danger">Revision</span> </h2>
+                        <br>
+                            <form action="/PgCliente" method="post">
+                                <div style="text-align: center;">
+                                    <label for="inputFrenos">Frenos: </label> <input type="text"
+                                    class="form-control" id="inputFrenos" placeholder="Frenos"
+                                    name="Frenos">
+                                    <br>
+                    
+                                    <label for="inputFrenoM">Freno de Mano: </label> <input type="text"
+                                    class="form-control" id="inputFrenoM" placeholder="Freno de Mano"
+                                    name="FrenoM">
+                    
+                                    <br>
+                    
+                        
+                                    <label for="inputLiquidoF">Liquido de frenos: </label> <input type="text"
+                                    class="form-control" id="inputLiquidoF" placeholder="Liquido de Frenos"
+                                    name="LiquidoF">
+
+                                    <br>
+
+                                    <label for="inputLiquidoE">Liquido de Embrague: </label> <input type="text"
+                                    class="form-control" id="inputLiquidoE" placeholder="Liquido de Embragues"
+                                    name="LiquidoE">
+                    
+                                    <br>
+
+                                    <label for="inputRefrigeranteM">Refrigerante de Motor:</label><input type="text"
+                                    class="form-control" id="inputRefrigeranteM" placeholder="Refrigerante Motor"
+                                    name="RefrigeranteM">
+
+                                    <br>
+
+                                    <label for="inputBateria">Bateria:</label><input type="text"
+                                    class="form-control" id="inputBateria" placeholder="Bateria" 
+                                    name="Bateria">
+
+                                    <br>
+
+                                    <label for="inputArrancador">Arrancador:</label><input type="text"
+                                    class="form-control" id="inputArrancador" placeholder="Arrancador"
+                                    name="Arrancador">
+                    
+                                    <br>   
+
+                                    <label for="inputAlternadorC">Alternador Carga:</label><input type="text"
+                                    class="form-control" id="inputAlternadorC" placeholder="Alternador Carga" 
+                                    name="AlternadorC">
+                    
+                                    <br>  
+                                    <label for="inputLucesD">Luces Delanteras Derecha:</label><input type="text"
+                                    class="form-control" id="inputLucesD" placeholder="Luces Del Derecha"
+                                    name="LucesD">
+                    
+                                    <br>    
+                                    <label for="inputLucesI">Luces Delanteras Izquierda:</label><input type="text"
+                                    class="form-control" id="inputLucesI" placeholder="Luces Del Izquierda"
+                                    name="LucesI">
+                    
+                                    <br> 
+                                    <label for="inputLucesP">Luces Post:</label><input type="text"
+                                    class="form-control" id="inputLucesP" placeholder="Luces Posteriores"
+                                    name="LucesP">
+                    
+                                    <br>    
+                                </div>
+                                <div class="btn-container" style="text-align: center;">
+                                    <br>
+                                    <button type="submit" name="action" value="registrar" class="btn-blue">Registrar</button>
+                                    <br>
+                                </div>
+                            </form>
+                        <div th:text="${mensaje}"></div>    
+                </div>
 
                 <div>
                     <h2 style="text-align: center;">Inventario <span class="danger">Vehicular</span> </h2>
@@ -164,94 +241,32 @@
 
                     <div style="text-align: center;">
                     
-                        <label> Trajeta de Propiedad, SOAT <input type="checkbox" name="servicio" value="TrajetaPropiedad"></label><br>
-                        <label> Encendedor <input type="checkbox" name="servicio" value="Encendedor"></label><br>
-                        <label> Cenicero Portatil <input type="checkbox" name="servicio" value="CeniceroPortatil"></label><br>
-                        <label> Juego Pisos Alfombrados / Jebe <input type="checkbox" name="servicio" value="JuegoPisosAlfombrados"></label><br>
-                        <label> Tapas de Ruedas <input type="checkbox" name="servicio" value="TapasRuedas"></label><br>
-                        <label> LLantas y Repuestos <input type="checkbox" name="servicio" value="LLantasRepuestos"></label><br>
-                        <label> Gata - Planca de Gata <input type="checkbox" name="servicio" value="Gata"></label><br>
-                        <label> LLave de Ruedas <input type="checkbox" name="servicio" value="LLaveRuedas"></label><br>
-                        <label> Seguro de Aros <input type="checkbox" name="servicio" value="SeguroAros"></label><br>
-                        <label> Antena <input type="checkbox" name="servicio" value="Antena"></label><br>
+                        <select id="selectInsumos" multiple style="width: 100%;">
+                            <optgroup label="Inventario Vehicular">
+                                <option value="1">Trajeta de Propiedad, SOAT</option>
+                                <option value="2">Encendedor</option>
+                                <option value="3">Cenicero Portatil</option>
+                                <option value="4">Juego Pisos Alfombrados / Jebe</option>
+                                <option value="5">Tapas de Ruedas</option>
+                                <option value="6">LLantas y Repuestos</option>
+                                <option value="7">Gata - Planca de Gata</option>
+                                <option value="8">LLave de Ruedas</option>
+                                <option value="9">Seguro de Aros</option>
+                                <option value="10">Antena</option>
+                            </optgroup>
+                        </select>
+
                         <label for="inputNom">Otros: </label> <input type="text" class="form-control" id="inputNom" placeholder="Otros" name="otros">
                         <br>
 
                     </div>
+                    <div class="btn-container" style="text-align: center;">
+                        <br>
+                        <button type="submit" name="action" value="registrar" class="btn-blue">Registrar</button>
+                        <br>
+                    </div>
                     </form>
                     <div th:text="${mensaje}"></div>
-                </div>
-
-                <div>
-                    <h2 style="text-align: center;">Diagnostico & <span class="danger">Revision</span> </h2>
-                        <br>
-                            <form action="/PgCliente" method="post">
-                                <div style="text-align: center;">
-                                    <label for="inputMarca">Frenos: </label> <input type="text"
-                                    class="form-control" id="inputMarca" placeholder="Marca"
-                                    name="marca">
-                                    <br>
-                    
-                                    <label for="inputModel">Freno de Mano: </label> <input type="text"
-                                    class="form-control" id="inputModel" placeholder="Modelo"
-                                    name="modelo">
-                    
-                                    <br>
-                    
-                        
-                                    <label for="inputPlaca">Liquido de frenos: </label> <input type="text"
-                                    class="form-control" id="inputPlaca" placeholder="Placa"
-                                    name="placa">
-
-                                    <br>
-
-                                    <label for="inputKilo">Liquido de Embrague: </label> <input type="number"
-                                    class="form-control" id="inputKilo" placeholder="Kilometraje"
-                                    name="kilometraje">
-                    
-                                    <br>
-
-                                    <label for="inputAnno">Refrigerante Motor:</label><input type="number" style="width:155px;"
-                                    class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                                    name="anno">
-
-                                    <br>
-
-                                    <label for="inputAnno">Bateria:</label><input type="number" style="width:155px;"
-                                    class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                                    name="anno">
-
-                                    <br>
-
-                                    <label for="inputAnno">Arrancador:</label><input type="number" style="width:155px;"
-                                    class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                                    name="anno">
-                    
-                                    <br>   
-
-                                    <label for="inputAnno">Alternador Carga:</label><input type="number" style="width:155px;"
-                                    class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                                    name="anno">
-                    
-                                    <br>  
-                                    <label for="inputAnno">Luces del Der:</label><input type="number" style="width:155px;"
-                                    class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                                    name="anno">
-                    
-                                    <br>    
-                                    <label for="inputAnno">Luces del Izq:</label><input type="number" style="width:155px;"
-                                    class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                                    name="anno">
-                    
-                                    <br> 
-                                    <label for="inputAnno">Luces Post:</label><input type="number" style="width:155px;"
-                                    class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                                    name="anno">
-                    
-                                    <br>    
-                                </div>
-                            </form>
-                        <div th:text="${mensaje}"></div>    
                 </div>
 
             </div>
@@ -360,6 +375,21 @@
 
     <script src="/js/"></script>
     <script src="/js/index.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet"/>
+
+    <script>
+        $(document).ready(function() {
+            // Inicializar Select2
+            $('#selectInsumos').select2({
+                placeholder: 'Seleccionar Inventario del Vehiculo',
+                allowClear: true,
+                tags: true
+            });
+        });
+    </script>
 
 </body>
 
