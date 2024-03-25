@@ -18,7 +18,6 @@ darkMode.addEventListener('click', () => {
     darkMode.querySelector('span:nth-child(2)').classList.toggle('active');
 })
 
-
 Orders.forEach(order => {
     const tr = document.createElement('tr');
     const trContent = `
