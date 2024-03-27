@@ -298,7 +298,6 @@
                     <br>
 
                     <div class="recent-orders">
-                
                         <div>
 							<h2 style="text-align: center;">
 								<span class="danger">Insumos</span> Disponibles
@@ -307,13 +306,12 @@
 
 							<div th:each="Insumo : ${insumos}">
 								<input type="checkbox" id="insumo" onclick="validarCheck()"
-									name="insumo" th:value="${Insumo.insumoId}"> <label
-									th:for="'inputCod_' + ${Insumo.insumoId}"
+									name="insumo" th:value="${Insumo.insumoId}"> 
+
+                                    <label th:for="'inputCod_' + ${Insumo.insumoId}"
 									th:text="${Insumo.insumoDescripcion}"></label> <br>
 							</div>
 							
-						<label ></label>
-
 						</div>
                     </div>
 
@@ -323,6 +321,7 @@
                     </div>
                 </form>
                 </div>
+
             </div>
             <!-- End of Recent Orders -->
 
