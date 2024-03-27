@@ -300,14 +300,21 @@
                     <div class="recent-orders">
                 
                         <div>
-                            <h2 style="text-align: center;"><span class="danger">Insumos</span> Disponibles</h2>
+							<h2 style="text-align: center;">
+								<span class="danger">Insumos</span> Disponibles
+							</h2>
+							
 
-                            <select id="selectInsumos" multiple style="width: 100%;">
-                                <optgroup label="Insumos">
-                                    <option th:each="i : ${lstInsumos}" th:value="${i.codInsumo}" th:text="${i.desInsumo}"></option>
-                                </optgroup>
-                            </select>
-                        </div>
+							<div th:each="Insumo : ${insumos}">
+								<input type="checkbox" id="insumo" onclick="validarCheck()"
+									name="insumo" th:value="${Insumo.insumoId}"> <label
+									th:for="'inputCod_' + ${Insumo.insumoId}"
+									th:text="${Insumo.insumoDescripcion}"></label> <br>
+							</div>
+							
+						<label ></label>
+
+						</div>
                     </div>
 
                     <div class="btn-container" style="text-align: center;"> 

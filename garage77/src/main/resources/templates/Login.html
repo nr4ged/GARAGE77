@@ -16,7 +16,7 @@
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form th:object="${usuario}">
+            <form action="/login/valida" method="post" th:object="${Admin}">
                 <h1>Bienvenido de vuelta</h1>
                 <div class="social-icons">
                   <span>Inicia sesion con tu Usuario y Clave</span>
@@ -25,21 +25,21 @@
                 
                 <div class="form-floating mb-3">
                   
-                  <input type="email" class="form-control" id="floatingInput" placeholder="Usuario" th:value="${usuario}">
+                  <input type="email" class="form-control" id="floatingInput" placeholder="Usuariaao" name="adminUsu">
                   
                 </div>
                 <div class="form-floating">
                   
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Clave" th:value="${clave}">
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Clave" name="adminContra">
                   
                 </div>
 
-                <button type="button" onclick="validarInicioSesionUsuario()">Iniciar Sesion</button>
+                <button type="button" name="action" value="logear" class="btn btn-primary">Iniciar sesion</button>
             </form>
         </div>
 
         <div class="form-container sign-in">
-            <form th:object="${cliente}">
+            <form action="/login/valida" method="post" th:object="${Admin}">
                 <h1>Bienvenido</h1>
                 <div class="social-icons">
                   <span>Inicia sesion con tu Usuario y Clave</span>
@@ -48,16 +48,16 @@
 
                 <div class="form-floating mb-3">
                   
-                  <input type="email" class="form-control" id="floatingInput" placeholder="Usuario" th:value="${usuario}">
+                  <input type="text" class="form-control" id="floatingInput"placeholder="Usuariaao" name="adminUsu">
                   
                 </div>
                 <div class="form-floating">
                   
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Clave" th:value="${clave}">
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Clave" name="adminContra">
                   
                 </div>
 
-                <button type="button" onclick="validarInicioSesionCliente()">Iniciar Sesion</button>
+                <button type="submit" name="action" value="logear" class="btn btn-primary">Iniciar sesion</button>
             </form>
         </div>
         
@@ -77,34 +77,6 @@
         </div>
     </div>
 
- 
-    <script>
-        function validarInicioSesionCliente() {
-          var usuario = document.getElementById("inputCod").value;
-          var clave = document.getElementById("inputCla").value;
-    
-          if (usuario === "codigo" && clave === "nru_documento") {
-            alert("Inicio de sesión exitoso");
-            window.location.href = "/";
-          } else {
-            alert("Codigo de Cliente o Contraseña incorrectos");
-          }
-        }
-      </script>
-
-<script>
-    function validarInicioSesionUsuario() {
-      var usuario = document.getElementById("inputUsu").value;
-      var clave = document.getElementById("inputPsw").value;
-
-      if (usuario === "usuario" && clave === "clave") {
-        alert("Inicio de sesión exitoso");
-        window.location.href = "/";
-      } else {
-        alert("Nombre de usuario o Contraseña incorrectos");
-      }
-    }
-  </script>
 
     <script>
         const container = document.getElementById('container');
