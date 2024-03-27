@@ -187,28 +187,22 @@
                     <table id="id_table" class="table table-striped">
                         <thead>
                             <tr>
+                                <th>Identificacion </th>
                                 <th>Nombre </th>
-                                <th>Teléfono </th>
-                                <th>DNI </th>
-                                <th>Empresa</th>
-                                <th>Hora de Recepción </th>
-                                <th>Hora de Entrada </th>
-                                <th>Fecha de Entrada </th>
+                                <th>Telefono </th>
+                                <th>Dni</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr th:each="c : ${lstClientes}">
-                                <th scope="row" th:text="${c.nombre}">Nombre del Cliente</th>
-                                <td th:text="${c.telefono}">Teléfono del cliente</td>
-                                <td th:text="${c.dni}">DNI del cliente</td>
-                                <td th:text="${c.dni}">Empresa del cliente</td>
-                                <td th:text="${c.horaRecep}">Hora de recepción del cliente</td>
-                                <td th:text="${c.horaEntrega}">Hora de entrega del cliente</td>
-                                <td th:text="${c.fecha}">Fecha del cliente</td>
+                                <th scope="row" th:text="${c.clienteId}">Id del Cliente</th>
+                                <td th:text="${c.clienteNombre}">Nombre del cliente</td>
+                                <td th:text="${c.clienteTelefono}">Telefono del cliente</td>
+                                <td th:text="${c.clienteDni}">Dni del cliente</td>
                                 <td>
                                     <form
-                                        th:action="@{/LsClientes/editar/{c.dni}(c.dni=${c.dni})}"
+                                        th:action="@{/LsClientes/editar/{c.clienteId}(c.clienteId=${c.clienteId})}"
                                         method="get">
                                         <button type="submit" class="btn btn-link p-0">
                                             <img
