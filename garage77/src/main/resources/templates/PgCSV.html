@@ -28,30 +28,42 @@
             </div>
 
             <div class="sidebar">
+
                 <a href="/Index" >
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
                     <h3>Menu Principal</h3>
                 </a>
+
                 <a href="/PgCSV" class="active">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Mantenimiento</h3>
                 </a>
+
                 <a href="/PgMecanico" >
                     <span class="material-icons-sharp">
                         receipt_long
                     </span>
                     <h3>Mecanico</h3>
                 </a>
-                <a href="#">
+
+                <a href="/Reportes">
                     <span class="material-icons-sharp">
                         insights
                     </span>
                     <h3>Reportes</h3>
                 </a>
+
+                <a href="/Listados" >
+                    <span class="material-icons-sharp">
+                        report_gmailerrorred
+                    </span>
+                    <h3>Listados</h3>
+                </a>
+
                 <a href="#">
                     <span class="material-icons-sharp">
                         mail_outline
@@ -59,30 +71,28 @@
                     <h3>Facturas</h3>
                     <span class="message-count">27</span>
                 </a>
-                <a href="/Listados">
-                    <span class="material-icons-sharp">
-                        report_gmailerrorred
-                    </span>
-                    <h3>Listados</h3>
-                </a>
+                
                 <a href="/PgInventario">
                     <span class="material-icons-sharp">
                         inventory
                     </span>
                     <h3>Inventario</h3>
                 </a>
+
                 <a href="#">
                     <span class="material-icons-sharp">
                         settings
                     </span>
                     <h3>Ajustes</h3>
                 </a>
-                <a href="#">
+
+                <a href="/NuevoUsuario">
                     <span class="material-icons-sharp">
                         add
                     </span>
                     <h3>Nuevo Usuario</h3>
                 </a>
+
                 <a href="/Login">
                     <span class="material-icons-sharp">
                         logout
@@ -104,49 +114,105 @@
                         <h2 style="text-align: center;">Datos del <span class="danger">Cliente</span> </h2>
                         
                         <div class="info">
-                            
-
-						    <br>
-							<form action="/PgCSV" method="post" th:object="${CSV}">
+                            <br>
+                            <form action="/PgCSV" method="post" th:object="${CSV}">
                                 <div style="text-align: center;">
+                                    <label for="toggleSwitch">¿Cliente Antiguo?</label>
+                                    <input type="checkbox" id="clienteNue" onclick="toggleOptions1()">
                                     
-                                    
-                                    
-                                    <label for="inputCod">Nombre</label> <input type="text"
-                                    class="form-control" id="inputCod" placeholder="nombre"
-                                    name="nombreCliente"  required>
                                     <br>
+                                    <div id="timeAndDateFields">
+                                        <br>
+                                        <label for="inputCod">Nombre Cliente</label> <input type="text"
+                                        class="form-control" id="inputCod" placeholder="Nombre"
+                                        name="nombreCliente"  required>
+                                        <br>
+                                        
+                                        <label for="inputNom">Teléfono Cliente</label> <input type="number"
+                                        class="form-control" id="inputNom" placeholder="Teléfono"
+                                        name="telefonoCliente" required>
+                                        
+                                        <br>
+                                        
+                                        <label for="inputApe">DNI Cliente</label> <input type="number"
+                                        class="form-control" id="inputApe" placeholder="DNI"
+                                        name="dniCliente"  required>
+                                        
+                                        <br>
+
+                                        <br>
+                                        <label for="toggleSwitchEmpresa">¿Empresa?</label>
+                                        <input type="checkbox" id="toggleSwitchEmpresa" onclick="toggleEmpresaOptions()">
+                                        <br>
+                                        
+                                        
+                                        <div id="empresaNuevaFields" style="display: none;">
+                                            <br>
+                                            <label for="toggleEmpresaNueva">¿Empresa Nueva?</label>
+                                            <input type="checkbox" id="toggleEmpresaNueva" onclick="toggleEmpresaNuevoOptions()">
+                                            <br>
+
+                                            <div id="empresaNuevaNombre" style="display: none;">
+                                                <br>
+                                                <label for="inputNombreEmpresa">Nombre de la Nueva Empresa:</label>
+                                                <input class="form-control" type="text" id="inputNombreEmpresa" name="nombreEmpresa">
+                                            </div>
+                                            
+                                            <div id="empresaAntiguaSelect" style="display: none;">
+                                                <br>
+                                                <label for="selectEmpresaAntigua">Seleccionar Empresa Registrada:</label>
+                                                <select class="form-control" id="selectEmpresaAntigua" name="empresaAntigua">
+                                                    <option value="empresa1">Empresa 1</option>
+                                                    <option value="empresa2">Empresa 2</option>
+                                                    <option value="empresa3">Empresa 3</option>
+                                                </select>
+                                                
+                                            </div><br>
+                                        </div>
+                                        <br>
+                                        <label for="inputHora">Hora de Recepción: </label> <input type="time"
+                                        class="form-control" id="inputHora" placeholder="Hora Recepción"
+                                        name="horaRecep"  required>
+                                        
+                                        <br>
+                                        
+                                        <label for="inputHora">Hora de Entrada: </label> <input type="time"
+                                        class="form-control" id="inputHora" placeholder="Hora Entrega"
+                                        name="horaEntrega"  required>
+                                        
+                                        <br>
+                                        
+                                        <label for="inputFech">Fecha de Entrada: </label> <input type="date"
+                                        class="form-control" id="inputFech" placeholder="Fecha"
+                                        name="fechaCliente" required>
+                                        
+                                        <br>
+
+                                        <div class="btn-container" style="text-align: center;"> 
+                                            <br>
+                                            <button class="btn-blue" type="submit" name="action" value="registrar" >Registrar</button>
+                                        </div>
+
+                                    </div>
                                     
-									<label for="inputNom">telefono</label> <input type="number"
-                                    class="form-control" id="inputNom" placeholder="telefono"
-                                    name="telefonoCliente" required>
-								
-								    <br>
-								
-									<label for="inputApe">Dni Cliente</label> <input type="number"
-                                    class="form-control" id="inputApe" placeholder="dni"
-                                    name="dniCliente"  required>
-									<br>
+                                    <div id="clienteNuevoFields" style="display: none;">
+                                        <br>
+                                        <label for="clienteNuevo">Seleccionar cliente registrado</label>
+                                        <select class="form-control" id="clienteType" name="clienteType">
+                                            <option value="empresa">Seleccionar</option>
+                                            <option value="privado">Makina</option>
+                                        </select>
 
-                                    <h2 style="text-align: center;">Datos del <span class="danger">Servicio</span> </h2>
-									
-                                    <br>
-
-
-									<label for="inputHora">Hora de Recepcion: </label> <input type="datetime-local"
-                                    class="form-control" id="inputHora" placeholder="Hora Recepcion"
-                                    name="servicioHoraRecep"  required>
-
-                                    <br>
-
-                                    <label for="inputHora">Hora de Entrada: </label> <input type="datetime-local"
-                                    class="form-control" id="inputHora" placeholder="Hora Entrega"
-                                    name="servicioHoraEntrega"  required>
-
-                                    <br>   
-
+                                        <div class="btn-container" style="text-align: center;"> 
+                                            <br>
+                                            <button class="btn-blue" type="submit" name="action" value="registrar" >Registrar</button>
+                                        </div>
+                                    </div>
+                
+                                    
                                 </div>
-							    <div th:text="${mensaje}"></div>
+                                <div th:text="${mensaje}"></div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -154,52 +220,70 @@
                 <div class="visits">
                     <div>
                         <h2 style="text-align: center;">Datos del <span class="danger">Vehiculo</span> </h2>
-                        <div class="info">
+                        <div class="info" style="text-align: center;">
                             <br>
-
-                            <label for="inputPlaca">Placa: </label> <input type="text"
-                            class="form-control" id="inputPlaca" placeholder="Placa"
-                            name="placa" >
-                                        
+                
+                            <label for="toggleSwitch">¿Vehículo Registrado?</label>
+                            <input type="checkbox" id="cambio" onclick="toggleOptions()">
                             <br>
+                
+                            <div id="vehicleNew">
+                                <br>
+                                <label for="inputPlaca">Placa: </label> 
+                                <input type="text" class="form-control" id="inputPlaca" placeholder="Placa" name="placa">
+                                                        
+                                <br>
 
-                            <label for="inputAnno">Año:</label><input type="number" style="width:155px;"
-                            class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" 
-                            name="añoVehiculo" >
-                                        
-                            <br>
-
-                            <label for="inputKilo">Kilometraje: </label> <input type="text"
-						    class="form-control" id="inputKilo" placeholder="Kilometraje"
-							name="kmActual" >
-								
-							<br>
-
-                            <label for="inputKilo">Kilometraje Aprox: </label> <input type="text"
-							class="form-control" id="inputKilo" placeholder="Kilometraje Aprox"
-							name="kmAprox">
-								
-						    <br>
-							        
-								        
-                            <label for="inputMarca">Marca: </label> <input type="text"
-                            class="form-control" id="inputMarca" placeholder="Marca"
-                            name="marca" >
-								
-							<br>
-								
-                            <label for="inputModel">Modelo: </label> <input type="text"
-                            class="form-control" id="inputModel" placeholder="Modelo"
-                            name="modelo" >
-								
-                            <br>    
+                                <label for="inputMarca">Marca: </label> 
+                                <input type="text" class="form-control" id="inputMarca" placeholder="Marca" name="marca">
+                                                
+                                <br>
+                                                
+                                <label for="inputModel">Modelo: </label> 
+                                <input type="text" class="form-control" id="inputModel" placeholder="Modelo" name="modelo">
+                                                
+                                <br>
+                                <label for="inputAnno">Año:</label>
+                                <input type="number" class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" name="añoVehiculo">
+                                                        
+                                <br>
+                                <label for="inputKilo">Kilometraje: </label> 
+                                <input type="number" class="form-control" id="inputKilo" placeholder="Kilometraje" name="kmActual">
+                                                
+                                <br>
+                
+                                <label for="inputKilo">Kilometraje Aprox: </label> 
+                                <input type="number" class="form-control" id="inputKilo" placeholder="Kilometraje Aprox" name="kmAprox">
+                                                
+                                <br>
+                                                    
+                                
+                                
+                                <div class="btn-container" style="text-align: center;"> 
+                                    <br>
+                                    <button class="btn-blue" type="submit" name="action" value="registrar" >Registrar</button>
+                                </div>
+                                            
+                                </div>
                             
-                                        
+                            <div id="vehicleRegisteredFields" style="display: none;">
+                                <br>
+                                <label for="selectRegisteredVehicle">Seleccionar vehículo registrado:</label>
+                                <select class="form-control" id="selectRegisteredVehicle" name="registeredVehicle">
+                                    <option value="vehicle1">Vehículo 1</option>
+                                    <option value="vehicle2">Vehículo 2</option>
+                                    <option value="vehicle3">Vehículo 3</option>
+                                </select>
+
+                                <div class="btn-container" style="text-align: center;"> 
+                                    <br>
+                                    <button class="btn-blue" type="submit" name="action" value="registrar" >Registrar</button>
+                                </div>
+                            </div>
                         </div>
-						    
-							<div th:text="${mensaje}"></div>
+                            
+                        <div th:text="${mensaje}"></div>
                     </div>
-                    
                 </div>	
 
             </div>
@@ -207,113 +291,28 @@
             
             <div class="analysee">
                 <div>
+
+
+                    <h2 style="text-align: center;">Trabajo <span class="danger">Solicitado e Insumos</span> </h2>
+
+                    <br>
+
                     <div class="recent-orders">
                 
                         <div>
                             <h2 style="text-align: center;"><span class="danger">Insumos</span> Disponibles</h2>
-                            <input type="text" id="filtro" placeholder="Filtrar por Descripcion">
 
-                            <div th:each="Insumo : ${insumos}">
-                                <input type="checkbox" th:id="${'Insumo_' + Insumo.insumoId}" th:name="'insumosSeleccionados'" th:value="${Insumo.insumoId}">
-                                <label th:for="${'Insumo_' + Insumo.insumoId}" th:text="${Insumo.insumoDescripcion}"></label>
-                                <br>
-                            </div>
-                            
-                            
+                            <select id="selectInsumos" multiple style="width: 100%;">
+                                <optgroup label="Insumos">
+                                    <option th:each="i : ${lstInsumos}" th:value="${i.codInsumo}" th:text="${i.desInsumo}"></option>
+                                </optgroup>
+                            </select>
                         </div>
-
-                        
-        
-                        <div id="pagination" style="text-align: center; margin-top: 20px;">
-                            <div id="buttonsContainer">
-                                <button id="prevBtn" style="color: #fff; background-color: #1C9028">Anterior</button>
-                                <button id="nextBtn" style="color: #fff; background-color: #1C9028">Siguiente</button>
-                            </div>
-                            <span id="currentPage"></span>
-                        </div>
-                        
                     </div>
-
-                    <!-- <h3>Mantenimiento</h3>
-                    <select name="mantenimiento" id="mantenimiento" multiple>
-                        <option value="1">Mantenimiento de Frenos</option>
-                        <option value="2">Australia</option>
-                        <option value="3">Germany</option>
-                        <option value="4">Canada</option>
-                        <option value="5">Russia</option>
-                    </select>
-                    <h3>Servicio</h3>
-                    <select name="servicio" id="servicio" multiple>
-                        <option value="1">Afghanistan</option>
-                        <option value="2">Australia</option>
-                        <option value="3">Germany</option>
-                        <option value="4">Canada</option>
-                        <option value="5">Russia</option>
-                    </select>
-                    <h3>Otros</h3>
-                    <select name="otros" id="otros" multiple>
-                        <option value="1">Afghanistan</option>
-                        <option value="2">Australia</option>
-                        <option value="3">Germany</option>
-                        <option value="4">Canada</option>
-                        <option value="5">Russia</option>
-                    </select> -->
-                    
-                    <!-- <table id="id_table" class="table table-striped" style="text-align: center;">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Servicios</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-
-                        <tbody style="text-align: center;">
-                            <tr>
-                                <td>
-                                    <label>  </label> <input type="checkbox" name="servicio" value="lavado_vehicular"><br>
-                                    <label>  <input type="checkbox" name="servicio" value="lavado_salon"></label><br>
-                                    <label> Pintura <input type="checkbox" name="servicio" value="pintura"></label><br>
-                                    <label> Encerado <input type="checkbox" name="servicio" value="encerado"></label><br>
-                                    <label>  <input type="checkbox" name="servicio" value="undercoating"></label><br>
-                                    <label> Rev. Susp. D. <input type="checkbox" name="servicio" value="rev_susp_d"></label><br>
-                                    <label> Rev. Susp. P. <input type="checkbox" name="servicio" value="rev_susp_p"></label><br>
-                                    <label> Zincado <input type="checkbox" name="servicio" value="zincado"></label><br>
-                                    <label> Pulverizado de Motor <input type="checkbox" name="servicio" value="pulverizado_motor"></label><br>
-                                </td>
-
-                                <td>
-                                    <label>  <input type="checkbox" name="servicio" value="mantenimiento_frenos"></label><br>
-                                    <label> Cambio de Bujias <input type="checkbox" name="servicio" value="cambio_bujias"></label><br>
-                                    <label> Alineamiento de Dirección <input type="checkbox" name="servicio" value="alineamiento_direccion"></label><br>
-                                    <label> Cambio de aceite <input type="checkbox" name="servicio" value="cambio_aceite"></label><br>
-                                    <label> Revisión de Niveles <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
-                                    <label> Revision de Fajas <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
-                                    <label> Rotac. Neumáticos <input type="checkbox" name="servicio" value="rotac_neumaticos"></label><br>
-                                    <label>  <input type="checkbox" name="servicio" value="LavadoMotor"></label><br>
-                                </td>
-
-                                <td>
-                                    <label> Limpieza de Obturador <input type="checkbox" name="servicio" value="mantenimiento_frenos"></label><br>
-                                    <label> Limpieza de Inyectores <input type="checkbox" name="servicio" value="cambio_bujias"></label><br>
-                                    <label> Filtro de Acondicionado <input type="checkbox" name="servicio" value="alineamiento_direccion"></label><br>
-                                    <label> Cambio de aceite <input type="checkbox" name="servicio" value="cambio_aceite"></label><br>
-                                    <label> Aceite de Caja <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
-                                    <label>  <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
-                                    <label> Revision de Bobinas <input type="checkbox" name="servicio" value="rotac_neumaticos"></label><br>
-                                    <label> Filtro de Aire <input type="checkbox" name="servicio" value="revision_niveles"></label><br>
-                                    <label> Filtro de Aceite <input type="checkbox" name="servicio" value="revision_fajas"></label><br>
-                                    <label> Filtro de Petroleo <input type="checkbox" name="servicio" value="rotac_neumaticos"></label><br>
-                                </td>
-                            </tr>
-                        </tbody>
-                        
-                    
-                    </table> -->
 
                     <div class="btn-container" style="text-align: center;"> 
                         <br>
-                        <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
+                        <button class="btn-blue" type="submit" name="action" value="registrar" >Registrar</button>
                     </div>
                 </form>
                 </div>
@@ -424,26 +423,81 @@
 
 
     </div>
-    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
+    
     <script>
-        new MultiSelectTag('lavado')  // id
+        function toggleOptions1() {
+        var clienteNue = document.getElementById("clienteNue");
+        var timeAndDateFields = document.getElementById("timeAndDateFields");
+        var clienteNuevoFields = document.getElementById("clienteNuevoFields");
+
+        if (clienteNue.checked) {
+            timeAndDateFields.style.display = "none"; // Oculta los campos de hora y fecha
+            clienteNuevoFields.style.display = "block"; // Muestra el campo para introducir nombre del cliente nuevo
+        } else {
+            timeAndDateFields.style.display = "block"; // Muestra los campos de hora y fecha
+            clienteNuevoFields.style.display = "none"; // Oculta el campo para introducir nombre del cliente nuevo
+        }
+    }
+    
+        function toggleEmpresaOptions() {
+            var switchEmpresaToggle = document.getElementById("toggleSwitchEmpresa");
+            var empresaNuevoFields = document.getElementById("empresaNuevaFields");
+    
+            if (switchEmpresaToggle.checked) {
+                empresaNuevoFields.style.display = "block"; // Muestra los campos para empresa
+            } else {
+                empresaNuevoFields.style.display = "none"; // Oculta los campos para empresa
+            }
+        }
+    
+        function toggleEmpresaNuevoOptions() {
+            var switchEmpresaNuevoToggle = document.getElementById("toggleEmpresaNueva");
+            var empresaNuevoNombre = document.getElementById("empresaNuevaNombre");
+            var empresaAntiguaSelect = document.getElementById("empresaAntiguaSelect");
+    
+            if (switchEmpresaNuevoToggle.checked) {
+                empresaNuevoNombre.style.display = "block"; // Muestra el campo para nombre de nueva empresa
+                empresaAntiguaSelect.style.display = "none"; // Oculta el select para empresa antigua
+            } else {
+                empresaNuevoNombre.style.display = "none"; // Oculta el campo para nombre de nueva empresa
+                empresaAntiguaSelect.style.display = "block"; // Muestra el select para empresa antigua
+            }
+        }
     </script>
 
     <script>
-        new MultiSelectTag('mantenimiento')  // id
-    </script>
+        function toggleOptions() {
+            var cambio = document.getElementById("cambio");
+            var vehicleNewFields = document.getElementById("vehicleNew");
+            var vehicleRegisteredFields = document.getElementById("vehicleRegisteredFields");
 
-    <script>
-        new MultiSelectTag('servicio')  // id
+            if (cambio.checked) {
+                vehicleNewFields.style.display = "none"; // Oculta los campos del vehículo nuevo
+                vehicleRegisteredFields.style.display = "block"; // Muestra el combobox para seleccionar vehículo registrado
+            } else {
+                vehicleNewFields.style.display = "block"; // Muestra los campos del vehículo nuevo
+                vehicleRegisteredFields.style.display = "none"; // Oculta el combobox para seleccionar vehículo registrado
+            }
+        }
     </script>
-
-    <script>
-        new MultiSelectTag('otros')  // id
-    </script>
-
 
     <script src="/js/"></script>
     <script src="/js/index.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet"/>
+
+    <script>
+        $(document).ready(function() {
+            // Inicializar Select2
+            $('#selectInsumos').select2({
+                placeholder: 'Buscar insumo',
+                allowClear: true,
+                tags: true
+            });
+        });
+    </script>
 
 </body>
 

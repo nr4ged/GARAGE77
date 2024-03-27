@@ -42,6 +42,16 @@ public class ProyectoController {
 			return "Listados";
 		}
 
+		@GetMapping("/Reportes")
+		public String cargarReportes() {
+			return "Reportes";
+		}
+
+		@GetMapping("/NuevoUsuario")
+		public String cargarNuevoUsuario() {
+			return "NuevoUsuario";
+		}
+
 		@GetMapping("/PgCSV")
 			public String cargarPgCSV(Model model) {
 

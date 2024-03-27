@@ -27,30 +27,42 @@
             </div>
 
             <div class="sidebar">
-                <a href="/Index">
+
+                <a href="/Index" >
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
                     <h3>Menu Principal</h3>
                 </a>
+
                 <a href="/PgCSV">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Mantenimiento</h3>
                 </a>
+
                 <a href="/PgMecanico" >
                     <span class="material-icons-sharp">
                         receipt_long
                     </span>
                     <h3>Mecanico</h3>
                 </a>
-                <a href="#">
+
+                <a href="/Reportes">
                     <span class="material-icons-sharp">
                         insights
                     </span>
                     <h3>Reportes</h3>
                 </a>
+
+                <a href="/Listados" class="active">
+                    <span class="material-icons-sharp">
+                        report_gmailerrorred
+                    </span>
+                    <h3>Listados</h3>
+                </a>
+
                 <a href="#">
                     <span class="material-icons-sharp">
                         mail_outline
@@ -58,30 +70,28 @@
                     <h3>Facturas</h3>
                     <span class="message-count">27</span>
                 </a>
-                <a href="/Listados" class="active">
-                    <span class="material-icons-sharp">
-                        report_gmailerrorred
-                    </span>
-                    <h3>Listados</h3>
-                </a>
+                
                 <a href="/PgInventario">
                     <span class="material-icons-sharp">
                         inventory
                     </span>
                     <h3>Inventario</h3>
                 </a>
+
                 <a href="#">
                     <span class="material-icons-sharp">
                         settings
                     </span>
                     <h3>Ajustes</h3>
                 </a>
-                <a href="#">
+
+                <a href="/NuevoUsuario">
                     <span class="material-icons-sharp">
                         add
                     </span>
                     <h3>Nuevo Usuario</h3>
                 </a>
+
                 <a href="/Login">
                     <span class="material-icons-sharp">
                         logout
@@ -106,29 +116,32 @@
 							<form action="/LsInsumos" method="post" th:object="${CSV}">
                                 <div style="text-align: center;">
 								
-                                    <label for="inputCod">Nombre</label> <input type="text"
-										class="form-control" id="inputCod" placeholder="nombre"
+                                    <label for="inputCod">Codigo Insumo</label> <input type="text"
+										class="form-control" id="inputCod" placeholder="Codigo"
 										name="Nombre" required>
                         
                                 <br>
                         
-                                    <label for="inputNom">telefono</label> <input type="number"
-                                            class="form-control" id="inputNom" placeholder="telefono"
+                                    <label for="inputNom">Nombre Insumo</label> <input type="text"
+                                            class="form-control" id="inputNom" placeholder="Nombre"
                                             name="telefono"required>
+                        
+                                <br>
+
+                                <label for="inputCod">Precio Insumo</label> <input type="number"
+										class="form-control" id="inputCod" placeholder="Precio"
+										name="Nombre" required>
                         
                                 <br>
                         
 
                                 <div class="btn-container">
                                     <br>
-                                    <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
-                                    <button type="submit" name="action" value="actualizar" class="btn btn-warning">Actualizar</button>
+                                    <button type="submit" name="action" value="registrar" class="btn-blue">Registrar</button>
+                                    <button type="submit" name="action" value="actualizar" class="btn-yellow">Actualizar</button>
+                                    <button type="submit" name="action" value="eliminar" class="btn-red">Eliminar</button>
+                                    <button type="button" class="btn-gray" onclick="limpiarCamposCliente()">Limpiar</button>
                                     <br>
-                                    <button type="submit" name="action" value="eliminar" class="btn btn-danger">Eliminar</button>
-                                    <button type="button" class="btn btn-secondary" onclick="limpiarCamposCliente()">Limpiar</button>
-                                    <br>
-                                    
-                                        
                                 </div>
 							</form>
 							    <div th:text="${mensaje}"></div>
@@ -145,20 +158,22 @@
                 
                 <div>
                     <h2 style="text-align: center;"><span class="danger">Insumos</span> Disponibles</h2>
-                    <input type="text" id="filtro" placeholder="Filtrar por Descripcion">
+                    <input type="text" id="filtro" placeholder="Filtrar por Nombre">
                     
                     <table id="id_table" class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Nombre </th>
-                                <th>Teléfono </th>
+                                <th>Codigo Insumo</th>
+                                <th>Descripcion Insumo </th>
+                                <th>Precio Insumo</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr th:each="i : ${lstInsumos}">
-                                <th scope="row" th:text="${i.codInsumo}">Nombre del cliente</th>
-                                <td th:text="${i.desInsumo}">Teléfono del cliente</td>
+                                <th scope="row" th:text="${i.codInsumo}">Codigo del Insumo</th>
+                                <td th:text="${i.desInsumo}">Descripcion del Insumo</td>
+                                <td th:text="${i.desInsumo}">Precio del Insumo</td>
                                 <td>
                                     <form
                                         th:action="@{/LsInsumos/editar/{i.codInsumo}(i.codInsumo=${i.codInsumo})}"

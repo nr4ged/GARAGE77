@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="/css/inventario.css">
     <title>Inventario - GARAGE 77</title>
@@ -29,30 +28,42 @@
             </div>
 
             <div class="sidebar">
+
                 <a href="/Index" >
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
                     <h3>Menu Principal</h3>
                 </a>
+
                 <a href="/PgCSV">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Mantenimiento</h3>
                 </a>
+
                 <a href="/PgMecanico" >
                     <span class="material-icons-sharp">
                         receipt_long
                     </span>
                     <h3>Mecanico</h3>
                 </a>
-                <a href="#">
+
+                <a href="/Reportes">
                     <span class="material-icons-sharp">
                         insights
                     </span>
                     <h3>Reportes</h3>
                 </a>
+
+                <a href="/Listados" >
+                    <span class="material-icons-sharp">
+                        report_gmailerrorred
+                    </span>
+                    <h3>Listados</h3>
+                </a>
+
                 <a href="#">
                     <span class="material-icons-sharp">
                         mail_outline
@@ -60,30 +71,28 @@
                     <h3>Facturas</h3>
                     <span class="message-count">27</span>
                 </a>
-                <a href="/Listados">
-                    <span class="material-icons-sharp">
-                        report_gmailerrorred
-                    </span>
-                    <h3>Listados</h3>
-                </a>
+                
                 <a href="/PgInventario" class="active">
                     <span class="material-icons-sharp">
                         inventory
                     </span>
                     <h3>Inventario</h3>
                 </a>
+
                 <a href="#">
                     <span class="material-icons-sharp">
                         settings
                     </span>
                     <h3>Ajustes</h3>
                 </a>
-                <a href="#">
+
+                <a href="/NuevoUsuario">
                     <span class="material-icons-sharp">
                         add
                     </span>
                     <h3>Nuevo Usuario</h3>
                 </a>
+
                 <a href="/Login">
                     <span class="material-icons-sharp">
                         logout
@@ -116,6 +125,7 @@
                                     <input type="text" class="form-control" placeholder="Codigo Alternativo" aria-label="Codigo Alternativo" aria-describedby="basic-addon2">
                                     
                                 </div>
+                                <br>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Descripcion:</span>
                                     <input type="text" class="form-control" placeholder="Descripcion" aria-label="Descripcion" aria-describedby="basic-addon1">
@@ -126,19 +136,27 @@
                                     
                                 </div>
 
+                                <br>
+
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Fecha de Entrada:</span>
                                     <input type="date" class="form-control" placeholder="Fecha de Entrada:" aria-label="Fecha de Entrada:" aria-describedby="basic-addon1">
                                     
                                 </div>
 
+                                <br>
+
                                 <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Precio:</span>
+                                    <input type="text" class="form-control" placeholder="Precio:" aria-label="Precio:" aria-describedby="basic-addon1">
                                     <span class="input-group-text" id="basic-addon1">Almacen:</span>
                                     <input type="text" class="form-control" placeholder="Almacen:" aria-label="Almacen:" aria-describedby="basic-addon1">
                                     <span class="input-group-text" id="basic-addon1">Ubicacion:</span>
                                     <input type="text" class="form-control" placeholder="Ubicacion:" aria-label="Ubicacion:" aria-describedby="basic-addon1">
                                     
                                 </div>
+
+                                <br>
 
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Aplic. M/V:</span>
@@ -152,11 +170,10 @@
 
                                         <div class="btn-container">
                                             <br>
-                                            <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
-                                            <button type="submit" name="action" value="actualizar" class="btn btn-warning">Actualizar</button>
-                                            <br>
-                                            <button type="submit" name="action" value="eliminar" class="btn btn-danger">Eliminar</button>
-                                            <button type="button" class="btn btn-secondary" onclick="limpiarCamposCliente()">Limpiar</button>
+                                            <button type="submit" name="action" value="registrar" class="btn-blue">Registrar</button>
+                                            <button type="submit" name="action" value="actualizar" class="btn-yellow">Actualizar</button>
+                                            <button type="submit" name="action" value="eliminar" class="btn-red">Eliminar</button>
+                                            <button type="button" class="btn-gray" onclick="limpiarCamposCliente()">Limpiar</button>
                                             <br>
                                         </div>
                                         

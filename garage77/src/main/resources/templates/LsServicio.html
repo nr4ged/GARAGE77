@@ -27,30 +27,42 @@
             </div>
 
             <div class="sidebar">
-                <a href="/Index">
+
+                <a href="/Index" >
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
                     <h3>Menu Principal</h3>
                 </a>
+
                 <a href="/PgCSV">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Mantenimiento</h3>
                 </a>
+
                 <a href="/PgMecanico" >
                     <span class="material-icons-sharp">
                         receipt_long
                     </span>
                     <h3>Mecanico</h3>
                 </a>
-                <a href="#">
+
+                <a href="/Reportes">
                     <span class="material-icons-sharp">
                         insights
                     </span>
                     <h3>Reportes</h3>
                 </a>
+
+                <a href="/Listados" class="active">
+                    <span class="material-icons-sharp">
+                        report_gmailerrorred
+                    </span>
+                    <h3>Listados</h3>
+                </a>
+
                 <a href="#">
                     <span class="material-icons-sharp">
                         mail_outline
@@ -58,30 +70,28 @@
                     <h3>Facturas</h3>
                     <span class="message-count">27</span>
                 </a>
-                <a href="/Listados" class="active">
-                    <span class="material-icons-sharp">
-                        report_gmailerrorred
-                    </span>
-                    <h3>Listados</h3>
-                </a>
+                
                 <a href="/PgInventario">
                     <span class="material-icons-sharp">
                         inventory
                     </span>
                     <h3>Inventario</h3>
                 </a>
+
                 <a href="#">
                     <span class="material-icons-sharp">
                         settings
                     </span>
                     <h3>Ajustes</h3>
                 </a>
-                <a href="#">
+
+                <a href="/NuevoUsuario">
                     <span class="material-icons-sharp">
                         add
                     </span>
                     <h3>Nuevo Usuario</h3>
                 </a>
+
                 <a href="/Login">
                     <span class="material-icons-sharp">
                         logout
@@ -145,14 +155,11 @@
 
                                 <div class="btn-container">
                                     <br>
-                                    <button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
-                                    <button type="submit" name="action" value="actualizar" class="btn btn-warning">Actualizar</button>
+                                    <button type="submit" name="action" value="registrar" class="btn-blue">Registrar</button>
+                                    <button type="submit" name="action" value="actualizar" class="btn-yellow">Actualizar</button>
+                                    <button type="submit" name="action" value="eliminar" class="btn-red">Eliminar</button>
+                                    <button type="button" class="btn-gray" onclick="limpiarCamposCliente()">Limpiar</button>
                                     <br>
-                                    <button type="submit" name="action" value="eliminar" class="btn btn-danger">Eliminar</button>
-                                    <button type="button" class="btn btn-secondary" onclick="limpiarCamposCliente()">Limpiar</button>
-                                    <br>
-                                    
-                                        
                                 </div>
 							</form>
 							    <div th:text="${mensaje}"></div>
