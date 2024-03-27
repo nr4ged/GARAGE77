@@ -181,25 +181,20 @@
                     <table id="id_table" class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Codigo Servicio</th>
-                                <th>Nombre</th>
-                                <th>Teléfono </th>
-                                <th>Placa</th>
-                                <th>Año Vehiculo</th>
+                                <th>Servicio Id</th>
+                                <th>Hora Recepcionada</th>
+                                <th>Hora Entrega</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr th:each="s : ${lstServicios}">
-                                <th scope="row" th:text="${s.codServicio}">Nombre del cliente</th>
-                                <td th:text="${s.nombre}">Teléfono del cliente</td>
-                                <td th:text="${s.telefono}">DNI del cliente</td>
-                                <td th:text="${s.placa}">Hora de recepción del cliente</td>
-                                <td th:text="${s.añoVehiculo}">Hora de entrega del cliente</td>
-                                
+                                <th scope="row" th:text="${s.servicioId}">Servicio Id</th>
+                                <td th:text="${s.servicioHoraRecep}">Hora Recepcionada</td>
+                                <td th:text="${s.servicioHoraEntrega}">Hora Entregada</td>
                                 <td>
                                     <form
-                                        th:action="@{/PgCliente/editar/{s.codServicio}(s.codServicio=${s.codServicio})}"
+                                        th:action="@{/PgCliente/editar/{s.servicioId}(s.servicioId=${s.servicioId})}"
                                         method="get">
                                         <button type="submit" class="btn btn-link p-0">
                                             <img

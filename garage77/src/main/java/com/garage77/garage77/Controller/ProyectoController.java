@@ -52,6 +52,14 @@ public class ProyectoController {
 			return "NuevoUsuario";
 		}
 
+		@GetMapping("/LsInsumos")
+		 public String cargarLsInsumos(Model model) {
+		 	model.addAttribute("insumo", new Insumo());
+			model.addAttribute("lstInsumos", repoInsu.findAll());
+		 	return "LsInsumos";
+		 }
+
+
 		// @GetMapping("/PgCSV")
 		// 	public String cargarPgCSV(Model model) {
 
@@ -81,13 +89,6 @@ public class ProyectoController {
 			model.addAttribute("lstVehiculos", repoVehi.findAll());
 			return "LsVehiculos";
 		}
-
-		// @GetMapping("/LsInsumos")
-		// public String cargarLsInsumos(Model model) {
-		// 	model.addAttribute("insumo", new Insumo());
-		// 	model.addAttribute("lstInsumos", repoInsu.findAll());
-		// 	return "LsInsumos";
-		// }
 
 		@GetMapping("/LsServicio")
 		public String cargarLsServicios(Model model) {
