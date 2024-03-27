@@ -28,4 +28,12 @@ public class Servicio {
     private LocalDateTime servicioHoraEntrega;
     @Column (name = "servicio_total")
     private double servicioTotal;
+    
+    @Override
+    public String toString() {
+        return "Servicio [servicioId=" + servicioId + ", servicioHoraRecep=" + servicioHoraRecep
+                + ", servicioHoraEntrega=" + servicioHoraEntrega + ", servicioTotal=" + servicioTotal + "]";
+    }
+
+    
 }

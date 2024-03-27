@@ -115,7 +115,9 @@
                         
                         <div class="info">
                             <br>
-                            <form action="/PgCSV" method="post" th:object="${CSV}">
+                            <form action="/PgCSV/PgRegistrarTodo" method="post"
+                            th:object="${CSV}">
+
                                 <div style="text-align: center;">
                                     <label for="toggleSwitch">¿Cliente Antiguo?</label>
                                     <input type="checkbox" id="clienteNue" onclick="toggleOptions1()">
@@ -170,21 +172,15 @@
                                             </div><br>
                                         </div>
                                         <br>
-                                        <label for="inputHora">Hora de Recepción: </label> <input type="time"
-                                        class="form-control" id="inputHora" placeholder="Hora Recepción"
-                                        name="horaRecep"  required>
+                                        <label for="inputHora">Hora de Recepcion: </label> <input
+										type="datetime-local" class="form-control" id="inputHora"
+										placeholder="Hora Recepcion" name="servicioHoraRecep" required>
                                         
                                         <br>
                                         
-                                        <label for="inputHora">Hora de Entrada: </label> <input type="time"
-                                        class="form-control" id="inputHora" placeholder="Hora Entrega"
-                                        name="horaEntrega"  required>
-                                        
-                                        <br>
-                                        
-                                        <label for="inputFech">Fecha de Entrada: </label> <input type="date"
-                                        class="form-control" id="inputFech" placeholder="Fecha"
-                                        name="fechaCliente" required>
+                                        <label for="inputHora">Hora de Entrada: </label> <input
+										type="datetime-local" class="form-control" id="inputHora"
+										placeholder="Hora Entrega" name="servicioHoraEntrega" required>
                                         
                                         <br>
 
@@ -212,7 +208,7 @@
                                     
                                 </div>
                                 <div th:text="${mensaje}"></div>
-                            </form>
+                           
                         </div>
                     </div>
                 </div>
@@ -247,13 +243,13 @@
                                 <input type="number" class="form-control" id="inputAnno" placeholder="Ingrese Año" min="1900" max="2024" name="añoVehiculo">
                                                         
                                 <br>
-                                <label for="inputKilo">Kilometraje: </label> 
-                                <input type="number" class="form-control" id="inputKilo" placeholder="Kilometraje" name="kmActual">
-                                                
+                                   
+                                <label for="inputKilo">Kilometraje: </label>
+                                <input type="text" class="form-control" id="inputKilo" placeholder="Kilometraje" name="kmActual">
                                 <br>
-                
+                                            
                                 <label for="inputKilo">Kilometraje Aprox: </label> 
-                                <input type="number" class="form-control" id="inputKilo" placeholder="Kilometraje Aprox" name="kmAprox">
+                                <input type="text" class="form-control" id="inputKilo" placeholder="Kilometraje Aprox" name="kmAprox">
                                                 
                                 <br>
                                                     
@@ -319,7 +315,8 @@
 
                     <div class="btn-container" style="text-align: center;"> 
                         <br>
-                        <button class="btn-blue" type="submit" name="action" value="registrar" >Registrar</button>
+                        <button type="submit" name="action" value="registrar"
+							class="btn btn-primary">Registrar</button>
                     </div>
                 </form>
                 </div>

@@ -52,27 +52,26 @@ public class ProyectoController {
 			return "NuevoUsuario";
 		}
 
-		@GetMapping("/PgCSV")
-			public String cargarPgCSV(Model model) {
+		// @GetMapping("/PgCSV")
+		// 	public String cargarPgCSV(Model model) {
 
-				   model.addAttribute("cliente", new Cliente());
-				   model.addAttribute("vehiculo", new Vehiculo());
-				   model.addAttribute("insumo", new Insumo());
-				   model.addAttribute("servicio", new Servicio());
-				   model.addAttribute("csv", new CSV());
-				   model.addAttribute("lstClientes", repoCli.findAll());
-				   model.addAttribute("lstInsumos", repoInsu.findAll());
+		// 		   model.addAttribute("cliente", new Cliente());
+		// 		   model.addAttribute("vehiculo", new Vehiculo());
 
-			return "PgCSV";
-		}
+		// 		   model.addAttribute("servicio", new Servicio());
+		// 		   model.addAttribute("csv", new CSV());
+		// 		   model.addAttribute("lstClientes", repoCli.findAll());
+
+
+		// 	return "PgCSV";
+		// }
 
 
 		@GetMapping("/LsClientes")
 		public String cargarPgCliente(Model model) {
 		model.addAttribute("cliente", new Cliente());
 		model.addAttribute("lstClientes", repoCli.findAll());
-		
-		
+
 		return "LsClientes";
 	}
 
@@ -83,12 +82,12 @@ public class ProyectoController {
 			return "LsVehiculos";
 		}
 
-		@GetMapping("/LsInsumos")
-		public String cargarLsInsumos(Model model) {
-			model.addAttribute("insumo", new Insumo());
-			model.addAttribute("lstInsumos", repoInsu.findAll());
-			return "LsInsumos";
-		}
+		// @GetMapping("/LsInsumos")
+		// public String cargarLsInsumos(Model model) {
+		// 	model.addAttribute("insumo", new Insumo());
+		// 	model.addAttribute("lstInsumos", repoInsu.findAll());
+		// 	return "LsInsumos";
+		// }
 
 		@GetMapping("/LsServicio")
 		public String cargarLsServicios(Model model) {

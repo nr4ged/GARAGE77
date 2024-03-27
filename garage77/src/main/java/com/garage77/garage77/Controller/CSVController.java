@@ -2,11 +2,7 @@ package com.garage77.garage77.Controller;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,7 +31,14 @@ public class CSVController {
 	@Autowired
 	private IServicioRepository repoServ;
 	
-
+	@GetMapping
+	public String mostrarEntidades(Model model) 
+	{
+		List<Insumo> listaInsumos = repoInsu.findAll();
+		model.addAttribute("insumos", listaInsumos);
+		
+		return ("PgCSV");
+	}
 
 	@PostMapping("/PgRegistrarTodo")
 	public String registrarCSV(@ModelAttribute CSV csv, @RequestParam(value = "action", required = false) String action,
