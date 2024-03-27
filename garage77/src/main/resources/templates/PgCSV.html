@@ -109,7 +109,9 @@
 						    <br>
 							<form action="/PgCSV" method="post" th:object="${CSV}">
                                 <div style="text-align: center;">
-
+                                    
+                                    
+                                    
                                     <label for="inputCod">Nombre</label> <input type="text"
                                     class="form-control" id="inputCod" placeholder="nombre"
                                     name="nombreCliente"  required>
@@ -124,27 +126,24 @@
 									<label for="inputApe">Dni Cliente</label> <input type="number"
                                     class="form-control" id="inputApe" placeholder="dni"
                                     name="dniCliente"  required>
+									<br>
+
+                                    <h2 style="text-align: center;">Datos del <span class="danger">Servicio</span> </h2>
 									
-								    <br>
-									
-									<label for="inputHora">Hora de Recepcion: </label> <input type="time"
+                                    <br>
+
+
+									<label for="inputHora">Hora de Recepcion: </label> <input type="datetime-local"
                                     class="form-control" id="inputHora" placeholder="Hora Recepcion"
-                                    name="horaRecep"  required>
+                                    name="servicioHoraRecep"  required>
 
                                     <br>
 
-                                    <label for="inputHora">Hora de Entrada: </label> <input type="time"
+                                    <label for="inputHora">Hora de Entrada: </label> <input type="datetime-local"
                                     class="form-control" id="inputHora" placeholder="Hora Entrega"
-                                    name="horaEntrega"  required>
+                                    name="servicioHoraEntrega"  required>
 
-                                    <br>
-
-                                    <label for="inputFech">Fecha de Entrada: </label> <input type="date"
-                                    class="form-control" id="inputFech" placeholder="Fecha"
-                                    name="fechaCliente" required>
-
-                                    <br>
-                                        
+                                    <br>   
 
                                 </div>
 							    <div th:text="${mensaje}"></div>
@@ -170,13 +169,13 @@
                                         
                             <br>
 
-                            <label for="inputKilo">Kilometraje: </label> <input type="number"
+                            <label for="inputKilo">Kilometraje: </label> <input type="text"
 						    class="form-control" id="inputKilo" placeholder="Kilometraje"
 							name="kmActual" >
 								
 							<br>
 
-                            <label for="inputKilo">Kilometraje Aprox: </label> <input type="number"
+                            <label for="inputKilo">Kilometraje Aprox: </label> <input type="text"
 							class="form-control" id="inputKilo" placeholder="Kilometraje Aprox"
 							name="kmAprox">
 								
@@ -195,9 +194,6 @@
 								
                             <br>    
                             
-                            <label for="inputModel">codigo Servicio: </label> <input type="text"
-                            class="form-control" id="inputModel" placeholder="codServicio"
-                            name="codServicio" >
                                         
                         </div>
 						    
@@ -211,44 +207,22 @@
             
             <div class="analysee">
                 <div>
-
-                    <h2 style="text-align: center;">Trabajo <span class="danger">Solicitado e Insumos</span> </h2>
-
-                    <br>
-
                     <div class="recent-orders">
                 
                         <div>
                             <h2 style="text-align: center;"><span class="danger">Insumos</span> Disponibles</h2>
                             <input type="text" id="filtro" placeholder="Filtrar por Descripcion">
+
+                            <div th:each="Insumo : ${insumos}">
+                                <input type="checkbox" th:id="${'Insumo_' + Insumo.insumoId}" th:name="'insumosSeleccionados'" th:value="${Insumo.insumoId}">
+                                <label th:for="${'Insumo_' + Insumo.insumoId}" th:text="${Insumo.insumoDescripcion}"></label>
+                                <br>
+                            </div>
                             
-                            <!-- <table id="id_table" class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Codigo </th>
-                                        <th>Descripcion </th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr th:each="i : ${lstInsumos}">
-                                        <th scope="row" th:text="${i.codInsumo}">Nombre del cliente</th>
-                                        <td th:text="${i.desInsumo}">Teléfono del cliente</td>
-                                        <td>
-                                            <form
-                                                th:action="@{/LsInsumos/editar/{i.codInsumo}(i.codInsumo=${i.codInsumo})}"
-                                                method="get">
-                                                <button type="submit" class="btn btn-link p-0">
-                                                    <img
-                                                        src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/edit-256.png"
-                                                        style="width: 30px;">
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table> -->
                             
+                        </div>
+
+                        
         
                         <div id="pagination" style="text-align: center; margin-top: 20px;">
                             <div id="buttonsContainer">
@@ -257,7 +231,7 @@
                             </div>
                             <span id="currentPage"></span>
                         </div>
-                        </div>
+                        
                     </div>
 
                     <!-- <h3>Mantenimiento</h3>

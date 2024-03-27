@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="com/garage77/garage77/Repository/" kind="src" path="garage77/src/main/java"/>
+	<classpathentry kind="src" path="garage77/src/main/java/com/garage77/garage77/Repository"/>
+	<classpathentry kind="src" path="garage77/src/test/java"/>
+	<classpathentry kind="lib" path="garage77/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="output" path="garage77/target/classes"/>
+</classpath>
